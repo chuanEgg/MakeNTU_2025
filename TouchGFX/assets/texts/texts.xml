@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextDatabase xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="texts.xsd" Version="4.25.0">
+  <Languages>
+    <Language Id="GB" />
+  </Languages>
+  <Texts>
+    <TextGroup Id="Group1">
+      <Text Id="ResourceId1" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">New Text</Translation>
+      </Text>
+    </TextGroup>
+    <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_JNQA" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">disp</Translation>
+      </Text>
+      <Text Id="temp" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Make Function generation stuff</Translation>
+      </Text>
+      <Text Id="MinValueData" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">0.0</Translation>
+      </Text>
+      <Text Id="MinValue" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Min: &lt;value&gt;</Translation>
+      </Text>
+      <Text Id="maxValueData" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">0.0</Translation>
+      </Text>
+      <Text Id="maxValue" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Max: &lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_PYQS" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">func</Translation>
+      </Text>
+    </TextGroup>
+  </Texts>
+  <Typographies>
+    <Typography Id="Default" Font="verdana.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="Large" Font="verdana.ttf" Size="40" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="Small" Font="verdana.ttf" Size="10" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
+  </Typographies>
+</TextDatabase>
