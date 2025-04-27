@@ -27,7 +27,7 @@ public:
 
     virtual ~Screen1Presenter() {}
 
-    void UpdateGraph(float value);
+    void UpdateGraph(float* value);
 
 private:
     Screen1Presenter();

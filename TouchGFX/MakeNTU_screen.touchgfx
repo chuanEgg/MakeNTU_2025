@@ -14,18 +14,18 @@
           {
             "Type": "DynamicGraph",
             "Name": "displayGraph",
-            "X": 22,
-            "Y": 9,
-            "Width": 437,
-            "Height": 198,
+            "X": 15,
+            "Y": 11,
+            "Width": 450,
+            "Height": 200,
             "DataSeed": -1290151702,
-            "NumberOfValues": 50,
+            "NumberOfValues": 100,
             "MaxY": 5.0,
             "MinY": -5.0,
             "Precision": "0.0001",
-            "LastIndex": 49,
+            "LastIndex": 99,
             "XAxisScale": 1.0,
-            "GraphType": "GraphScroll",
+            "GraphType": "GraphWrapClear",
             "GraphDrawers": [
               {
                 "Type": "LineDrawer",
@@ -82,6 +82,11 @@
             "Height": 24,
             "TextId": "__SingleUse_PYQS",
             "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
             "AutoSize": true
           },
           {
@@ -91,6 +96,7 @@
             "Y": 225,
             "Width": 90,
             "Height": 24,
+            "Visible": false,
             "TextId": "maxValue",
             "TextRotation": "0",
             "Color": {
@@ -110,6 +116,7 @@
             "Y": 225,
             "Width": 84,
             "Height": 24,
+            "Visible": false,
             "TextId": "MinValue",
             "TextRotation": "0",
             "Color": {
@@ -120,6 +127,25 @@
             "AutoSize": true,
             "Wildcard1": {
               "TextId": "MinValueData"
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "vppText",
+            "X": 148,
+            "Y": 225,
+            "Width": 87,
+            "Height": 24,
+            "TextId": "VppValue",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "VppValueData"
             }
           }
         ],
@@ -148,22 +174,6 @@
             "Height": 272
           },
           {
-            "Type": "TextArea",
-            "Name": "tempText",
-            "X": 84,
-            "Y": 124,
-            "Width": 313,
-            "Height": 24,
-            "TextId": "temp",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
-            },
-            "AutoSize": true
-          },
-          {
             "Type": "Button",
             "Name": "switchButton2",
             "X": 15,
@@ -184,7 +194,167 @@
             "Height": 24,
             "TextId": "__SingleUse_JNQA",
             "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
             "AutoSize": true
+          },
+          {
+            "Type": "FlexButton",
+            "Name": "funcButton",
+            "X": 89,
+            "Y": 18,
+            "Width": 102,
+            "Height": 38,
+            "ButtonTrigger": {
+              "Type": "ClickButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "ImageButtonStyle",
+                "ImageReleased": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_inactive.png",
+                "ImagePressed": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_pressed.png"
+              }
+            ]
+          },
+          {
+            "Type": "TextArea",
+            "Name": "funcLabelText",
+            "X": 25,
+            "Y": 25,
+            "Width": 48,
+            "Height": 24,
+            "TextId": "__SingleUse_OWWW",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "freqLabelText",
+            "X": 25,
+            "Y": 69,
+            "Width": 45,
+            "Height": 24,
+            "TextId": "__SingleUse_WLNB",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "freqLabelText_1",
+            "X": 25,
+            "Y": 142,
+            "Width": 45,
+            "Height": 24,
+            "TextId": "__SingleUse_GOYE",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "funcText",
+            "X": 106,
+            "Y": 22,
+            "Width": 68,
+            "Height": 24,
+            "TextId": "__SingleUse_L9AS",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_VBM5"
+            }
+          },
+          {
+            "Type": "Slider",
+            "Name": "freqSlider",
+            "X": 87,
+            "Y": 99,
+            "Width": 332,
+            "Height": 32,
+            "IsHorizontalSlider": true,
+            "BackgroundUnselected": "__generated\\alternate_theme_images_widgets_slider_horizontal_thick_track_medium.png",
+            "BackgroundSelected": "__generated\\alternate_theme_images_widgets_slider_horizontal_thick_filler_medium.png",
+            "Indicator": "__generated\\alternate_theme_images_widgets_slider_horizontal_thick_round_dark.png",
+            "BackgroundX": 16,
+            "BackgroundY": 11,
+            "IndicatorMax": 300,
+            "ValueMax": 1000
+          },
+          {
+            "Type": "Slider",
+            "Name": "ampSlider",
+            "X": 87,
+            "Y": 172,
+            "Width": 332,
+            "Height": 32,
+            "IsHorizontalSlider": true,
+            "BackgroundUnselected": "__generated\\alternate_theme_images_widgets_slider_horizontal_thick_track_medium.png",
+            "BackgroundSelected": "__generated\\alternate_theme_images_widgets_slider_horizontal_thick_filler_medium.png",
+            "Indicator": "__generated\\alternate_theme_images_widgets_slider_horizontal_thick_round_dark.png",
+            "BackgroundX": 16,
+            "BackgroundY": 11,
+            "IndicatorMax": 300,
+            "ValueMax": 31
+          },
+          {
+            "Type": "TextArea",
+            "Name": "freqValueText",
+            "X": 87,
+            "Y": 69,
+            "Width": 78,
+            "Height": 24,
+            "TextId": "freqValue",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "freqValueData"
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "ampValueText",
+            "X": 87,
+            "Y": 142,
+            "Width": 54,
+            "Height": 24,
+            "TextId": "ampValue",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "ampValueData"
+            }
           }
         ],
         "Interactions": [
@@ -198,6 +368,17 @@
               "Type": "ActionGotoScreen",
               "ScreenTransitionType": "ScreenTransitionNone",
               "ActionComponent": "Screen1"
+            }
+          },
+          {
+            "InteractionName": "switchFunc",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "funcButton"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onFuncButtonClicked"
             }
           }
         ]

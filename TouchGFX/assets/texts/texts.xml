@@ -10,6 +10,39 @@
       </Text>
     </TextGroup>
     <TextGroup Id="Unsorted">
+      <Text Id="ampValueData" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">0.0</Translation>
+      </Text>
+      <Text Id="ampValue" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">&lt;value&gt; V</Translation>
+      </Text>
+      <Text Id="freqValueData" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">0.0</Translation>
+      </Text>
+      <Text Id="freqValue" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">&lt;value&gt; kHz</Translation>
+      </Text>
+      <Text Id="__SingleUse_GOYE" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Amp</Translation>
+      </Text>
+      <Text Id="__SingleUse_WLNB" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Freq</Translation>
+      </Text>
+      <Text Id="__SingleUse_VBM5" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">square</Translation>
+      </Text>
+      <Text Id="__SingleUse_L9AS" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_OWWW" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Func</Translation>
+      </Text>
+      <Text Id="VppValueData" Alignment="Left" TypographyId="data">
+        <Translation Language="GB">0.0</Translation>
+      </Text>
+      <Text Id="VppValue" Alignment="Left" TypographyId="data">
+        <Translation Language="GB">Vpp: &lt;value&gt;</Translation>
+      </Text>
       <Text Id="__SingleUse_JNQA" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">disp</Translation>
       </Text>
@@ -37,5 +70,6 @@
     <Typography Id="Default" Font="verdana.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
     <Typography Id="Large" Font="verdana.ttf" Size="40" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
     <Typography Id="Small" Font="verdana.ttf" Size="10" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="data" Font="verdana.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacters="." WildcardCharacterRanges="0-9" />
   </Typographies>
 </TextDatabase>

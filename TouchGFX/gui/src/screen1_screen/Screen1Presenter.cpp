@@ -17,7 +17,7 @@ void Screen1Presenter::deactivate()
 
 }
 
-void Screen1Presenter::UpdateGraph(float value)
+void Screen1Presenter::UpdateGraph(float* value)
 {
 	view.UpdateGraph(value);
 }

@@ -1,7 +1,7 @@
-C:/TouchGFXProjects/MakeNTU_screen/Core/Src/main.c:761:6:StartDefaultTask	40	static
-C:/TouchGFXProjects/MakeNTU_screen/Core/Src/main.c:247:6:SystemClock_Config	88	static
-C:/TouchGFXProjects/MakeNTU_screen/Core/Src/main.c:692:6:GetManufacturerId	72	static
-C:/TouchGFXProjects/MakeNTU_screen/Core/Src/main.c:722:6:EnableMemoryMappedMode	72	static
-C:/TouchGFXProjects/MakeNTU_screen/Core/Src/main.c:140:5:main	120	static,ignoring_inline_asm
-C:/TouchGFXProjects/MakeNTU_screen/Core/Src/main.c:823:6:HAL_TIM_PeriodElapsedCallback	0	static
-C:/TouchGFXProjects/MakeNTU_screen/Core/Src/main.c:841:6:Error_Handler	0	static
+C:/TouchGFXProjects/MakeNTU_screen/Core/Src/main.c:762:6:StartDefaultTask	40	static
+C:/TouchGFXProjects/MakeNTU_screen/Core/Src/main.c:248:6:SystemClock_Config	88	static
+C:/TouchGFXProjects/MakeNTU_screen/Core/Src/main.c:693:6:GetManufacturerId	72	static
+C:/TouchGFXProjects/MakeNTU_screen/Core/Src/main.c:723:6:EnableMemoryMappedMode	72	static
+C:/TouchGFXProjects/MakeNTU_screen/Core/Src/main.c:141:5:main	120	static,ignoring_inline_asm
+C:/TouchGFXProjects/MakeNTU_screen/Core/Src/main.c:828:6:HAL_TIM_PeriodElapsedCallback	0	static
+C:/TouchGFXProjects/MakeNTU_screen/Core/Src/main.c:846:6:Error_Handler	0	static

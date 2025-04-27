@@ -20,7 +20,7 @@ Screen1ViewBase::Screen1ViewBase() :
     background1.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     add(background1);
 
-    displayGraph.setPosition(22, 9, 437, 198);
+    displayGraph.setPosition(15, 11, 450, 200);
     displayGraph.setScale(10000);
     displayGraph.setGraphAreaMargin(0, 0, 0, 0);
     displayGraph.setGraphAreaPadding(0, 0, 0, 0);
@@ -54,7 +54,7 @@ Screen1ViewBase::Screen1ViewBase() :
     add(switchButton1);
 
     buttonText1.setXY(44, 225);
-    buttonText1.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    buttonText1.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     buttonText1.setLinespacing(0);
     buttonText1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_PYQS));
     add(buttonText1);
@@ -65,6 +65,7 @@ Screen1ViewBase::Screen1ViewBase() :
     maxValueText.setWildcard(touchgfx::TypedText(T_MAXVALUEDATA).getText());
     maxValueText.resizeToCurrentText();
     maxValueText.setTypedText(touchgfx::TypedText(T_MAXVALUE));
+    maxValueText.setVisible(false);
     add(maxValueText);
 
     minValueText.setXY(270, 225);
@@ -73,7 +74,16 @@ Screen1ViewBase::Screen1ViewBase() :
     minValueText.setWildcard(touchgfx::TypedText(T_MINVALUEDATA).getText());
     minValueText.resizeToCurrentText();
     minValueText.setTypedText(touchgfx::TypedText(T_MINVALUE));
+    minValueText.setVisible(false);
     add(minValueText);
+
+    vppText.setXY(148, 225);
+    vppText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    vppText.setLinespacing(0);
+    vppText.setWildcard(touchgfx::TypedText(T_VPPVALUEDATA).getText());
+    vppText.resizeToCurrentText();
+    vppText.setTypedText(touchgfx::TypedText(T_VPPVALUE));
+    add(vppText);
 }
 
 Screen1ViewBase::~Screen1ViewBase()

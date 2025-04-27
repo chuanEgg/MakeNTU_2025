@@ -8,8 +8,11 @@
 #include <mvp/View.hpp>
 #include <gui/screen2_screen/Screen2Presenter.hpp>
 #include <touchgfx/widgets/Box.hpp>
-#include <touchgfx/widgets/TextArea.hpp>
 #include <touchgfx/widgets/Button.hpp>
+#include <touchgfx/widgets/TextArea.hpp>
+#include <touchgfx/containers/buttons/Buttons.hpp>
+#include <touchgfx/widgets/TextAreaWithWildcard.hpp>
+#include <touchgfx/containers/Slider.hpp>
 
 class Screen2ViewBase : public touchgfx::View<Screen2Presenter>
 {
@@ -17,6 +20,14 @@ public:
     Screen2ViewBase();
     virtual ~Screen2ViewBase();
     virtual void setupScreen();
+
+    /*
+     * Virtual Action Handlers
+     */
+    virtual void onFuncButtonClicked()
+    {
+        // Override and implement this function in Screen2
+    }
 
 protected:
     FrontendApplication& application() {
@@ -28,9 +39,17 @@ protected:
      */
     touchgfx::Box __background;
     touchgfx::Box background2;
-    touchgfx::TextArea tempText;
     touchgfx::Button switchButton2;
     touchgfx::TextArea buttonText2;
+    touchgfx::ImageButtonStyle< touchgfx::ClickButtonTrigger >  funcButton;
+    touchgfx::TextArea funcLabelText;
+    touchgfx::TextArea freqLabelText;
+    touchgfx::TextArea freqLabelText_1;
+    touchgfx::TextAreaWithOneWildcard funcText;
+    touchgfx::Slider freqSlider;
+    touchgfx::Slider ampSlider;
+    touchgfx::TextAreaWithOneWildcard freqValueText;
+    touchgfx::TextAreaWithOneWildcard ampValueText;
 
 private:
 
@@ -38,11 +57,13 @@ private:
      * Callback Declarations
      */
     touchgfx::Callback<Screen2ViewBase, const touchgfx::AbstractButton&> buttonCallback;
+    touchgfx::Callback<Screen2ViewBase, const touchgfx::AbstractButtonContainer&> flexButtonCallback;
 
     /*
      * Callback Handler Declarations
      */
     void buttonCallbackHandler(const touchgfx::AbstractButton& src);
+    void flexButtonCallbackHandler(const touchgfx::AbstractButtonContainer& src);
 
 };
 

@@ -129,6 +129,7 @@ void EnableMemoryMappedMode(uint8_t manufacturer_id);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 float NewData = 0.0f;
+float GraphData[100] = {0};
 volatile uint32_t tick = 0;
 float sine_wave[256];
 /* USER CODE END 0 */
@@ -763,14 +764,18 @@ void StartDefaultTask(void *argument)
   /* USER CODE BEGIN 5 */
 	for (int i=0; i<256; i++)
 	{
-	  sine_wave[i] =  3 * sinf((float)2 * M_PI * i / 256);
+	  sine_wave[i] =  3 * sinf((float)2 * M_PI * i / 64);
 	}
   /* Infinite loop */
   for(;;)
   {
-	  NewData = sine_wave[tick++];
-	  tick %= 256;
-    osDelay(1);
+	  for (int i=0; i<100; i++)
+	  {
+		  GraphData[i] = sine_wave[(i+tick*16) % 256];
+	  }
+	  tick += 1;
+	  tick %= 4;
+    osDelay(100);
   }
   /* USER CODE END 5 */
 }

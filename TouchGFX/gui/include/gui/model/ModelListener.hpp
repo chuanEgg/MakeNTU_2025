@@ -16,7 +16,7 @@ public:
     }
 
     // update dynamic graph
-    virtual void UpdateGraph(float) {}
+    virtual void UpdateGraph(float*) {}
 
 protected:
     Model* model;

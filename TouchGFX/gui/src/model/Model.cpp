@@ -3,6 +3,7 @@
 
 
 extern float NewData;
+extern float GraphData[100];
 
 Model::Model() : modelListener(0)
 {
@@ -11,5 +12,5 @@ Model::Model() : modelListener(0)
 
 void Model::tick()
 {
-	modelListener->UpdateGraph(NewData);
+	modelListener->UpdateGraph(GraphData);
 }

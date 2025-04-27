@@ -8,7 +8,7 @@
 #include <mvp/View.hpp>
 #include <gui/screen1_screen/Screen1Presenter.hpp>
 #include <touchgfx/widgets/Box.hpp>
-#include <touchgfx/widgets/graph/GraphScroll.hpp>
+#include <touchgfx/widgets/graph/GraphWrapAndClear.hpp>
 #include <touchgfx/widgets/graph/GraphElements.hpp>
 #include <touchgfx/widgets/canvas/PainterRGB565.hpp>
 #include <touchgfx/widgets/Button.hpp>
@@ -32,7 +32,7 @@ protected:
      */
     touchgfx::Box __background;
     touchgfx::Box background1;
-    touchgfx::GraphScroll<50> displayGraph;
+    touchgfx::GraphWrapAndClear<100> displayGraph;
     touchgfx::GraphElementGridX displayGraphMajorXAxisGrid;
     touchgfx::GraphElementGridY displayGraphMajorYAxisGrid;
     touchgfx::GraphElementLine displayGraphLine1;
@@ -41,6 +41,7 @@ protected:
     touchgfx::TextArea buttonText1;
     touchgfx::TextAreaWithOneWildcard maxValueText;
     touchgfx::TextAreaWithOneWildcard minValueText;
+    touchgfx::TextAreaWithOneWildcard vppText;
 
 private:
 

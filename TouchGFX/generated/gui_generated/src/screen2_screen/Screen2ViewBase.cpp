@@ -3,11 +3,12 @@
 /*********************************************************************************/
 #include <gui_generated/screen2_screen/Screen2ViewBase.hpp>
 #include <touchgfx/Color.hpp>
-#include <texts/TextKeysAndLanguages.hpp>
 #include <images/BitmapDatabase.hpp>
+#include <texts/TextKeysAndLanguages.hpp>
 
 Screen2ViewBase::Screen2ViewBase() :
-    buttonCallback(this, &Screen2ViewBase::buttonCallbackHandler)
+    buttonCallback(this, &Screen2ViewBase::buttonCallbackHandler),
+    flexButtonCallback(this, &Screen2ViewBase::flexButtonCallbackHandler)
 {
     __background.setPosition(0, 0, 480, 272);
     __background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
@@ -17,12 +18,6 @@ Screen2ViewBase::Screen2ViewBase() :
     background2.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     add(background2);
 
-    tempText.setXY(84, 124);
-    tempText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    tempText.setLinespacing(0);
-    tempText.setTypedText(touchgfx::TypedText(T_TEMP));
-    add(tempText);
-
     switchButton2.setXY(15, 220);
     switchButton2.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_ACTION_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_PRESSED_ID));
     switchButton2.setAlpha(205);
@@ -30,10 +25,72 @@ Screen2ViewBase::Screen2ViewBase() :
     add(switchButton2);
 
     buttonText2.setXY(44, 225);
-    buttonText2.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    buttonText2.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     buttonText2.setLinespacing(0);
     buttonText2.setTypedText(touchgfx::TypedText(T___SINGLEUSE_JNQA));
     add(buttonText2);
+
+    funcButton.setBitmaps(Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_INACTIVE_ID), Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_PRESSED_ID));
+    funcButton.setBitmapXY(0, 0);
+    funcButton.setAction(flexButtonCallback);
+    funcButton.setPosition(89, 18, 102, 38);
+    add(funcButton);
+
+    funcLabelText.setXY(25, 25);
+    funcLabelText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    funcLabelText.setLinespacing(0);
+    funcLabelText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_OWWW));
+    add(funcLabelText);
+
+    freqLabelText.setXY(25, 69);
+    freqLabelText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    freqLabelText.setLinespacing(0);
+    freqLabelText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_WLNB));
+    add(freqLabelText);
+
+    freqLabelText_1.setXY(25, 142);
+    freqLabelText_1.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    freqLabelText_1.setLinespacing(0);
+    freqLabelText_1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_GOYE));
+    add(freqLabelText_1);
+
+    funcText.setXY(106, 22);
+    funcText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    funcText.setLinespacing(0);
+    funcText.setWildcard(touchgfx::TypedText(T___SINGLEUSE_VBM5).getText());
+    funcText.resizeToCurrentText();
+    funcText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_L9AS));
+    add(funcText);
+
+    freqSlider.setXY(87, 99);
+    freqSlider.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_SLIDER_HORIZONTAL_THICK_TRACK_MEDIUM_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_SLIDER_HORIZONTAL_THICK_FILLER_MEDIUM_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_SLIDER_HORIZONTAL_THICK_ROUND_DARK_ID));
+    freqSlider.setupHorizontalSlider(16, 11, 0, 0, 300);
+    freqSlider.setValueRange(0, 1000);
+    freqSlider.setValue(0);
+    add(freqSlider);
+
+    ampSlider.setXY(87, 172);
+    ampSlider.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_SLIDER_HORIZONTAL_THICK_TRACK_MEDIUM_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_SLIDER_HORIZONTAL_THICK_FILLER_MEDIUM_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_SLIDER_HORIZONTAL_THICK_ROUND_DARK_ID));
+    ampSlider.setupHorizontalSlider(16, 11, 0, 0, 300);
+    ampSlider.setValueRange(0, 31);
+    ampSlider.setValue(0);
+    add(ampSlider);
+
+    freqValueText.setXY(87, 69);
+    freqValueText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    freqValueText.setLinespacing(0);
+    freqValueText.setWildcard(touchgfx::TypedText(T_FREQVALUEDATA).getText());
+    freqValueText.resizeToCurrentText();
+    freqValueText.setTypedText(touchgfx::TypedText(T_FREQVALUE));
+    add(freqValueText);
+
+    ampValueText.setXY(87, 142);
+    ampValueText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    ampValueText.setLinespacing(0);
+    ampValueText.setWildcard(touchgfx::TypedText(T_AMPVALUEDATA).getText());
+    ampValueText.resizeToCurrentText();
+    ampValueText.setTypedText(touchgfx::TypedText(T_AMPVALUE));
+    add(ampValueText);
 }
 
 Screen2ViewBase::~Screen2ViewBase()
@@ -54,5 +111,16 @@ void Screen2ViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& src)
         //When switchButton2 clicked change screen to Screen1
         //Go to Screen1 with no screen transition
         application().gotoScreen1ScreenNoTransition();
+    }
+}
+
+void Screen2ViewBase::flexButtonCallbackHandler(const touchgfx::AbstractButtonContainer& src)
+{
+    if (&src == &funcButton)
+    {
+        //switchFunc
+        //When funcButton clicked call virtual function
+        //Call onFuncButtonClicked
+        onFuncButtonClicked();
     }
 }
