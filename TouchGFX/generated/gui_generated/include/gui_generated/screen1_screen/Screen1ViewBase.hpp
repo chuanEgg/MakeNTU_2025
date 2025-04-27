@@ -32,7 +32,7 @@ protected:
      */
     touchgfx::Box __background;
     touchgfx::Box background1;
-    touchgfx::GraphWrapAndClear<100> displayGraph;
+    touchgfx::GraphWrapAndClear<400> displayGraph;
     touchgfx::GraphElementGridX displayGraphMajorXAxisGrid;
     touchgfx::GraphElementGridY displayGraphMajorYAxisGrid;
     touchgfx::GraphElementLine displayGraphLine1;

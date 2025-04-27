@@ -28,6 +28,22 @@ public:
     {
         // Override and implement this function in Screen2
     }
+    virtual void onFreqConfirmed(int value)
+    {
+        // Override and implement this function in Screen2
+    }
+    virtual void freqValueUpdate(int value)
+    {
+        // Override and implement this function in Screen2
+    }
+    virtual void onAmpConfirmed(int value)
+    {
+        // Override and implement this function in Screen2
+    }
+    virtual void ampValueUpdate(int value)
+    {
+        // Override and implement this function in Screen2
+    }
 
 protected:
     FrontendApplication& application() {
@@ -51,6 +67,14 @@ protected:
     touchgfx::TextAreaWithOneWildcard freqValueText;
     touchgfx::TextAreaWithOneWildcard ampValueText;
 
+    /*
+     * Wildcard Buffers
+     */
+    static const uint16_t FREQVALUETEXT_SIZE = 6;
+    touchgfx::Unicode::UnicodeChar freqValueTextBuffer[FREQVALUETEXT_SIZE];
+    static const uint16_t AMPVALUETEXT_SIZE = 6;
+    touchgfx::Unicode::UnicodeChar ampValueTextBuffer[AMPVALUETEXT_SIZE];
+
 private:
 
     /*
@@ -58,12 +82,16 @@ private:
      */
     touchgfx::Callback<Screen2ViewBase, const touchgfx::AbstractButton&> buttonCallback;
     touchgfx::Callback<Screen2ViewBase, const touchgfx::AbstractButtonContainer&> flexButtonCallback;
+    touchgfx::Callback<Screen2ViewBase, const touchgfx::Slider&, int> sliderValueConfirmedCallback;
+    touchgfx::Callback<Screen2ViewBase, const touchgfx::Slider&, int> sliderValueChangedCallback;
 
     /*
      * Callback Handler Declarations
      */
     void buttonCallbackHandler(const touchgfx::AbstractButton& src);
     void flexButtonCallbackHandler(const touchgfx::AbstractButtonContainer& src);
+    void sliderValueConfirmedCallbackHandler(const touchgfx::Slider& src, int value);
+    void sliderValueChangedCallbackHandler(const touchgfx::Slider& src, int value);
 
 };
 

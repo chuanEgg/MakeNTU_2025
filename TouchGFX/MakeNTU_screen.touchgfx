@@ -18,12 +18,11 @@
             "Y": 11,
             "Width": 450,
             "Height": 200,
-            "DataSeed": -1290151702,
-            "NumberOfValues": 100,
-            "MaxY": 5.0,
-            "MinY": -5.0,
-            "Precision": "0.0001",
-            "LastIndex": 99,
+            "DataSeed": -104249173,
+            "NumberOfValues": 400,
+            "MaxY": 260.0,
+            "Precision": "1",
+            "LastIndex": 399,
             "XAxisScale": 1.0,
             "GraphType": "GraphWrapClear",
             "GraphDrawers": [
@@ -45,7 +44,7 @@
                 "Green": 255,
                 "Blue": 255
               },
-              "Interval": 10.0,
+              "Interval": 80.0,
               "LineWidth": 1,
               "Alpha": 70
             },
@@ -56,7 +55,7 @@
                 "Green": 255,
                 "Blue": 255
               },
-              "Interval": 1.0,
+              "Interval": 32.0,
               "LineWidth": 1,
               "Alpha": 70
             }
@@ -283,7 +282,7 @@
             },
             "AutoSize": true,
             "Wildcard1": {
-              "TextId": "__SingleUse_VBM5"
+              "TextId": "funcNameData"
             }
           },
           {
@@ -323,7 +322,7 @@
             "Name": "freqValueText",
             "X": 87,
             "Y": 69,
-            "Width": 78,
+            "Width": 104,
             "Height": 24,
             "TextId": "freqValue",
             "TextRotation": "0",
@@ -332,9 +331,10 @@
               "Green": 255,
               "Blue": 255
             },
-            "AutoSize": true,
             "Wildcard1": {
-              "TextId": "freqValueData"
+              "TextId": "freqValueData",
+              "UseBuffer": true,
+              "BufferSize": 6
             }
           },
           {
@@ -353,7 +353,9 @@
             },
             "AutoSize": true,
             "Wildcard1": {
-              "TextId": "ampValueData"
+              "TextId": "ampValueData",
+              "UseBuffer": true,
+              "BufferSize": 6
             }
           }
         ],
@@ -379,6 +381,50 @@
             "Action": {
               "Type": "ActionCustom",
               "FunctionName": "onFuncButtonClicked"
+            }
+          },
+          {
+            "InteractionName": "changeFreq",
+            "Trigger": {
+              "Type": "TriggerSliderValueConfirmed",
+              "TriggerComponent": "freqSlider"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onFreqConfirmed"
+            }
+          },
+          {
+            "InteractionName": "updateFreqValue",
+            "Trigger": {
+              "Type": "TriggerSliderValueChanged",
+              "TriggerComponent": "freqSlider"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "freqValueUpdate"
+            }
+          },
+          {
+            "InteractionName": "changeAmp",
+            "Trigger": {
+              "Type": "TriggerSliderValueConfirmed",
+              "TriggerComponent": "ampSlider"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onAmpConfirmed"
+            }
+          },
+          {
+            "InteractionName": "updateAmpValue",
+            "Trigger": {
+              "Type": "TriggerSliderValueChanged",
+              "TriggerComponent": "ampSlider"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "ampValueUpdate"
             }
           }
         ]

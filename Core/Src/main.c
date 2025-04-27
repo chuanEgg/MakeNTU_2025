@@ -57,9 +57,6 @@
 #define FLASH_N25Q128A_DUMMY_CYCLES		0x0A
 #define FLASH_W25Q128J_DUMMY_CYCLES		0x06
 
-// define pi
-#define M_PI 3.14159265358979323846
-
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -128,10 +125,18 @@ void EnableMemoryMappedMode(uint8_t manufacturer_id);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-float NewData = 0.0f;
-float GraphData[100] = {0};
-volatile uint32_t tick = 0;
-float sine_wave[256];
+uint8_t GraphData[NUM_DATA_POINT] = {0};
+uint32_t tick = 0;
+uint8_t sine_wave[256];
+
+// maps [-5, 5] (float) to [0, 255]
+uint8_t Map(float value)
+{
+	return (uint8_t)((value + 5) * 25.5);
+}
+
+// 0: sine, 1: square, 2: Triangle
+uint8_t funcType = 0;
 /* USER CODE END 0 */
 
 /**
@@ -762,20 +767,20 @@ void EnableMemoryMappedMode(uint8_t manufacturer_id)
 void StartDefaultTask(void *argument)
 {
   /* USER CODE BEGIN 5 */
-	for (int i=0; i<256; i++)
+	for (int i = 0; i < 256; i ++)
 	{
-	  sine_wave[i] =  3 * sinf((float)2 * M_PI * i / 64);
+	  sine_wave[i] =  Map(3 * sinf((float)2 * M_PI * i / 256));
 	}
   /* Infinite loop */
   for(;;)
   {
-	  for (int i=0; i<100; i++)
+	  for (int i=0; i< NUM_DATA_POINT; i++)
 	  {
-		  GraphData[i] = sine_wave[(i+tick*16) % 256];
+		  GraphData[i] = sine_wave[(i + tick) % 256];
 	  }
 	  tick += 1;
-	  tick %= 4;
-    osDelay(100);
+	  tick %= 256;
+    osDelay(16);
   }
   /* USER CODE END 5 */
 }

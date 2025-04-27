@@ -2,9 +2,16 @@
 #include <texts/TextKeysAndLanguages.hpp>
 #include <algorithm>
 
-float maxValue = 0.0;
-float minValue = 100.0; // arbitrary initial value
+uint8_t maxValue = 0;
+uint8_t minValue = 255; // arbitrary initial value
 Unicode::UnicodeChar TempBuffer[6];
+
+// map [0, 255] to [-5, 5] (float) for display purpose
+float UnMap(uint8_t value)
+{
+	return ((float)value / 25.5) - 5;
+}
+
 
 Screen1View::Screen1View()
 {
@@ -21,15 +28,15 @@ void Screen1View::tearDownScreen()
     Screen1ViewBase::tearDownScreen();
 }
 
-void Screen1View::UpdateGraph(float* value)
+void Screen1View::UpdateGraph(uint8_t* value)
 {
 //	displayGraph.clear();
-	for (int i=0; i<100; i++)
+	for (int i = 0; i < NUM_DATA_POINT; i ++)
 	{
 		displayGraph.addDataPoint(value[i]);
 		maxValue = std::max(maxValue, value[i]);
 		minValue = std::min(minValue, value[i]);
 	}
-	Unicode::snprintfFloat(TempBuffer, sizeof(TempBuffer), "%.2f", maxValue - minValue);
+	Unicode::snprintfFloat(TempBuffer, sizeof(TempBuffer), "%.2f", UnMap(maxValue) - UnMap(minValue));
 	vppText.setWildcard(TempBuffer);
 }

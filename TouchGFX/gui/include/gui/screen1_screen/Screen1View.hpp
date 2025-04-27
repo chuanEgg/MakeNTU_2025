@@ -12,7 +12,7 @@ public:
     virtual void setupScreen();
     virtual void tearDownScreen();
 
-    void UpdateGraph(float* value);
+    void UpdateGraph(uint8_t* value);
 protected:
 };
 

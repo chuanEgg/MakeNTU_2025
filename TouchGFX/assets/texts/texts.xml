@@ -28,7 +28,7 @@
       <Text Id="__SingleUse_WLNB" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">Freq</Translation>
       </Text>
-      <Text Id="__SingleUse_VBM5" Alignment="Left" TypographyId="Default">
+      <Text Id="funcNameData" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">square</Translation>
       </Text>
       <Text Id="__SingleUse_L9AS" Alignment="Center" TypographyId="Default">

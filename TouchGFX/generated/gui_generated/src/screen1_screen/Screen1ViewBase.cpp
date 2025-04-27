@@ -21,22 +21,22 @@ Screen1ViewBase::Screen1ViewBase() :
     add(background1);
 
     displayGraph.setPosition(15, 11, 450, 200);
-    displayGraph.setScale(10000);
+    displayGraph.setScale(1);
     displayGraph.setGraphAreaMargin(0, 0, 0, 0);
     displayGraph.setGraphAreaPadding(0, 0, 0, 0);
-    displayGraph.setGraphRangeY(-5, 5);
+    displayGraph.setGraphRangeY(0, 260);
     displayGraphMajorXAxisGrid.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    displayGraphMajorXAxisGrid.setInterval(10);
+    displayGraphMajorXAxisGrid.setInterval(80);
     displayGraphMajorXAxisGrid.setLineWidth(1);
     displayGraphMajorXAxisGrid.setAlpha(70);
-    displayGraphMajorXAxisGrid.setScale(10000);
+    displayGraphMajorXAxisGrid.setScale(1);
     displayGraph.addGraphElement(displayGraphMajorXAxisGrid);
 
     displayGraphMajorYAxisGrid.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    displayGraphMajorYAxisGrid.setInterval(1);
+    displayGraphMajorYAxisGrid.setInterval(32);
     displayGraphMajorYAxisGrid.setLineWidth(1);
     displayGraphMajorYAxisGrid.setAlpha(70);
-    displayGraphMajorYAxisGrid.setScale(10000);
+    displayGraphMajorYAxisGrid.setScale(1);
     displayGraph.addGraphElement(displayGraphMajorYAxisGrid);
 
     displayGraphLine1Painter.setColor(touchgfx::Color::getColorFromRGB(196, 188, 22));

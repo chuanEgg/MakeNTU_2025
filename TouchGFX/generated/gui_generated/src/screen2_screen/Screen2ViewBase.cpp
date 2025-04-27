@@ -8,7 +8,9 @@
 
 Screen2ViewBase::Screen2ViewBase() :
     buttonCallback(this, &Screen2ViewBase::buttonCallbackHandler),
-    flexButtonCallback(this, &Screen2ViewBase::flexButtonCallbackHandler)
+    flexButtonCallback(this, &Screen2ViewBase::flexButtonCallbackHandler),
+    sliderValueConfirmedCallback(this, &Screen2ViewBase::sliderValueConfirmedCallbackHandler),
+    sliderValueChangedCallback(this, &Screen2ViewBase::sliderValueChangedCallbackHandler)
 {
     __background.setPosition(0, 0, 480, 272);
     __background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
@@ -57,7 +59,7 @@ Screen2ViewBase::Screen2ViewBase() :
     funcText.setXY(106, 22);
     funcText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     funcText.setLinespacing(0);
-    funcText.setWildcard(touchgfx::TypedText(T___SINGLEUSE_VBM5).getText());
+    funcText.setWildcard(touchgfx::TypedText(T_FUNCNAMEDATA).getText());
     funcText.resizeToCurrentText();
     funcText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_L9AS));
     add(funcText);
@@ -67,6 +69,8 @@ Screen2ViewBase::Screen2ViewBase() :
     freqSlider.setupHorizontalSlider(16, 11, 0, 0, 300);
     freqSlider.setValueRange(0, 1000);
     freqSlider.setValue(0);
+    freqSlider.setStopValueCallback(sliderValueConfirmedCallback);
+    freqSlider.setNewValueCallback(sliderValueChangedCallback);
     add(freqSlider);
 
     ampSlider.setXY(87, 172);
@@ -74,20 +78,23 @@ Screen2ViewBase::Screen2ViewBase() :
     ampSlider.setupHorizontalSlider(16, 11, 0, 0, 300);
     ampSlider.setValueRange(0, 31);
     ampSlider.setValue(0);
+    ampSlider.setStopValueCallback(sliderValueConfirmedCallback);
+    ampSlider.setNewValueCallback(sliderValueChangedCallback);
     add(ampSlider);
 
-    freqValueText.setXY(87, 69);
+    freqValueText.setPosition(87, 69, 104, 24);
     freqValueText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     freqValueText.setLinespacing(0);
-    freqValueText.setWildcard(touchgfx::TypedText(T_FREQVALUEDATA).getText());
-    freqValueText.resizeToCurrentText();
+    Unicode::snprintf(freqValueTextBuffer, FREQVALUETEXT_SIZE, "%s", touchgfx::TypedText(T_FREQVALUEDATA).getText());
+    freqValueText.setWildcard(freqValueTextBuffer);
     freqValueText.setTypedText(touchgfx::TypedText(T_FREQVALUE));
     add(freqValueText);
 
     ampValueText.setXY(87, 142);
     ampValueText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     ampValueText.setLinespacing(0);
-    ampValueText.setWildcard(touchgfx::TypedText(T_AMPVALUEDATA).getText());
+    Unicode::snprintf(ampValueTextBuffer, AMPVALUETEXT_SIZE, "%s", touchgfx::TypedText(T_AMPVALUEDATA).getText());
+    ampValueText.setWildcard(ampValueTextBuffer);
     ampValueText.resizeToCurrentText();
     ampValueText.setTypedText(touchgfx::TypedText(T_AMPVALUE));
     add(ampValueText);
@@ -122,5 +129,41 @@ void Screen2ViewBase::flexButtonCallbackHandler(const touchgfx::AbstractButtonCo
         //When funcButton clicked call virtual function
         //Call onFuncButtonClicked
         onFuncButtonClicked();
+    }
+}
+
+void Screen2ViewBase::sliderValueConfirmedCallbackHandler(const touchgfx::Slider& src, int value)
+{
+    if (&src == &freqSlider)
+    {
+        //changeFreq
+        //When freqSlider value confirmed call virtual function
+        //Call onFreqConfirmed
+        onFreqConfirmed(value);
+    }
+    if (&src == &ampSlider)
+    {
+        //changeAmp
+        //When ampSlider value confirmed call virtual function
+        //Call onAmpConfirmed
+        onAmpConfirmed(value);
+    }
+}
+
+void Screen2ViewBase::sliderValueChangedCallbackHandler(const touchgfx::Slider& src, int value)
+{
+    if (&src == &freqSlider)
+    {
+        //updateFreqValue
+        //When freqSlider value changed call virtual function
+        //Call freqValueUpdate
+        freqValueUpdate(value);
+    }
+    if (&src == &ampSlider)
+    {
+        //updateAmpValue
+        //When ampSlider value changed call virtual function
+        //Call ampValueUpdate
+        ampValueUpdate(value);
     }
 }

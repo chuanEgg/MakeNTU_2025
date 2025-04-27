@@ -2,6 +2,7 @@
 #define MODELLISTENER_HPP
 
 #include <gui/model/Model.hpp>
+#include "main.h"
 
 class ModelListener
 {
@@ -16,7 +17,7 @@ public:
     }
 
     // update dynamic graph
-    virtual void UpdateGraph(float*) {}
+    virtual void UpdateGraph(uint8_t*) {}
 
 protected:
     Model* model;

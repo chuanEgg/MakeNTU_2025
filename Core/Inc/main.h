@@ -54,7 +54,7 @@ extern "C" {
 void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
-
+uint8_t Map(float);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
@@ -72,7 +72,8 @@ void Error_Handler(void);
 #define MCU_ACTIVE_GPIO_Port GPIOG
 
 /* USER CODE BEGIN Private defines */
-
+#define M_PI 3.14159265358979323846
+#define NUM_DATA_POINT 400
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

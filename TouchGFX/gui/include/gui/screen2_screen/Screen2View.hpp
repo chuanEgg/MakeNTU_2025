@@ -11,6 +11,11 @@ public:
     virtual ~Screen2View() {}
     virtual void setupScreen();
     virtual void tearDownScreen();
+    virtual void onFuncButtonClicked();
+    virtual void onFreqConfirmed(int value);
+    virtual void onAmpConfirmed(int value);
+    virtual void freqValueUpdate(int value);
+    virtual void ampValueUpdate(int value);
 protected:
 };
 

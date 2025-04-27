@@ -17,7 +17,7 @@ KEEP extern const uint32_t indicesGb[] TEXT_LOCATION_FLASH_ATTRIBUTE = {
     52,  // T_FREQVALUE: "<> kHz"
     102, // T___SINGLEUSE_GOYE: "Amp"
     78,  // T___SINGLEUSE_WLNB: "Freq"
-    71,  // T___SINGLEUSE_VBM5: "square"
+    71,  // T_FUNCNAMEDATA: "square"
     36,  // T___SINGLEUSE_L9AS: "<>"
     83,  // T___SINGLEUSE_OWWW: "Func"
     98,  // T_VPPVALUEDATA: "0.0"

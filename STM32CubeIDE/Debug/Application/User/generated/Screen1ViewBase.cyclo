@@ -107,7 +107,7 @@
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextArea.hpp:403:41:virtual const touchgfx::Unicode::UnicodeChar* touchgfx::TextArea::getWildcard2() const	1
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextAreaWithWildcard.hpp:84:41:virtual const touchgfx::Unicode::UnicodeChar* touchgfx::TextAreaWithOneWildcard::getWildcard1() const	1
 ../../Middlewares/ST/touchgfx/framework/include/mvp/View.hpp:36:7:touchgfx::View<Screen1Presenter>::~View()	1
-../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/GraphWrapAndClear.hpp:66:7:touchgfx::GraphWrapAndClear<100>::~GraphWrapAndClear()	1
+../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/GraphWrapAndClear.hpp:66:7:touchgfx::GraphWrapAndClear<400>::~GraphWrapAndClear()	1
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/GraphElements.hpp:557:7:touchgfx::GraphElementGridX::~GraphElementGridX()	1
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/GraphElements.hpp:618:7:touchgfx::GraphElementGridY::~GraphElementGridY()	1
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextAreaWithWildcard.hpp:62:7:touchgfx::TextAreaWithOneWildcard::~TextAreaWithOneWildcard()	1
@@ -118,7 +118,7 @@ C:/TouchGFXProjects/MakeNTU_screen/TouchGFX/generated/gui_generated/src/screen1_
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/TypedText.hpp:65:13:virtual touchgfx::TypedText::~TypedText()	1
 ../../Middlewares/ST/touchgfx/framework/include/mvp/View.hpp:36:7:virtual touchgfx::View<Screen1Presenter>::~View()	1
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextAreaWithWildcard.hpp:62:7:virtual touchgfx::TextAreaWithOneWildcard::~TextAreaWithOneWildcard()	1
-../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/GraphWrapAndClear.hpp:66:7:virtual touchgfx::GraphWrapAndClear<100>::~GraphWrapAndClear()	1
+../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/GraphWrapAndClear.hpp:66:7:virtual touchgfx::GraphWrapAndClear<400>::~GraphWrapAndClear()	1
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/GraphElements.hpp:557:7:virtual touchgfx::GraphElementGridX::~GraphElementGridX()	1
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/GraphElements.hpp:618:7:virtual touchgfx::GraphElementGridY::~GraphElementGridY()	1
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Callback.hpp:357:8:virtual touchgfx::Callback<Screen1ViewBase, const touchgfx::AbstractButton&>::~Callback()	1

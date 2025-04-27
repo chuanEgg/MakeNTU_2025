@@ -1,4 +1,4 @@
-../../TouchGFX/gui/include/gui/model/ModelListener.hpp:19:18:virtual void ModelListener::UpdateGraph(float*)	0	static
+../../TouchGFX/gui/include/gui/model/ModelListener.hpp:20:18:virtual void ModelListener::UpdateGraph(uint8_t*)	0	static
 ../../TouchGFX/gui/include/gui/screen2_screen/Screen2Presenter.hpp:28:13:Screen2Presenter::~Screen2Presenter()	0	static
 C:/TouchGFXProjects/MakeNTU_screen/TouchGFX/gui/src/screen2_screen/Screen2Presenter.cpp:10:6:virtual void Screen2Presenter::activate()	0	static
 ../../TouchGFX/gui/include/gui/screen2_screen/Screen2Presenter.hpp:28:13:virtual Screen2Presenter::~Screen2Presenter()	8	static
