@@ -1,10 +1,16 @@
 #include <gui/screen2_screen/Screen2View.hpp>
 #include <initializer_list>
 #include <texts/TextKeysAndLanguages.hpp>
+#include <math.h>
+
+#define MAX_FREQ 1000
+#define MAX_AMP 31
 
 extern uint8_t funcType;
+extern uint32_t funcFreq;
+extern uint32_t funcAmp;
 Unicode::UnicodeChar TempBuffer2[6];
-const char* funcName[3] = {"sin", "square", "tri"};
+const char* funcName[4] = {"sin", "sqr", "tri", "pwm"};
 
 
 /*
@@ -14,6 +20,13 @@ const char* funcName[3] = {"sin", "square", "tri"};
     virtual void freqValueUpdate();
     virtual void ampValueUpdate();
  */
+
+float logMap(int value, int maxVal)
+{
+	const float k = std::log(maxVal + 1.0) / 2000;
+	float y = (std::exp(k * value) - 1.0) / (std::exp(k * 2000.0) - 1.0) * maxVal;
+	return y;
+}
 
 Screen2View::Screen2View()
 {
@@ -32,7 +45,7 @@ void Screen2View::tearDownScreen()
 
 void Screen2View::onFuncButtonClicked()
 {
-	funcType = (funcType + 1) % 3;
+	funcType = (funcType + 1) % 4;
 	Unicode::strncpy(TempBuffer2, funcName[funcType], sizeof(TempBuffer2));
 	funcText.setWildcard(TempBuffer2);
 	funcText.invalidate();
@@ -50,13 +63,15 @@ void Screen2View::onAmpConfirmed(int value)
 
 void Screen2View::freqValueUpdate(int value)
 {
-	Unicode::snprintf(freqValueTextBuffer, FREQVALUETEXT_SIZE, "%d", value);
+	float temp = logMap(value, MAX_FREQ);
+	Unicode::snprintfFloat(freqValueTextBuffer, FREQVALUETEXT_SIZE, "%.3f", temp);
 	freqValueText.invalidate();
 }
 
 void Screen2View::ampValueUpdate(int value)
 {
 	//
-	Unicode::snprintfFloat(ampValueTextBuffer, AMPVALUETEXT_SIZE, "%.1f", (float)value/10);
+	float temp = logMap(value, MAX_AMP);
+	Unicode::snprintfFloat(ampValueTextBuffer, AMPVALUETEXT_SIZE, "%.3f", temp/10);
 	ampValueText.invalidate();
 }

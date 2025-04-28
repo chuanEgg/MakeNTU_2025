@@ -1,5 +1,5 @@
 Application/User/gui/Screen2View.o: \
- C:/TouchGFXProjects/MakeNTU_screen/TouchGFX/gui/src/screen2_screen/Screen2View.cpp \
+ C:/Users/chuan/project/MakeNTU_2025/TouchGFX/gui/src/screen2_screen/Screen2View.cpp \
  ../../TouchGFX/gui/include/gui/screen2_screen/Screen2View.hpp \
  ../../TouchGFX/generated/gui_generated/include/gui_generated/screen2_screen/Screen2ViewBase.hpp \
  ../../TouchGFX/gui/include/gui/common/FrontendApplication.hpp \

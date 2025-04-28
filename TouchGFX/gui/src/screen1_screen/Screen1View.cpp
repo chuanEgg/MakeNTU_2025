@@ -30,7 +30,7 @@ void Screen1View::tearDownScreen()
 
 void Screen1View::UpdateGraph(uint8_t* value)
 {
-//	displayGraph.clear();
+	displayGraph.clear();
 	for (int i = 0; i < NUM_DATA_POINT; i ++)
 	{
 		displayGraph.addDataPoint(value[i]);
@@ -39,4 +39,8 @@ void Screen1View::UpdateGraph(uint8_t* value)
 	}
 	Unicode::snprintfFloat(TempBuffer, sizeof(TempBuffer), "%.2f", UnMap(maxValue) - UnMap(minValue));
 	vppText.setWildcard(TempBuffer);
+	maxValue = 0;
+	minValue = 255;
+	displayGraph.invalidate();
+	vppText.invalidate();
 }

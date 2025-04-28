@@ -23,9 +23,9 @@
 #include "libjpeg.h"
 #include "app_touchgfx.h"
 
-#include <math.h>
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include <math.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -128,6 +128,7 @@ void EnableMemoryMappedMode(uint8_t manufacturer_id);
 uint8_t GraphData[NUM_DATA_POINT] = {0};
 uint32_t tick = 0;
 uint8_t sine_wave[256];
+uint8_t bUpdate = 0; // set to true when graph needs to be updated
 
 // maps [-5, 5] (float) to [0, 255]
 uint8_t Map(float value)
@@ -135,8 +136,12 @@ uint8_t Map(float value)
 	return (uint8_t)((value + 5) * 25.5);
 }
 
-// 0: sine, 1: square, 2: Triangle
-uint8_t funcType = 0;
+// 0: sine, 1: square, 2: Triangle, 3: pwm
+uint8_t funcType = 3;
+
+uint32_t funcFreq = 0; // reported function frequency
+uint32_t funcAmp = 0; // reported function amplitude
+
 /* USER CODE END 0 */
 
 /**
@@ -632,11 +637,11 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOG_CLK_ENABLE();
   __HAL_RCC_GPIOJ_CLK_ENABLE();
   __HAL_RCC_GPIOD_CLK_ENABLE();
+  __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOK_CLK_ENABLE();
   __HAL_RCC_GPIOF_CLK_ENABLE();
   __HAL_RCC_GPIOI_CLK_ENABLE();
   __HAL_RCC_GPIOH_CLK_ENABLE();
-  __HAL_RCC_GPIOC_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(VSYNC_FREQ_GPIO_Port, VSYNC_FREQ_Pin, GPIO_PIN_RESET);
@@ -780,6 +785,7 @@ void StartDefaultTask(void *argument)
 	  }
 	  tick += 1;
 	  tick %= 256;
+	  bUpdate = 1;
     osDelay(16);
   }
   /* USER CODE END 5 */

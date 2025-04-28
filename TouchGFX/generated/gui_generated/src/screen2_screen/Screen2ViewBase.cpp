@@ -26,11 +26,23 @@ Screen2ViewBase::Screen2ViewBase() :
     switchButton2.setAction(buttonCallback);
     add(switchButton2);
 
+    switchButton4.setXY(125, 220);
+    switchButton4.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_ACTION_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_PRESSED_ID));
+    switchButton4.setAlpha(205);
+    switchButton4.setAction(buttonCallback);
+    add(switchButton4);
+
     buttonText2.setXY(44, 225);
     buttonText2.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     buttonText2.setLinespacing(0);
     buttonText2.setTypedText(touchgfx::TypedText(T___SINGLEUSE_JNQA));
     add(buttonText2);
+
+    buttonText4.setXY(151, 225);
+    buttonText4.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    buttonText4.setLinespacing(0);
+    buttonText4.setTypedText(touchgfx::TypedText(T___SINGLEUSE_KQKK));
+    add(buttonText4);
 
     funcButton.setBitmaps(Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_INACTIVE_ID), Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_PRESSED_ID));
     funcButton.setBitmapXY(0, 0);
@@ -50,13 +62,13 @@ Screen2ViewBase::Screen2ViewBase() :
     freqLabelText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_WLNB));
     add(freqLabelText);
 
-    freqLabelText_1.setXY(25, 142);
-    freqLabelText_1.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    freqLabelText_1.setLinespacing(0);
-    freqLabelText_1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_GOYE));
-    add(freqLabelText_1);
+    ampLabelText.setXY(25, 142);
+    ampLabelText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    ampLabelText.setLinespacing(0);
+    ampLabelText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_GOYE));
+    add(ampLabelText);
 
-    funcText.setXY(106, 22);
+    funcText.setXY(116, 22);
     funcText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     funcText.setLinespacing(0);
     funcText.setWildcard(touchgfx::TypedText(T_FUNCNAMEDATA).getText());
@@ -67,7 +79,7 @@ Screen2ViewBase::Screen2ViewBase() :
     freqSlider.setXY(87, 99);
     freqSlider.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_SLIDER_HORIZONTAL_THICK_TRACK_MEDIUM_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_SLIDER_HORIZONTAL_THICK_FILLER_MEDIUM_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_SLIDER_HORIZONTAL_THICK_ROUND_DARK_ID));
     freqSlider.setupHorizontalSlider(16, 11, 0, 0, 300);
-    freqSlider.setValueRange(0, 1000);
+    freqSlider.setValueRange(0, 2000);
     freqSlider.setValue(0);
     freqSlider.setStopValueCallback(sliderValueConfirmedCallback);
     freqSlider.setNewValueCallback(sliderValueChangedCallback);
@@ -76,7 +88,7 @@ Screen2ViewBase::Screen2ViewBase() :
     ampSlider.setXY(87, 172);
     ampSlider.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_SLIDER_HORIZONTAL_THICK_TRACK_MEDIUM_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_SLIDER_HORIZONTAL_THICK_FILLER_MEDIUM_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_SLIDER_HORIZONTAL_THICK_ROUND_DARK_ID));
     ampSlider.setupHorizontalSlider(16, 11, 0, 0, 300);
-    ampSlider.setValueRange(0, 31);
+    ampSlider.setValueRange(0, 2000);
     ampSlider.setValue(0);
     ampSlider.setStopValueCallback(sliderValueConfirmedCallback);
     ampSlider.setNewValueCallback(sliderValueChangedCallback);
@@ -90,12 +102,11 @@ Screen2ViewBase::Screen2ViewBase() :
     freqValueText.setTypedText(touchgfx::TypedText(T_FREQVALUE));
     add(freqValueText);
 
-    ampValueText.setXY(87, 142);
+    ampValueText.setPosition(87, 142, 104, 24);
     ampValueText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     ampValueText.setLinespacing(0);
     Unicode::snprintf(ampValueTextBuffer, AMPVALUETEXT_SIZE, "%s", touchgfx::TypedText(T_AMPVALUEDATA).getText());
     ampValueText.setWildcard(ampValueTextBuffer);
-    ampValueText.resizeToCurrentText();
     ampValueText.setTypedText(touchgfx::TypedText(T_AMPVALUE));
     add(ampValueText);
 }
@@ -118,6 +129,13 @@ void Screen2ViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& src)
         //When switchButton2 clicked change screen to Screen1
         //Go to Screen1 with no screen transition
         application().gotoScreen1ScreenNoTransition();
+    }
+    if (&src == &switchButton4)
+    {
+        //switchScreen4
+        //When switchButton4 clicked change screen to Screen3
+        //Go to Screen3 with no screen transition
+        application().gotoScreen3ScreenNoTransition();
     }
 }
 

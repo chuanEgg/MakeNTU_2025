@@ -10,14 +10,26 @@
       </Text>
     </TextGroup>
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_VRNZ" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">analyze</Translation>
+      </Text>
+      <Text Id="__SingleUse_X9ES" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">func</Translation>
+      </Text>
+      <Text Id="__SingleUse_KQKK" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">bode</Translation>
+      </Text>
+      <Text Id="__SingleUse_HS4G" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">bode</Translation>
+      </Text>
       <Text Id="ampValueData" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">0.0</Translation>
+        <Translation Language="GB">0.000</Translation>
       </Text>
       <Text Id="ampValue" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">&lt;value&gt; V</Translation>
       </Text>
       <Text Id="freqValueData" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">0.0</Translation>
+        <Translation Language="GB">0.000</Translation>
       </Text>
       <Text Id="freqValue" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">&lt;value&gt; kHz</Translation>
@@ -29,7 +41,7 @@
         <Translation Language="GB">Freq</Translation>
       </Text>
       <Text Id="funcNameData" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">square</Translation>
+        <Translation Language="GB">pwm</Translation>
       </Text>
       <Text Id="__SingleUse_L9AS" Alignment="Center" TypographyId="Default">
         <Translation Language="GB">&lt;value&gt;</Translation>

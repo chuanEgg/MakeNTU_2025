@@ -1,5 +1,5 @@
 Application/User/gui/container1.o: \
- C:/TouchGFXProjects/MakeNTU_screen/TouchGFX/gui/src/containers/container1.cpp \
+ C:/Users/chuan/project/MakeNTU_2025/TouchGFX/gui/src/containers/container1.cpp \
  ../../TouchGFX/gui/include/gui/containers/container1.hpp \
  ../../TouchGFX/generated/gui_generated/include/gui_generated/containers/container1Base.hpp \
  ../../TouchGFX/gui/include/gui/common/FrontendApplication.hpp \
