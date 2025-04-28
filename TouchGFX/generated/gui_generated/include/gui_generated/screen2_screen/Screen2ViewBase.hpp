@@ -56,11 +56,13 @@ protected:
     touchgfx::Box __background;
     touchgfx::Box background2;
     touchgfx::Button switchButton2;
+    touchgfx::Button switchButton4;
     touchgfx::TextArea buttonText2;
+    touchgfx::TextArea buttonText4;
     touchgfx::ImageButtonStyle< touchgfx::ClickButtonTrigger >  funcButton;
     touchgfx::TextArea funcLabelText;
     touchgfx::TextArea freqLabelText;
-    touchgfx::TextArea freqLabelText_1;
+    touchgfx::TextArea ampLabelText;
     touchgfx::TextAreaWithOneWildcard funcText;
     touchgfx::Slider freqSlider;
     touchgfx::Slider ampSlider;

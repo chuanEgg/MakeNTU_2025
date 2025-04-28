@@ -73,7 +73,7 @@ uint8_t Map(float);
 
 /* USER CODE BEGIN Private defines */
 #define M_PI 3.14159265358979323846
-#define NUM_DATA_POINT 400
+#define NUM_DATA_POINT 200
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

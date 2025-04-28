@@ -10,7 +10,6 @@
 #include <touchgfx/widgets/Box.hpp>
 #include <touchgfx/widgets/graph/GraphWrapAndClear.hpp>
 #include <touchgfx/widgets/graph/GraphElements.hpp>
-#include <touchgfx/widgets/canvas/PainterRGB565.hpp>
 #include <touchgfx/widgets/Button.hpp>
 #include <touchgfx/widgets/TextArea.hpp>
 #include <touchgfx/widgets/TextAreaWithWildcard.hpp>
@@ -32,24 +31,19 @@ protected:
      */
     touchgfx::Box __background;
     touchgfx::Box background1;
-    touchgfx::GraphWrapAndClear<400> displayGraph;
+    touchgfx::GraphWrapAndClear<200> displayGraph;
     touchgfx::GraphElementGridX displayGraphMajorXAxisGrid;
     touchgfx::GraphElementGridY displayGraphMajorYAxisGrid;
-    touchgfx::GraphElementLine displayGraphLine1;
-    touchgfx::PainterRGB565 displayGraphLine1Painter;
+    touchgfx::GraphElementBoxes displayGraphBoxes1;
     touchgfx::Button switchButton1;
+    touchgfx::Button switchButton3;
     touchgfx::TextArea buttonText1;
+    touchgfx::TextArea buttonText3;
     touchgfx::TextAreaWithOneWildcard maxValueText;
     touchgfx::TextAreaWithOneWildcard minValueText;
     touchgfx::TextAreaWithOneWildcard vppText;
 
 private:
-
-    /*
-     * Canvas Buffer Size
-     */
-    static const uint32_t CANVAS_BUFFER_SIZE = 7200;
-    uint8_t canvasBuffer[CANVAS_BUFFER_SIZE];
 
     /*
      * Callback Declarations

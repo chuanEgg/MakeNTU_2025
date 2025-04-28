@@ -3,6 +3,7 @@
 #include "main.h"
 
 extern uint8_t GraphData[NUM_DATA_POINT];
+extern uint8_t bUpdate;
 
 Model::Model() : modelListener(0)
 {
@@ -11,5 +12,9 @@ Model::Model() : modelListener(0)
 
 void Model::tick()
 {
-	modelListener->UpdateGraph(GraphData);
+	if (bUpdate)
+	{
+		modelListener->UpdateGraph(GraphData);
+		bUpdate = 0;
+	}
 }
