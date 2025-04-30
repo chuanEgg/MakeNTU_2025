@@ -63,7 +63,7 @@ Screen1ViewBase::Screen1ViewBase() :
     buttonText1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_PYQS));
     add(buttonText1);
 
-    displayOptionScroll.setPosition(126, 210, 100, 56);
+    displayOptionScroll.setPosition(127, 206, 100, 64);
     displayOptionScroll.setHorizontal(false);
     displayOptionScroll.setCircular(true);
     displayOptionScroll.setEasingEquation(touchgfx::EasingEquations::backEaseOut);
@@ -72,12 +72,12 @@ Screen1ViewBase::Screen1ViewBase() :
     displayOptionScroll.setNumberOfItems(3);
     displayOptionScroll.setSelectedItemOffset(0);
     displayOptionScroll.setOvershootPercentage(75);
-    displayOptionScroll.setDrawableSize(36, 10);
+    displayOptionScroll.setDrawableSize(36, 15);
     displayOptionScroll.setDrawables(displayOptionScrollListItems, updateItemCallback);
     displayOptionScroll.animateToItem(0, 0);
     add(displayOptionScroll);
 
-    measureOptionScroll.setPosition(237, 210, 100, 56);
+    measureOptionScroll.setPosition(239, 206, 100, 64);
     measureOptionScroll.setHorizontal(false);
     measureOptionScroll.setCircular(true);
     measureOptionScroll.setEasingEquation(touchgfx::EasingEquations::backEaseOut);
@@ -86,7 +86,7 @@ Screen1ViewBase::Screen1ViewBase() :
     measureOptionScroll.setNumberOfItems(10);
     measureOptionScroll.setSelectedItemOffset(0);
     measureOptionScroll.setOvershootPercentage(75);
-    measureOptionScroll.setDrawableSize(36, 10);
+    measureOptionScroll.setDrawableSize(36, 15);
     measureOptionScroll.setDrawables(measureOptionScrollListItems, updateItemCallback);
     measureOptionScroll.animateToItem(0, 0);
     add(measureOptionScroll);

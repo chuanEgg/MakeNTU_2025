@@ -1,5 +1,5 @@
 Application/User/generated/measureOptionBase.o: \
- C:/TouchGFXProjects/MakeNTU_screen/TouchGFX/generated/gui_generated/src/containers/measureOptionBase.cpp \
+ C:/Users/chuan/project/MakeNTU_2025/TouchGFX/generated/gui_generated/src/containers/measureOptionBase.cpp \
  ../../TouchGFX/generated/gui_generated/include/gui_generated/containers/measureOptionBase.hpp \
  ../../TouchGFX/gui/include/gui/common/FrontendApplication.hpp \
  ../../TouchGFX/generated/gui_generated/include/gui_generated/common/FrontendApplicationBase.hpp \

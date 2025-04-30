@@ -1,5 +1,5 @@
 Application/User/gui/displayOption.o: \
- C:/TouchGFXProjects/MakeNTU_screen/TouchGFX/gui/src/containers/displayOption.cpp \
+ C:/Users/chuan/project/MakeNTU_2025/TouchGFX/gui/src/containers/displayOption.cpp \
  ../../TouchGFX/gui/include/gui/containers/displayOption.hpp \
  ../../TouchGFX/generated/gui_generated/include/gui_generated/containers/displayOptionBase.hpp \
  ../../TouchGFX/gui/include/gui/common/FrontendApplication.hpp \

@@ -16,6 +16,7 @@ public:
     virtual void measureOptionScrollUpdateItem(measureOption& item, int16_t itemIndex);
 
     void UpdateGraph(uint8_t* value);
+    void UpdateMeasureText(uint8_t* value);
 protected:
 };
 
