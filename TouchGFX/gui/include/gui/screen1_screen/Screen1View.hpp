@@ -12,6 +12,9 @@ public:
     virtual void setupScreen();
     virtual void tearDownScreen();
 
+    virtual void displayOptionScrollUpdateItem(displayOption& item, int16_t itemIndex);
+    virtual void measureOptionScrollUpdateItem(measureOption& item, int16_t itemIndex);
+
     void UpdateGraph(uint8_t* value);
 protected:
 };

@@ -10,6 +10,24 @@
       </Text>
     </TextGroup>
     <TextGroup Id="Unsorted">
+      <Text Id="measureOptionData" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Vpp</Translation>
+      </Text>
+      <Text Id="measureOptionID" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="measuredData" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Vpp: 0.0V</Translation>
+      </Text>
+      <Text Id="__SingleUse_ZX2Y" Alignment="Right" TypographyId="Default">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="displayOptionData" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">X scale</Translation>
+      </Text>
+      <Text Id="displayOptionID" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
       <Text Id="__SingleUse_VRNZ" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">analyze</Translation>
       </Text>
@@ -17,9 +35,6 @@
         <Translation Language="GB">func</Translation>
       </Text>
       <Text Id="__SingleUse_KQKK" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">bode</Translation>
-      </Text>
-      <Text Id="__SingleUse_HS4G" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">bode</Translation>
       </Text>
       <Text Id="ampValueData" Alignment="Left" TypographyId="Default">

@@ -28,19 +28,30 @@ void Screen1View::tearDownScreen()
     Screen1ViewBase::tearDownScreen();
 }
 
+void Screen1View::displayOptionScrollUpdateItem(displayOption& item, int16_t itemIndex)
+{
+	item.setText(itemIndex);
+
+}
+
+void Screen1View::measureOptionScrollUpdateItem(measureOption& item, int16_t itemIndex)
+{
+	item.setText(itemIndex);
+}
+
 void Screen1View::UpdateGraph(uint8_t* value)
 {
 	displayGraph.clear();
 	for (int i = 0; i < NUM_DATA_POINT; i ++)
 	{
 		displayGraph.addDataPoint(value[i]);
-		maxValue = std::max(maxValue, value[i]);
-		minValue = std::min(minValue, value[i]);
+//		maxValue = std::max(maxValue, value[i]);
+//		minValue = std::min(minValue, value[i]);
 	}
-	Unicode::snprintfFloat(TempBuffer, sizeof(TempBuffer), "%.2f", UnMap(maxValue) - UnMap(minValue));
-	vppText.setWildcard(TempBuffer);
-	maxValue = 0;
-	minValue = 255;
+//	Unicode::snprintfFloat(TempBuffer, sizeof(TempBuffer), "%.2f", UnMap(maxValue) - UnMap(minValue));
+//	vppText.setWildcard(TempBuffer);
+//	maxValue = 0;
+//	minValue = 255;
 	displayGraph.invalidate();
-	vppText.invalidate();
+//	vppText.invalidate();
 }

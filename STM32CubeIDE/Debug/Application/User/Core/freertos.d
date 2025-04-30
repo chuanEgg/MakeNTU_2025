@@ -1,5 +1,5 @@
 Application/User/Core/freertos.o: \
- C:/Users/chuan/project/MakeNTU_2025/Core/Src/freertos.c \
+ C:/TouchGFXProjects/MakeNTU_screen/Core/Src/freertos.c \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
  ../../Core/Inc/FreeRTOSConfig.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h \

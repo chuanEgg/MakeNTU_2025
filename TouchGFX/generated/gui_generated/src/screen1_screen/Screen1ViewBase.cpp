@@ -7,6 +7,7 @@
 #include <texts/TextKeysAndLanguages.hpp>
 
 Screen1ViewBase::Screen1ViewBase() :
+    updateItemCallback(this, &Screen1ViewBase::updateItemCallbackHandler),
     buttonCallback(this, &Screen1ViewBase::buttonCallbackHandler)
 {
     __background.setPosition(0, 0, 480, 272);
@@ -62,38 +63,41 @@ Screen1ViewBase::Screen1ViewBase() :
     buttonText1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_PYQS));
     add(buttonText1);
 
-    buttonText3.setXY(151, 225);
-    buttonText3.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    buttonText3.setLinespacing(0);
-    buttonText3.setTypedText(touchgfx::TypedText(T___SINGLEUSE_HS4G));
-    buttonText3.setVisible(false);
-    add(buttonText3);
+    displayOptionScroll.setPosition(126, 210, 100, 56);
+    displayOptionScroll.setHorizontal(false);
+    displayOptionScroll.setCircular(true);
+    displayOptionScroll.setEasingEquation(touchgfx::EasingEquations::backEaseOut);
+    displayOptionScroll.setSwipeAcceleration(10);
+    displayOptionScroll.setDragAcceleration(10);
+    displayOptionScroll.setNumberOfItems(3);
+    displayOptionScroll.setSelectedItemOffset(0);
+    displayOptionScroll.setOvershootPercentage(75);
+    displayOptionScroll.setDrawableSize(36, 10);
+    displayOptionScroll.setDrawables(displayOptionScrollListItems, updateItemCallback);
+    displayOptionScroll.animateToItem(0, 0);
+    add(displayOptionScroll);
 
-    maxValueText.setXY(150, 225);
-    maxValueText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    maxValueText.setLinespacing(0);
-    maxValueText.setWildcard(touchgfx::TypedText(T_MAXVALUEDATA).getText());
-    maxValueText.resizeToCurrentText();
-    maxValueText.setTypedText(touchgfx::TypedText(T_MAXVALUE));
-    maxValueText.setVisible(false);
-    add(maxValueText);
+    measureOptionScroll.setPosition(237, 210, 100, 56);
+    measureOptionScroll.setHorizontal(false);
+    measureOptionScroll.setCircular(true);
+    measureOptionScroll.setEasingEquation(touchgfx::EasingEquations::backEaseOut);
+    measureOptionScroll.setSwipeAcceleration(10);
+    measureOptionScroll.setDragAcceleration(10);
+    measureOptionScroll.setNumberOfItems(10);
+    measureOptionScroll.setSelectedItemOffset(0);
+    measureOptionScroll.setOvershootPercentage(75);
+    measureOptionScroll.setDrawableSize(36, 10);
+    measureOptionScroll.setDrawables(measureOptionScrollListItems, updateItemCallback);
+    measureOptionScroll.animateToItem(0, 0);
+    add(measureOptionScroll);
 
-    minValueText.setXY(270, 225);
-    minValueText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    minValueText.setLinespacing(0);
-    minValueText.setWildcard(touchgfx::TypedText(T_MINVALUEDATA).getText());
-    minValueText.resizeToCurrentText();
-    minValueText.setTypedText(touchgfx::TypedText(T_MINVALUE));
-    minValueText.setVisible(false);
-    add(minValueText);
-
-    vppText.setXY(378, 226);
-    vppText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    vppText.setLinespacing(0);
-    vppText.setWildcard(touchgfx::TypedText(T_VPPVALUEDATA).getText());
-    vppText.resizeToCurrentText();
-    vppText.setTypedText(touchgfx::TypedText(T_VPPVALUE));
-    add(vppText);
+    measureText.setPosition(345, 225, 120, 24);
+    measureText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    measureText.setLinespacing(0);
+    Unicode::snprintf(measureTextBuffer, MEASURETEXT_SIZE, "%s", touchgfx::TypedText(T_MEASUREDDATA).getText());
+    measureText.setWildcard(measureTextBuffer);
+    measureText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_ZX2Y));
+    add(measureText);
 }
 
 Screen1ViewBase::~Screen1ViewBase()
@@ -103,7 +107,16 @@ Screen1ViewBase::~Screen1ViewBase()
 
 void Screen1ViewBase::setupScreen()
 {
-
+    displayOptionScroll.initialize();
+    for (int i = 0; i < displayOptionScrollListItems.getNumberOfDrawables(); i++)
+    {
+        displayOptionScrollListItems[i].initialize();
+    }
+    measureOptionScroll.initialize();
+    for (int i = 0; i < measureOptionScrollListItems.getNumberOfDrawables(); i++)
+    {
+        measureOptionScrollListItems[i].initialize();
+    }
 }
 
 void Screen1ViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& src)
@@ -121,5 +134,22 @@ void Screen1ViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& src)
         //When switchButton3 clicked change screen to Screen3
         //Go to Screen3 with no screen transition
         application().gotoScreen3ScreenNoTransition();
+    }
+}
+
+void Screen1ViewBase::updateItemCallbackHandler(touchgfx::DrawableListItemsInterface* items, int16_t containerIndex, int16_t itemIndex)
+{
+    if (items == &displayOptionScrollListItems)
+    {
+        touchgfx::Drawable* d = items->getDrawable(containerIndex);
+        displayOption* cc = (displayOption*)d;
+        displayOptionScrollUpdateItem(*cc, itemIndex);
+    }
+
+    if (items == &measureOptionScrollListItems)
+    {
+        touchgfx::Drawable* d = items->getDrawable(containerIndex);
+        measureOption* cc = (measureOption*)d;
+        measureOptionScrollUpdateItem(*cc, itemIndex);
     }
 }

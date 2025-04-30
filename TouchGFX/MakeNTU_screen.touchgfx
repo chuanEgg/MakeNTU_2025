@@ -100,79 +100,57 @@
             "AutoSize": true
           },
           {
-            "Type": "TextArea",
-            "Name": "buttonText3",
-            "X": 151,
-            "Y": 225,
-            "Width": 48,
-            "Height": 24,
-            "Visible": false,
-            "TextId": "__SingleUse_HS4G",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
-            },
-            "AutoSize": true
+            "Type": "ScrollWheel",
+            "Name": "displayOptionScroll",
+            "X": 126,
+            "Y": 210,
+            "Width": 100,
+            "Height": 56,
+            "IsCircular": true,
+            "ItemTemplateName": "displayOption",
+            "NumberofItems": 3,
+            "ItemMargin": 10,
+            "Easing": "Back",
+            "EasingOption": "Out",
+            "SwipeAcceleration": 1.0,
+            "DragAcceleration": 1.0,
+            "OverShootPercentage": 75
+          },
+          {
+            "Type": "ScrollWheel",
+            "Name": "measureOptionScroll",
+            "X": 237,
+            "Y": 210,
+            "Width": 100,
+            "Height": 56,
+            "IsCircular": true,
+            "ItemTemplateName": "measureOption",
+            "NumberofItems": 10,
+            "ItemMargin": 10,
+            "Easing": "Back",
+            "EasingOption": "Out",
+            "SwipeAcceleration": 1.0,
+            "DragAcceleration": 1.0,
+            "OverShootPercentage": 75
           },
           {
             "Type": "TextArea",
-            "Name": "maxValueText",
-            "X": 150,
+            "Name": "measureText",
+            "X": 345,
             "Y": 225,
-            "Width": 90,
+            "Width": 120,
             "Height": 24,
-            "Visible": false,
-            "TextId": "maxValue",
+            "TextId": "__SingleUse_ZX2Y",
             "TextRotation": "0",
             "Color": {
               "Red": 255,
               "Green": 255,
               "Blue": 255
             },
-            "AutoSize": true,
             "Wildcard1": {
-              "TextId": "maxValueData"
-            }
-          },
-          {
-            "Type": "TextArea",
-            "Name": "minValueText",
-            "X": 270,
-            "Y": 225,
-            "Width": 84,
-            "Height": 24,
-            "Visible": false,
-            "TextId": "MinValue",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
-            },
-            "AutoSize": true,
-            "Wildcard1": {
-              "TextId": "MinValueData"
-            }
-          },
-          {
-            "Type": "TextArea",
-            "Name": "vppText",
-            "X": 378,
-            "Y": 226,
-            "Width": 87,
-            "Height": 24,
-            "TextId": "VppValue",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
-            },
-            "AutoSize": true,
-            "Wildcard1": {
-              "TextId": "VppValueData"
+              "TextId": "measuredData",
+              "UseBuffer": true,
+              "BufferSize": 10
             }
           }
         ],
@@ -647,19 +625,75 @@
     ],
     "CustomContainerDefinitions": [
       {
-        "Name": "container1",
-        "Width": 138,
-        "Height": 48,
+        "Name": "displayOption",
+        "Width": 100,
+        "Height": 36,
         "Components": [
           {
             "Type": "Button",
-            "Name": "button1",
-            "Y": 6,
-            "Width": 138,
+            "Name": "backgroundButton",
+            "Width": 100,
             "Height": 36,
-            "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_36_small_round_pressed.png",
-            "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_36_small_round_action.png",
-            "Preset": "alternate_theme\\presets\\button\\regular\\height_36\\small_round_action.json"
+            "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_pressed.png",
+            "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_normal.png",
+            "Alpha": 205
+          },
+          {
+            "Type": "TextArea",
+            "Name": "optionText1",
+            "X": 15,
+            "Y": 4,
+            "Width": 70,
+            "Height": 24,
+            "TextId": "displayOptionID",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "displayOptionData",
+              "UseBuffer": true,
+              "BufferSize": 12
+            }
+          }
+        ],
+        "Interactions": []
+      },
+      {
+        "Name": "measureOption",
+        "Width": 100,
+        "Height": 36,
+        "Components": [
+          {
+            "Type": "Button",
+            "Name": "backgroundButton",
+            "Width": 100,
+            "Height": 36,
+            "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_pressed.png",
+            "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_normal.png",
+            "Alpha": 205,
+            "Preset": "alternate_theme\\presets\\button\\regular\\height_36\\tiny_round_normal.json"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "optionText2",
+            "Y": 4,
+            "Width": 100,
+            "Height": 24,
+            "TextId": "measureOptionID",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "measureOptionData",
+              "UseBuffer": true,
+              "BufferSize": 7
+            }
           }
         ],
         "Interactions": []
