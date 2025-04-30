@@ -10,12 +10,13 @@
 #include <touchgfx/widgets/Box.hpp>
 #include <touchgfx/widgets/graph/GraphWrapAndClear.hpp>
 #include <touchgfx/widgets/graph/GraphElements.hpp>
+#include <touchgfx/widgets/TextAreaWithWildcard.hpp>
+#include <touchgfx/containers/SlideMenu.hpp>
 #include <touchgfx/widgets/Button.hpp>
 #include <touchgfx/widgets/TextArea.hpp>
-#include <touchgfx/containers/scrollers/ScrollWheel.hpp>
-#include <gui/containers/displayOption.hpp>
-#include <gui/containers/measureOption.hpp>
-#include <touchgfx/widgets/TextAreaWithWildcard.hpp>
+#include <touchgfx/containers/Container.hpp>
+#include <touchgfx/widgets/ToggleButton.hpp>
+#include <touchgfx/widgets/ButtonWithIcon.hpp>
 
 class Screen1ViewBase : public touchgfx::View<Screen1Presenter>
 {
@@ -24,12 +25,26 @@ public:
     virtual ~Screen1ViewBase();
     virtual void setupScreen();
 
-    virtual void displayOptionScrollUpdateItem(displayOption& item, int16_t itemIndex)
+    /*
+     * Virtual Action Handlers
+     */
+    virtual void onVppToggled()
     {
         // Override and implement this function in Screen1
     }
-
-    virtual void measureOptionScrollUpdateItem(measureOption& item, int16_t itemIndex)
+    virtual void onFreqToggled()
+    {
+        // Override and implement this function in Screen1
+    }
+    virtual void onPeriodToggled()
+    {
+        // Override and implement this function in Screen1
+    }
+    virtual void onBackButtonClicked()
+    {
+        // Override and implement this function in Screen1
+    }
+    virtual void onDisplayMenuClicked()
     {
         // Override and implement this function in Screen1
     }
@@ -48,33 +63,60 @@ protected:
     touchgfx::GraphElementGridX displayGraphMajorXAxisGrid;
     touchgfx::GraphElementGridY displayGraphMajorYAxisGrid;
     touchgfx::GraphElementBoxes displayGraphBoxes1;
+    touchgfx::TextAreaWithOneWildcard dispXText;
+    touchgfx::TextAreaWithOneWildcard dispYText;
+    touchgfx::TextAreaWithOneWildcard VppText;
+    touchgfx::TextAreaWithOneWildcard freqText;
+    touchgfx::TextAreaWithOneWildcard periodText;
+    touchgfx::SlideMenu slideMenu1;
     touchgfx::Button switchButton1;
-    touchgfx::Button switchButton3;
-    touchgfx::TextArea buttonText1;
-    touchgfx::ScrollWheel displayOptionScroll;
-    touchgfx::DrawableListItems<displayOption, 3> displayOptionScrollListItems;
-    touchgfx::ScrollWheel measureOptionScroll;
-    touchgfx::DrawableListItems<measureOption, 3> measureOptionScrollListItems;
-    touchgfx::TextAreaWithOneWildcard measureText;
+    touchgfx::TextArea switchText;
+    touchgfx::Button displayMenuButton;
+    touchgfx::TextArea displayText;
+    touchgfx::Button measureMenuButton;
+    touchgfx::TextArea measureText;
+    touchgfx::Button triggerMenuButton;
+    touchgfx::TextArea triggerText;
+    touchgfx::Container measureMenu;
+    touchgfx::ToggleButton VppToggle;
+    touchgfx::TextArea vppToggleText;
+    touchgfx::ToggleButton freqToggle;
+    touchgfx::TextArea freqToggleText;
+    touchgfx::ToggleButton periodToggle;
+    touchgfx::TextArea periodToggleText;
+    touchgfx::Container displayMenu;
+    touchgfx::ToggleButton XScaleToggle;
+    touchgfx::TextArea XScaleText;
+    touchgfx::ToggleButton YScaleToggle;
+    touchgfx::TextArea YScaleText;
+    touchgfx::ToggleButton offsetToggle;
+    touchgfx::TextArea offsetText;
+    touchgfx::ButtonWithIcon backButton;
 
     /*
      * Wildcard Buffers
      */
-    static const uint16_t MEASURETEXT_SIZE = 10;
-    touchgfx::Unicode::UnicodeChar measureTextBuffer[MEASURETEXT_SIZE];
+    static const uint16_t DISPXTEXT_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar dispXTextBuffer[DISPXTEXT_SIZE];
+    static const uint16_t DISPYTEXT_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar dispYTextBuffer[DISPYTEXT_SIZE];
+    static const uint16_t VPPTEXT_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar VppTextBuffer[VPPTEXT_SIZE];
+    static const uint16_t FREQTEXT_SIZE = 12;
+    touchgfx::Unicode::UnicodeChar freqTextBuffer[FREQTEXT_SIZE];
+    static const uint16_t PERIODTEXT_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar periodTextBuffer[PERIODTEXT_SIZE];
 
 private:
 
     /*
      * Callback Declarations
      */
-    touchgfx::Callback<Screen1ViewBase, touchgfx::DrawableListItemsInterface*, int16_t, int16_t> updateItemCallback;
     touchgfx::Callback<Screen1ViewBase, const touchgfx::AbstractButton&> buttonCallback;
 
     /*
      * Callback Handler Declarations
      */
-    void updateItemCallbackHandler(touchgfx::DrawableListItemsInterface* items, int16_t containerIndex, int16_t itemIndex);
     void buttonCallbackHandler(const touchgfx::AbstractButton& src);
 
 };

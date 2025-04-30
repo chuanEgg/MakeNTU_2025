@@ -10,6 +10,66 @@
       </Text>
     </TextGroup>
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_2ZHX" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">offset</Translation>
+      </Text>
+      <Text Id="__SingleUse_YG2A" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Y scale</Translation>
+      </Text>
+      <Text Id="__SingleUse_XJQC" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">X scale</Translation>
+      </Text>
+      <Text Id="periodData" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">0.0 s</Translation>
+      </Text>
+      <Text Id="__SingleUse_2ZXP" Alignment="Center" TypographyId="Small">
+        <Translation Language="GB">period: &lt;value&gt;</Translation>
+      </Text>
+      <Text Id="freqData" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">0.0 Hz</Translation>
+      </Text>
+      <Text Id="__SingleUse_XR9R" Alignment="Center" TypographyId="Small">
+        <Translation Language="GB">freq: &lt;value&gt;</Translation>
+      </Text>
+      <Text Id="VppData" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">0.0 V</Translation>
+      </Text>
+      <Text Id="__SingleUse_BPU6" Alignment="Center" TypographyId="Small">
+        <Translation Language="GB">Vpp: &lt;value&gt;</Translation>
+      </Text>
+      <Text Id="YScaleData" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">Y=0.0</Translation>
+      </Text>
+      <Text Id="__SingleUse_PXVJ" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="XScaleData" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">X=0.0</Translation>
+      </Text>
+      <Text Id="__SingleUse_FBCX" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_JAPC" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">period</Translation>
+      </Text>
+      <Text Id="__SingleUse_UB6V" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">freq</Translation>
+      </Text>
+      <Text Id="__SingleUse_LFL6" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Vpp</Translation>
+      </Text>
+      <Text Id="__SingleUse_QFZD" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">trigger</Translation>
+      </Text>
+      <Text Id="__SingleUse_V9SP" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">measure</Translation>
+      </Text>
+      <Text Id="__SingleUse_5SG4" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">display</Translation>
+      </Text>
+      <Text Id="__SingleUse_PYQS" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">func</Translation>
+      </Text>
       <Text Id="measureOptionData" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">Vpp</Translation>
       </Text>
@@ -18,9 +78,6 @@
       </Text>
       <Text Id="measuredData" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">Vpp: 0.0V</Translation>
-      </Text>
-      <Text Id="__SingleUse_ZX2Y" Alignment="Right" TypographyId="Default">
-        <Translation Language="GB">&lt;value&gt;</Translation>
       </Text>
       <Text Id="displayOptionData" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">X scale</Translation>
@@ -87,9 +144,6 @@
       </Text>
       <Text Id="maxValue" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">Max: &lt;value&gt;</Translation>
-      </Text>
-      <Text Id="__SingleUse_PYQS" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">func</Translation>
       </Text>
     </TextGroup>
   </Texts>

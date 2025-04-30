@@ -1,6 +1,6 @@
-C:/Users/chuan/project/MakeNTU_2025/TouchGFX/generated/texts/src/TypedTextDatabase.cpp:60:43:const touchgfx::TypedText::TypedTextData* TypedTextDatabase::getInstance(touchgfx::LanguageId)	0	static
-C:/Users/chuan/project/MakeNTU_2025/TouchGFX/generated/texts/src/TypedTextDatabase.cpp:65:10:uint16_t TypedTextDatabase::getInstanceSize()	0	static
-C:/Users/chuan/project/MakeNTU_2025/TouchGFX/generated/texts/src/TypedTextDatabase.cpp:70:24:const touchgfx::Font** TypedTextDatabase::getFonts()	0	static
-C:/Users/chuan/project/MakeNTU_2025/TouchGFX/generated/texts/src/TypedTextDatabase.cpp:75:23:const touchgfx::Font* TypedTextDatabase::setFont(touchgfx::FontId, const touchgfx::Font*)	0	static
-C:/Users/chuan/project/MakeNTU_2025/TouchGFX/generated/texts/src/TypedTextDatabase.cpp:82:6:void TypedTextDatabase::resetFont(touchgfx::FontId)	8	static
-C:/Users/chuan/project/MakeNTU_2025/TouchGFX/generated/texts/src/TypedTextDatabase.cpp:97:1:cpp)	8	static
+C:/TouchGFXProjects/MakeNTU_screen/TouchGFX/generated/texts/src/TypedTextDatabase.cpp:78:43:const touchgfx::TypedText::TypedTextData* TypedTextDatabase::getInstance(touchgfx::LanguageId)	0	static
+C:/TouchGFXProjects/MakeNTU_screen/TouchGFX/generated/texts/src/TypedTextDatabase.cpp:83:10:uint16_t TypedTextDatabase::getInstanceSize()	0	static
+C:/TouchGFXProjects/MakeNTU_screen/TouchGFX/generated/texts/src/TypedTextDatabase.cpp:88:24:const touchgfx::Font** TypedTextDatabase::getFonts()	0	static
+C:/TouchGFXProjects/MakeNTU_screen/TouchGFX/generated/texts/src/TypedTextDatabase.cpp:93:23:const touchgfx::Font* TypedTextDatabase::setFont(touchgfx::FontId, const touchgfx::Font*)	0	static
+C:/TouchGFXProjects/MakeNTU_screen/TouchGFX/generated/texts/src/TypedTextDatabase.cpp:100:6:void TypedTextDatabase::resetFont(touchgfx::FontId)	8	static
+C:/TouchGFXProjects/MakeNTU_screen/TouchGFX/generated/texts/src/TypedTextDatabase.cpp:115:1:cpp)	8	static

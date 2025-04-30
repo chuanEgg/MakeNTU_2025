@@ -1,5 +1,5 @@
 Application/User/gui/Model.o: \
- C:/Users/chuan/project/MakeNTU_2025/TouchGFX/gui/src/model/Model.cpp \
+ C:/TouchGFXProjects/MakeNTU_screen/TouchGFX/gui/src/model/Model.cpp \
  ../../TouchGFX/gui/include/gui/model/Model.hpp \
  ../../TouchGFX/gui/include/gui/model/ModelListener.hpp \
  ../../Core/Inc/main.h \

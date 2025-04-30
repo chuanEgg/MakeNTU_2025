@@ -196,12 +196,6 @@
     <Filter Include="Header Files\generated\simulator\include\simulator\video">
       <UniqueIdentifier>52F007D5-6619-391E-7EB4-FCA8ADC39FBC</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\gui\containers">
-      <UniqueIdentifier>2148438F-05BA-B26D-E0B4-5EA92917F31F</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\gui\containers">
-      <UniqueIdentifier>1FE4B889-3EC9-1E24-D9BE-3411C1C62C4A</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\generated\gui_generated\containers">
       <UniqueIdentifier>87F13EBB-E942-66B4-31F2-E992A8592768</UniqueIdentifier>
     </Filter>
@@ -278,18 +272,6 @@
     </ClCompile>
     <ClCompile Include="..\..\generated\gui_generated\src\screen3_screen\Screen3ViewBase.cpp">
       <Filter>Source Files\generated\gui_generated\screen3_screen</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\gui\src\containers\displayOption.cpp">
-      <Filter>Source Files\gui\containers</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\generated\gui_generated\src\containers\displayOptionBase.cpp">
-      <Filter>Source Files\generated\gui_generated\containers</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\gui\src\containers\measureOption.cpp">
-      <Filter>Source Files\gui\containers</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\generated\gui_generated\src\containers\measureOptionBase.cpp">
-      <Filter>Source Files\generated\gui_generated\containers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -759,18 +741,6 @@
     </ClInclude>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\screen3_screen\Screen3ViewBase.hpp">
       <Filter>Header Files\generated\gui_generated\screen3_screen</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\gui\include\gui\containers\displayOption.hpp">
-      <Filter>Header Files\gui\containers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\containers\displayOptionBase.hpp">
-      <Filter>Header Files\generated\gui_generated\containers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\gui\include\gui\containers\measureOption.hpp">
-      <Filter>Header Files\gui\containers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\containers\measureOptionBase.hpp">
-      <Filter>Header Files\generated\gui_generated\containers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -1,5 +1,5 @@
 Drivers/STM32F7xx_HAL_Driver/stm32f7xx_hal_dma.o: \
- C:/Users/chuan/project/MakeNTU_2025/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dma.c \
+ C:/TouchGFXProjects/MakeNTU_screen/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dma.c \
  ../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h \
  ../../Core/Inc/stm32f7xx_hal_conf.h \
  ../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h \

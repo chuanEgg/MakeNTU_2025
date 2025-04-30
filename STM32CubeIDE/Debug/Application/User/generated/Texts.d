@@ -1,5 +1,5 @@
 Application/User/generated/Texts.o: \
- C:/Users/chuan/project/MakeNTU_2025/TouchGFX/generated/texts/src/Texts.cpp \
+ C:/TouchGFXProjects/MakeNTU_screen/TouchGFX/generated/texts/src/Texts.cpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/TextProvider.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Font.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Unicode.hpp \

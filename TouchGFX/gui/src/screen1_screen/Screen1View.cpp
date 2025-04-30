@@ -1,5 +1,6 @@
 #include <gui/screen1_screen/Screen1View.hpp>
 #include <texts/TextKeysAndLanguages.hpp>
+#include <touchgfx/containers/SlideMenu.hpp>
 #include <algorithm>
 
 uint8_t maxValue = 0;
@@ -31,15 +32,72 @@ void Screen1View::tearDownScreen()
     Screen1ViewBase::tearDownScreen();
 }
 
-void Screen1View::displayOptionScrollUpdateItem(displayOption& item, int16_t itemIndex)
+void Screen1View::onBackButtonClicked()
 {
-	item.setText(itemIndex);
+	// hide every menu container
+	measureMenu.setVisible(false);
+	displayMenu.setVisible(false);
+
+	// hide back button itself
+	backButton.setVisible(false);
+
+	measureMenu.invalidate();
+	displayMenu.invalidate();
+	backButton.invalidate();
 }
 
-void Screen1View::measureOptionScrollUpdateItem(measureOption& item, int16_t itemIndex)
+void Screen1View::onDisplayMenuClicked()
 {
-	item.setText(itemIndex);
-	measureTarget = itemIndex;
+	// collapse main menu first
+	slideMenu1.animateToState(SlideMenu::COLLAPSED);
+
+	// show display menu and back button
+	displayMenu.setVisible(true);
+	backButton.setVisible(true);
+
+	displayMenu.invalidate();
+	backButton.invalidate();
+}
+
+// TODO: naive implementation for toggling measure
+// should rearrange text position
+void Screen1View::onVppToggled()
+{
+	if (VppToggle.getState())
+	{
+		VppText.setVisible(false);
+	}
+	else
+	{
+		VppText.setVisible(true);
+	}
+	VppText.invalidate();
+}
+
+void Screen1View::onFreqToggled()
+{
+	if (freqToggle.getState())
+	{
+		freqText.setVisible(false);
+	}
+	else
+	{
+		freqText.setVisible(true);
+	}
+	freqText.invalidate();
+}
+
+void Screen1View::onPeriodToggled()
+{
+	if (periodToggle.getState())
+	{
+		periodText.setVisible(false);
+	}
+	else
+	{
+		periodText.setVisible(true);
+	}
+	periodText.invalidate();
 }
 
 void Screen1View::UpdateGraph(uint8_t* value)
@@ -50,14 +108,5 @@ void Screen1View::UpdateGraph(uint8_t* value)
 		displayGraph.addDataPoint(value[i]);
 	}
 	displayGraph.invalidate();
-	UpdateMeasureText(value);
 }
 
-void Screen1View::UpdateMeasureText(uint8_t* value)
-{
-	switch (measureTarget % NUM_MEASURE_OPTION)
-	{
-	case 0:
-		for()
-	}
-}

@@ -13,10 +13,10 @@
           {
             "Type": "DynamicGraph",
             "Name": "displayGraph",
-            "X": 15,
-            "Y": 10,
-            "Width": 450,
-            "Height": 200,
+            "X": 16,
+            "Y": 11,
+            "Width": 449,
+            "Height": 230,
             "DataSeed": -104249173,
             "NumberOfValues": 200,
             "MaxY": 260.0,
@@ -59,91 +59,13 @@
             }
           },
           {
-            "Type": "Button",
-            "Name": "switchButton1",
-            "X": 15,
-            "Y": 220,
-            "Width": 100,
-            "Height": 36,
-            "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_pressed.png",
-            "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_action.png",
-            "Alpha": 205,
-            "Preset": "alternate_theme\\presets\\button\\regular\\height_36\\tiny_round_action.json"
-          },
-          {
-            "Type": "Button",
-            "Name": "switchButton3",
-            "X": 125,
-            "Y": 219,
-            "Width": 100,
-            "Height": 36,
-            "Visible": false,
-            "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_pressed.png",
-            "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_action.png",
-            "Alpha": 205,
-            "Preset": "alternate_theme\\presets\\button\\regular\\height_36\\tiny_round_action.json"
-          },
-          {
             "Type": "TextArea",
-            "Name": "buttonText1",
-            "X": 44,
-            "Y": 225,
-            "Width": 43,
-            "Height": 24,
-            "TextId": "__SingleUse_PYQS",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
-            },
-            "AutoSize": true
-          },
-          {
-            "Type": "ScrollWheel",
-            "Name": "displayOptionScroll",
-            "X": 127,
-            "Y": 206,
-            "Width": 100,
-            "Height": 64,
-            "Visible": false,
-            "IsCircular": true,
-            "ItemTemplateName": "displayOption",
-            "NumberofItems": 3,
-            "ItemMargin": 15,
-            "Easing": "Back",
-            "EasingOption": "Out",
-            "SwipeAcceleration": 1.0,
-            "DragAcceleration": 1.0,
-            "OverShootPercentage": 75
-          },
-          {
-            "Type": "ScrollWheel",
-            "Name": "measureOptionScroll",
-            "X": 239,
-            "Y": 206,
-            "Width": 100,
-            "Height": 64,
-            "Visible": false,
-            "IsCircular": true,
-            "ItemTemplateName": "measureOption",
-            "NumberofItems": 10,
-            "ItemMargin": 15,
-            "Easing": "Back",
-            "EasingOption": "Out",
-            "SwipeAcceleration": 1.0,
-            "DragAcceleration": 1.0,
-            "OverShootPercentage": 75
-          },
-          {
-            "Type": "TextArea",
-            "Name": "measureText",
-            "X": 345,
-            "Y": 225,
-            "Width": 120,
-            "Height": 24,
-            "Visible": false,
-            "TextId": "__SingleUse_ZX2Y",
+            "Name": "dispXText",
+            "X": 16,
+            "Y": 247,
+            "Width": 60,
+            "Height": 15,
+            "TextId": "__SingleUse_FBCX",
             "TextRotation": "0",
             "Color": {
               "Red": 255,
@@ -151,7 +73,87 @@
               "Blue": 255
             },
             "Wildcard1": {
-              "TextId": "measuredData",
+              "TextId": "XScaleData",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "dispYText",
+            "X": 76,
+            "Y": 247,
+            "Width": 60,
+            "Height": 15,
+            "TextId": "__SingleUse_PXVJ",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "YScaleData",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "VppText",
+            "X": 136,
+            "Y": 247,
+            "Width": 70,
+            "Height": 15,
+            "TextId": "__SingleUse_BPU6",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "VppData",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "freqText",
+            "X": 206,
+            "Y": 247,
+            "Width": 80,
+            "Height": 15,
+            "TextId": "__SingleUse_XR9R",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "freqData",
+              "UseBuffer": true,
+              "BufferSize": 12
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "periodText",
+            "X": 286,
+            "Y": 247,
+            "Width": 80,
+            "Height": 15,
+            "TextId": "__SingleUse_2ZXP",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "periodData",
               "UseBuffer": true,
               "BufferSize": 10
             }
@@ -159,22 +161,316 @@
           {
             "Type": "SlideMenu",
             "Name": "slideMenu1",
-            "X": 230,
-            "Y": 11,
-            "Width": 250,
-            "Height": 250,
+            "X": 312,
+            "Width": 188,
+            "Height": 272,
+            "FileNameBackground": "right_slide_menu_background.png",
+            "BackgroundX": 20,
             "UseButton": true,
-            "FileNameButtonPressed": "__generated\\alternate_theme_images_widgets_button_icon_round_large_fill_pressed.png",
-            "FileNameButtonReleased": "__generated\\alternate_theme_images_widgets_button_icon_round_large_fill_action.png",
+            "FileNameButtonPressed": "right_slide_menu_button.png",
+            "FileNameButtonReleased": "right_slide_menu_button.png",
+            "ButtonY": 115,
             "State": "Expanded",
             "ExpandDirection": "West",
             "Easing": "Cubic",
             "EasingOption": "InOut",
             "AnimationDuration": 300,
-            "VisiblePixelsWhenCollapsed": 100,
-            "HiddenPixelsWhenExpanded": 300,
+            "VisiblePixelsWhenCollapsed": 45,
+            "HiddenPixelsWhenExpanded": 15,
             "ExpandedStateTimeout": 3000,
-            "Components": []
+            "Components": [
+              {
+                "Type": "Button",
+                "Name": "switchButton1",
+                "X": 39,
+                "Y": 10,
+                "Width": 100,
+                "Height": 36,
+                "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_pressed.png",
+                "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_action.png",
+                "Preset": "alternate_theme\\presets\\button\\regular\\height_36\\tiny_round_action.json"
+              },
+              {
+                "Type": "TextArea",
+                "Name": "switchText",
+                "X": 68,
+                "Y": 14,
+                "Width": 43,
+                "Height": 24,
+                "TextId": "__SingleUse_PYQS",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true
+              },
+              {
+                "Type": "Button",
+                "Name": "displayMenuButton",
+                "X": 39,
+                "Y": 58,
+                "Width": 100,
+                "Height": 36,
+                "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_normal.png",
+                "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_action.png"
+              },
+              {
+                "Type": "TextArea",
+                "Name": "displayText",
+                "X": 55,
+                "Y": 62,
+                "Width": 68,
+                "Height": 24,
+                "TextId": "__SingleUse_5SG4",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true
+              },
+              {
+                "Type": "Button",
+                "Name": "measureMenuButton",
+                "X": 39,
+                "Y": 106,
+                "Width": 100,
+                "Height": 36,
+                "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_normal.png",
+                "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_action.png"
+              },
+              {
+                "Type": "TextArea",
+                "Name": "measureText",
+                "X": 46,
+                "Y": 110,
+                "Width": 87,
+                "Height": 24,
+                "TextId": "__SingleUse_V9SP",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true
+              },
+              {
+                "Type": "Button",
+                "Name": "triggerMenuButton",
+                "X": 39,
+                "Y": 154,
+                "Width": 100,
+                "Height": 36,
+                "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_normal.png",
+                "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_action.png"
+              },
+              {
+                "Type": "TextArea",
+                "Name": "triggerText",
+                "X": 56,
+                "Y": 158,
+                "Width": 67,
+                "Height": 24,
+                "TextId": "__SingleUse_QFZD",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "measureMenu",
+            "X": 366,
+            "Y": 10,
+            "Width": 250,
+            "Height": 250,
+            "Visible": false,
+            "Components": [
+              {
+                "Type": "ToggleButton",
+                "Name": "VppToggle",
+                "Width": 100,
+                "Height": 36,
+                "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_normal.png",
+                "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_action.png"
+              },
+              {
+                "Type": "TextArea",
+                "Name": "vppToggleText",
+                "X": 31,
+                "Y": 4,
+                "Width": 38,
+                "Height": 24,
+                "TextId": "__SingleUse_LFL6",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true
+              },
+              {
+                "Type": "ToggleButton",
+                "Name": "freqToggle",
+                "Y": 48,
+                "Width": 100,
+                "Height": 36,
+                "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_normal.png",
+                "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_action.png"
+              },
+              {
+                "Type": "TextArea",
+                "Name": "freqToggleText",
+                "X": 31,
+                "Y": 52,
+                "Width": 40,
+                "Height": 24,
+                "TextId": "__SingleUse_UB6V",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true
+              },
+              {
+                "Type": "ToggleButton",
+                "Name": "periodToggle",
+                "Y": 96,
+                "Width": 100,
+                "Height": 36,
+                "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_normal.png",
+                "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_action.png"
+              },
+              {
+                "Type": "TextArea",
+                "Name": "periodToggleText",
+                "X": 20,
+                "Y": 100,
+                "Width": 62,
+                "Height": 24,
+                "TextId": "__SingleUse_JAPC",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "displayMenu",
+            "X": 366,
+            "Y": 10,
+            "Width": 250,
+            "Height": 250,
+            "Visible": false,
+            "Components": [
+              {
+                "Type": "ToggleButton",
+                "Name": "XScaleToggle",
+                "Width": 100,
+                "Height": 36,
+                "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_normal.png",
+                "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_action.png"
+              },
+              {
+                "Type": "TextArea",
+                "Name": "XScaleText",
+                "X": 15,
+                "Y": 4,
+                "Width": 70,
+                "Height": 24,
+                "TextId": "__SingleUse_XJQC",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true
+              },
+              {
+                "Type": "ToggleButton",
+                "Name": "YScaleToggle",
+                "Y": 46,
+                "Width": 100,
+                "Height": 36,
+                "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_normal.png",
+                "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_action.png"
+              },
+              {
+                "Type": "TextArea",
+                "Name": "YScaleText",
+                "X": 15,
+                "Y": 50,
+                "Width": 68,
+                "Height": 24,
+                "TextId": "__SingleUse_YG2A",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true
+              },
+              {
+                "Type": "ToggleButton",
+                "Name": "offsetToggle",
+                "Y": 96,
+                "Width": 100,
+                "Height": 36,
+                "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_normal.png",
+                "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_action.png"
+              },
+              {
+                "Type": "TextArea",
+                "Name": "offsetText",
+                "X": 22,
+                "Y": 100,
+                "Width": 56,
+                "Height": 24,
+                "TextId": "__SingleUse_2ZHX",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true
+              }
+            ]
+          },
+          {
+            "Type": "ButtonWithIcon",
+            "Name": "backButton",
+            "X": 370,
+            "Y": 214,
+            "Width": 100,
+            "Height": 36,
+            "Visible": false,
+            "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_pressed.png",
+            "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_normal.png",
+            "IconPressed": "__generated\\icon_theme_images_hardware_keyboard_backspace_36_36_E8F6FB.svg.png",
+            "IconReleased": "__generated\\icon_theme_images_hardware_keyboard_backspace_36_36_E8F6FB.svg.png",
+            "IconX": 30,
+            "IconHeight": 36,
+            "IconWidth": 36
           }
         ],
         "Interactions": [
@@ -191,15 +487,104 @@
             }
           },
           {
-            "InteractionName": "switchScreen3",
+            "InteractionName": "measure0",
+            "HasCompletedTrigger": true,
             "Trigger": {
               "Type": "TriggerClicked",
-              "TriggerComponent": "switchButton3"
+              "TriggerComponent": "measureMenuButton"
             },
             "Action": {
-              "Type": "ActionGotoScreen",
-              "ScreenTransitionType": "ScreenTransitionNone",
-              "ActionComponent": "Screen3"
+              "Type": "ActionSetState",
+              "State": "Collapsed",
+              "ActionComponent": "slideMenu1"
+            }
+          },
+          {
+            "InteractionName": "measure1",
+            "Trigger": {
+              "Type": "TriggerInteractionCompleted",
+              "InteractionToTriggerOn": "measure0"
+            },
+            "Action": {
+              "Type": "ActionShow",
+              "ActionComponent": "measureMenu"
+            }
+          },
+          {
+            "InteractionName": "measure2",
+            "Trigger": {
+              "Type": "TriggerInteractionCompleted",
+              "InteractionToTriggerOn": "measure0"
+            },
+            "Action": {
+              "Type": "ActionShow",
+              "ActionComponent": "backButton"
+            }
+          },
+          {
+            "InteractionName": "measureBack",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "backButton"
+            },
+            "Action": {
+              "Type": "ActionHide",
+              "ActionComponent": "measureMenu"
+            }
+          },
+          {
+            "InteractionName": "onVppToggled",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "VppToggle"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onVppToggled"
+            }
+          },
+          {
+            "InteractionName": "onFreqToggled",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "freqToggle"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onFreqToggled"
+            }
+          },
+          {
+            "InteractionName": "onPeriodToggled",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "periodToggle"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onPeriodToggled"
+            }
+          },
+          {
+            "InteractionName": "closeEverything",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "backButton"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onBackButtonClicked"
+            }
+          },
+          {
+            "InteractionName": "showDisplay",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "displayMenuButton"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onDisplayMenuClicked"
             }
           }
         ]
@@ -646,82 +1031,7 @@
         ]
       }
     ],
-    "CustomContainerDefinitions": [
-      {
-        "Name": "displayOption",
-        "Width": 100,
-        "Height": 36,
-        "Components": [
-          {
-            "Type": "Button",
-            "Name": "backgroundButton",
-            "Width": 100,
-            "Height": 36,
-            "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_pressed.png",
-            "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_normal.png",
-            "Alpha": 205
-          },
-          {
-            "Type": "TextArea",
-            "Name": "optionText1",
-            "X": 15,
-            "Y": 4,
-            "Width": 70,
-            "Height": 24,
-            "TextId": "displayOptionID",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
-            },
-            "Wildcard1": {
-              "TextId": "displayOptionData",
-              "UseBuffer": true,
-              "BufferSize": 12
-            }
-          }
-        ],
-        "Interactions": []
-      },
-      {
-        "Name": "measureOption",
-        "Width": 100,
-        "Height": 36,
-        "Components": [
-          {
-            "Type": "Button",
-            "Name": "backgroundButton",
-            "Width": 100,
-            "Height": 36,
-            "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_pressed.png",
-            "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_normal.png",
-            "Alpha": 205,
-            "Preset": "alternate_theme\\presets\\button\\regular\\height_36\\tiny_round_normal.json"
-          },
-          {
-            "Type": "TextArea",
-            "Name": "optionText2",
-            "Y": 4,
-            "Width": 100,
-            "Height": 24,
-            "TextId": "measureOptionID",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
-            },
-            "Wildcard1": {
-              "TextId": "measureOptionData",
-              "UseBuffer": true,
-              "BufferSize": 7
-            }
-          }
-        ],
-        "Interactions": []
-      }
-    ],
+    "CustomContainerDefinitions": [],
     "Name": "MakeNTU_screen",
     "Resolution": {
       "Width": 480,

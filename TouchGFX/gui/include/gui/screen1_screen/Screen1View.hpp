@@ -12,11 +12,16 @@ public:
     virtual void setupScreen();
     virtual void tearDownScreen();
 
-    virtual void displayOptionScrollUpdateItem(displayOption& item, int16_t itemIndex);
-    virtual void measureOptionScrollUpdateItem(measureOption& item, int16_t itemIndex);
+    virtual void onVppToggled();
+    virtual void onFreqToggled();
+    virtual void onPeriodToggled();
+
+    virtual void onBackButtonClicked(); // close every menu container
+    virtual void onDisplayMenuClicked(); // show display menu
+
 
     void UpdateGraph(uint8_t* value);
-    void UpdateMeasureText(uint8_t* value);
+
 protected:
 };
 
