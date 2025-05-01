@@ -12,9 +12,9 @@
 #include <touchgfx/widgets/graph/GraphElements.hpp>
 #include <touchgfx/widgets/TextAreaWithWildcard.hpp>
 #include <touchgfx/containers/SlideMenu.hpp>
+#include <touchgfx/containers/Container.hpp>
 #include <touchgfx/widgets/Button.hpp>
 #include <touchgfx/widgets/TextArea.hpp>
-#include <touchgfx/containers/Container.hpp>
 #include <touchgfx/widgets/ToggleButton.hpp>
 #include <touchgfx/widgets/ButtonWithIcon.hpp>
 
@@ -48,6 +48,10 @@ public:
     {
         // Override and implement this function in Screen1
     }
+    virtual void onMeasureMenuClicked()
+    {
+        // Override and implement this function in Screen1
+    }
 
 protected:
     FrontendApplication& application() {
@@ -69,6 +73,7 @@ protected:
     touchgfx::TextAreaWithOneWildcard freqText;
     touchgfx::TextAreaWithOneWildcard periodText;
     touchgfx::SlideMenu slideMenu1;
+    touchgfx::Container mainMenu;
     touchgfx::Button switchButton1;
     touchgfx::TextArea switchText;
     touchgfx::Button displayMenuButton;
