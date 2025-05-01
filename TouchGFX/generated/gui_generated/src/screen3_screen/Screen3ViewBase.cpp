@@ -58,7 +58,7 @@ Screen3ViewBase::Screen3ViewBase() :
     analyzeButton.setAction(buttonCallback);
     add(analyzeButton);
 
-    buttonText5.setXY(44, 225);
+    buttonText5.setXY(43, 225);
     buttonText5.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     buttonText5.setLinespacing(0);
     buttonText5.setTypedText(touchgfx::TypedText(T___SINGLEUSE_X9ES));

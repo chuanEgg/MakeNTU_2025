@@ -3,6 +3,7 @@
     "Screens": [
       {
         "Name": "Screen1",
+        "CanvasBufferSize": 7200,
         "Components": [
           {
             "Type": "Box",
@@ -13,10 +14,9 @@
           {
             "Type": "DynamicGraph",
             "Name": "displayGraph",
-            "X": 16,
-            "Y": 11,
-            "Width": 449,
-            "Height": 230,
+            "X": 15,
+            "Width": 450,
+            "Height": 250,
             "DataSeed": -104249173,
             "NumberOfValues": 200,
             "MaxY": 260.0,
@@ -61,8 +61,8 @@
           {
             "Type": "TextArea",
             "Name": "dispXText",
-            "X": 16,
-            "Y": 247,
+            "X": 15,
+            "Y": 250,
             "Width": 60,
             "Height": 15,
             "TextId": "__SingleUse_FBCX",
@@ -81,8 +81,8 @@
           {
             "Type": "TextArea",
             "Name": "dispYText",
-            "X": 76,
-            "Y": 247,
+            "X": 60,
+            "Y": 250,
             "Width": 60,
             "Height": 15,
             "TextId": "__SingleUse_PXVJ",
@@ -101,9 +101,9 @@
           {
             "Type": "TextArea",
             "Name": "VppText",
-            "X": 136,
-            "Y": 247,
-            "Width": 70,
+            "X": 120,
+            "Y": 250,
+            "Width": 80,
             "Height": 15,
             "TextId": "__SingleUse_BPU6",
             "TextRotation": "0",
@@ -121,8 +121,8 @@
           {
             "Type": "TextArea",
             "Name": "freqText",
-            "X": 206,
-            "Y": 247,
+            "X": 200,
+            "Y": 250,
             "Width": 80,
             "Height": 15,
             "TextId": "__SingleUse_XR9R",
@@ -141,8 +141,8 @@
           {
             "Type": "TextArea",
             "Name": "periodText",
-            "X": 286,
-            "Y": 247,
+            "X": 280,
+            "Y": 250,
             "Width": 80,
             "Height": 15,
             "TextId": "__SingleUse_2ZXP",
@@ -159,6 +159,76 @@
             }
           },
           {
+            "Type": "Line",
+            "Name": "horizontalLine0",
+            "X": 15,
+            "Y": 161,
+            "Width": 455,
+            "Height": 15,
+            "Visible": false,
+            "Color": {
+              "Green": 187,
+              "Blue": 187
+            },
+            "StartY": 3.0,
+            "EndX": 450.0,
+            "EndY": 3.0,
+            "LineWidth": 2.0,
+            "LineEndingStyle": "Butt"
+          },
+          {
+            "Type": "Line",
+            "Name": "horizontalLine1",
+            "X": 15,
+            "Y": 111,
+            "Width": 450,
+            "Height": 15,
+            "Visible": false,
+            "Color": {
+              "Red": 187,
+              "Green": 187
+            },
+            "StartY": 3.0,
+            "EndX": 450.0,
+            "EndY": 3.0,
+            "LineWidth": 2.0,
+            "LineEndingStyle": "Butt"
+          },
+          {
+            "Type": "Line",
+            "Name": "verticalLine0",
+            "X": 90,
+            "Width": 15,
+            "Height": 250,
+            "Visible": false,
+            "Color": {
+              "Green": 187,
+              "Blue": 187
+            },
+            "StartX": 3.0,
+            "EndX": 3.0,
+            "EndY": 250.0,
+            "LineWidth": 2.0,
+            "LineEndingStyle": "Butt"
+          },
+          {
+            "Type": "Line",
+            "Name": "verticalLine1",
+            "X": 120,
+            "Width": 15,
+            "Height": 250,
+            "Visible": false,
+            "Color": {
+              "Red": 187,
+              "Green": 187
+            },
+            "StartX": 3.0,
+            "EndX": 3.0,
+            "EndY": 250.0,
+            "LineWidth": 2.0,
+            "LineEndingStyle": "Butt"
+          },
+          {
             "Type": "SlideMenu",
             "Name": "slideMenu1",
             "X": 312,
@@ -170,14 +240,13 @@
             "FileNameButtonPressed": "right_slide_menu_button.png",
             "FileNameButtonReleased": "right_slide_menu_button.png",
             "ButtonY": 115,
-            "State": "Expanded",
+            "State": "Collapsed",
             "ExpandDirection": "West",
             "Easing": "Cubic",
             "EasingOption": "InOut",
             "AnimationDuration": 300,
             "VisiblePixelsWhenCollapsed": 45,
             "HiddenPixelsWhenExpanded": 15,
-            "ExpandedStateTimeout": 3000,
             "Components": [
               {
                 "Type": "Container",
@@ -199,9 +268,9 @@
                   {
                     "Type": "TextArea",
                     "Name": "switchText",
-                    "X": 29,
+                    "X": 28,
                     "Y": 4,
-                    "Width": 43,
+                    "Width": 44,
                     "Height": 24,
                     "TextId": "__SingleUse_PYQS",
                     "TextRotation": "0",
@@ -224,9 +293,9 @@
                   {
                     "Type": "TextArea",
                     "Name": "displayText",
-                    "X": 16,
+                    "X": 12,
                     "Y": 52,
-                    "Width": 68,
+                    "Width": 77,
                     "Height": 24,
                     "TextId": "__SingleUse_5SG4",
                     "TextRotation": "0",
@@ -249,9 +318,9 @@
                   {
                     "Type": "TextArea",
                     "Name": "measureText",
-                    "X": 7,
-                    "Y": 100,
-                    "Width": 87,
+                    "X": 12,
+                    "Y": 101,
+                    "Width": 77,
                     "Height": 24,
                     "TextId": "__SingleUse_V9SP",
                     "TextRotation": "0",
@@ -274,9 +343,9 @@
                   {
                     "Type": "TextArea",
                     "Name": "triggerText",
-                    "X": 17,
+                    "X": 12,
                     "Y": 148,
-                    "Width": 67,
+                    "Width": 77,
                     "Height": 24,
                     "TextId": "__SingleUse_QFZD",
                     "TextRotation": "0",
@@ -309,9 +378,9 @@
                   {
                     "Type": "TextArea",
                     "Name": "vppToggleText",
-                    "X": 31,
+                    "X": 34,
                     "Y": 4,
-                    "Width": 38,
+                    "Width": 33,
                     "Height": 24,
                     "TextId": "__SingleUse_LFL6",
                     "TextRotation": "0",
@@ -334,9 +403,9 @@
                   {
                     "Type": "TextArea",
                     "Name": "freqToggleText",
-                    "X": 31,
+                    "X": 28,
                     "Y": 52,
-                    "Width": 40,
+                    "Width": 44,
                     "Height": 24,
                     "TextId": "__SingleUse_UB6V",
                     "TextRotation": "0",
@@ -359,9 +428,9 @@
                   {
                     "Type": "TextArea",
                     "Name": "periodToggleText",
-                    "X": 20,
-                    "Y": 100,
-                    "Width": 62,
+                    "X": 17,
+                    "Y": 101,
+                    "Width": 66,
                     "Height": 24,
                     "TextId": "__SingleUse_JAPC",
                     "TextRotation": "0",
@@ -394,9 +463,9 @@
                   {
                     "Type": "TextArea",
                     "Name": "XScaleText",
-                    "X": 15,
+                    "X": 12,
                     "Y": 4,
-                    "Width": 70,
+                    "Width": 77,
                     "Height": 24,
                     "TextId": "__SingleUse_XJQC",
                     "TextRotation": "0",
@@ -410,7 +479,7 @@
                   {
                     "Type": "ToggleButton",
                     "Name": "YScaleToggle",
-                    "Y": 46,
+                    "Y": 48,
                     "Width": 100,
                     "Height": 36,
                     "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_normal.png",
@@ -419,9 +488,9 @@
                   {
                     "Type": "TextArea",
                     "Name": "YScaleText",
-                    "X": 15,
-                    "Y": 50,
-                    "Width": 68,
+                    "X": 12,
+                    "Y": 52,
+                    "Width": 77,
                     "Height": 24,
                     "TextId": "__SingleUse_YG2A",
                     "TextRotation": "0",
@@ -444,9 +513,9 @@
                   {
                     "Type": "TextArea",
                     "Name": "offsetText",
-                    "X": 22,
-                    "Y": 100,
-                    "Width": 56,
+                    "X": 17,
+                    "Y": 101,
+                    "Width": 66,
                     "Height": 24,
                     "TextId": "__SingleUse_2ZHX",
                     "TextRotation": "0",
@@ -456,6 +525,67 @@
                       "Blue": 255
                     },
                     "AutoSize": true
+                  }
+                ]
+              },
+              {
+                "Type": "Container",
+                "Name": "triggerMenu",
+                "X": 39,
+                "Y": 10,
+                "Width": 250,
+                "Height": 250,
+                "Visible": false,
+                "Components": [
+                  {
+                    "Type": "ToggleButton",
+                    "Name": "levelToggle",
+                    "Y": 48,
+                    "Width": 100,
+                    "Height": 36,
+                    "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_normal.png",
+                    "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_action.png"
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "levelText",
+                    "X": 23,
+                    "Y": 52,
+                    "Width": 55,
+                    "Height": 24,
+                    "TextId": "__SingleUse_ZPIM",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "AutoSize": true
+                  },
+                  {
+                    "Type": "Button",
+                    "Name": "triggerTypeButton",
+                    "Width": 100,
+                    "Height": 36,
+                    "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_pressed.png",
+                    "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_active.png",
+                    "Preset": "alternate_theme\\presets\\button\\regular\\height_36\\tiny_round_active.json"
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "triggerTypeText",
+                    "X": 17,
+                    "Y": 4,
+                    "Width": 66,
+                    "Height": 24,
+                    "TextId": "__SingleUse_OJO1",
+                    "TextRotation": "0",
+                    "AutoSize": true,
+                    "Wildcard1": {
+                      "TextId": "triggerTypeData",
+                      "UseBuffer": true,
+                      "BufferSize": 8
+                    }
                   }
                 ]
               }
@@ -556,6 +686,82 @@
               "Type": "ActionCustom",
               "FunctionName": "onMeasureMenuClicked"
             }
+          },
+          {
+            "InteractionName": "slideMenuStateChange",
+            "Trigger": {
+              "Type": "TriggerNone"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onSlideMenuUpdated"
+            }
+          },
+          {
+            "InteractionName": "onXScaleToggled",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "XScaleToggle"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onXScaleToggled"
+            }
+          },
+          {
+            "InteractionName": "onYScaleToggled",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "YScaleToggle"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onYScaleToggled"
+            }
+          },
+          {
+            "InteractionName": "onOffsetToggled",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "offsetToggle"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onOffsetToggled"
+            }
+          },
+          {
+            "InteractionName": "showTrigger",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "triggerMenuButton"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onTriggerMenuClicked"
+            }
+          },
+          {
+            "InteractionName": "onLevelToggled",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "levelToggle"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onLevelToggled"
+            }
+          },
+          {
+            "InteractionName": "triggerTypeClicked",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "triggerTypeButton"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onTriggerTypeClicked"
+            }
           }
         ]
       },
@@ -597,7 +803,7 @@
             "Name": "buttonText2",
             "X": 44,
             "Y": 225,
-            "Width": 39,
+            "Width": 44,
             "Height": 24,
             "TextId": "__SingleUse_JNQA",
             "TextRotation": "0",
@@ -611,9 +817,9 @@
           {
             "Type": "TextArea",
             "Name": "buttonText4",
-            "X": 151,
+            "X": 153,
             "Y": 225,
-            "Width": 48,
+            "Width": 44,
             "Height": 24,
             "TextId": "__SingleUse_KQKK",
             "TextRotation": "0",
@@ -647,7 +853,7 @@
             "Name": "funcLabelText",
             "X": 25,
             "Y": 25,
-            "Width": 48,
+            "Width": 44,
             "Height": 24,
             "TextId": "__SingleUse_OWWW",
             "TextRotation": "0",
@@ -663,7 +869,7 @@
             "Name": "freqLabelText",
             "X": 25,
             "Y": 69,
-            "Width": 45,
+            "Width": 44,
             "Height": 24,
             "TextId": "__SingleUse_WLNB",
             "TextRotation": "0",
@@ -679,7 +885,7 @@
             "Name": "ampLabelText",
             "X": 25,
             "Y": 142,
-            "Width": 45,
+            "Width": 33,
             "Height": 24,
             "TextId": "__SingleUse_GOYE",
             "TextRotation": "0",
@@ -693,9 +899,9 @@
           {
             "Type": "TextArea",
             "Name": "funcText",
-            "X": 116,
-            "Y": 22,
-            "Width": 47,
+            "X": 123,
+            "Y": 21,
+            "Width": 33,
             "Height": 24,
             "TextId": "__SingleUse_L9AS",
             "TextRotation": "0",
@@ -746,7 +952,7 @@
             "Name": "freqValueText",
             "X": 87,
             "Y": 69,
-            "Width": 104,
+            "Width": 332,
             "Height": 24,
             "TextId": "freqValue",
             "TextRotation": "0",
@@ -758,7 +964,7 @@
             "Wildcard1": {
               "TextId": "freqValueData",
               "UseBuffer": true,
-              "BufferSize": 6
+              "BufferSize": 15
             }
           },
           {
@@ -778,7 +984,7 @@
             "Wildcard1": {
               "TextId": "ampValueData",
               "UseBuffer": true,
-              "BufferSize": 6
+              "BufferSize": 12
             }
           }
         ],
@@ -949,9 +1155,9 @@
           {
             "Type": "TextArea",
             "Name": "buttonText5",
-            "X": 44,
+            "X": 43,
             "Y": 225,
-            "Width": 43,
+            "Width": 44,
             "Height": 24,
             "TextId": "__SingleUse_X9ES",
             "TextRotation": "0",

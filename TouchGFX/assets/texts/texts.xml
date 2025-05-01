@@ -10,6 +10,15 @@
       </Text>
     </TextGroup>
     <TextGroup Id="Unsorted">
+      <Text Id="triggerTypeData" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">rising</Translation>
+      </Text>
+      <Text Id="__SingleUse_OJO1" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_ZPIM" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">level</Translation>
+      </Text>
       <Text Id="__SingleUse_2ZHX" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">offset</Translation>
       </Text>
@@ -20,21 +29,21 @@
         <Translation Language="GB">X scale</Translation>
       </Text>
       <Text Id="periodData" Alignment="Left" TypographyId="Small">
-        <Translation Language="GB">0.0 s</Translation>
+        <Translation Language="GB">0.0s</Translation>
       </Text>
       <Text Id="__SingleUse_2ZXP" Alignment="Center" TypographyId="Small">
         <Translation Language="GB">period: &lt;value&gt;</Translation>
       </Text>
       <Text Id="freqData" Alignment="Left" TypographyId="Small">
-        <Translation Language="GB">0.0 Hz</Translation>
+        <Translation Language="GB">0.0Hz</Translation>
       </Text>
-      <Text Id="__SingleUse_XR9R" Alignment="Center" TypographyId="Small">
+      <Text Id="__SingleUse_XR9R" Alignment="Left" TypographyId="Small">
         <Translation Language="GB">freq: &lt;value&gt;</Translation>
       </Text>
       <Text Id="VppData" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">0.0 V</Translation>
+        <Translation Language="GB">0.0V</Translation>
       </Text>
-      <Text Id="__SingleUse_BPU6" Alignment="Center" TypographyId="Small">
+      <Text Id="__SingleUse_BPU6" Alignment="Left" TypographyId="Small">
         <Translation Language="GB">Vpp: &lt;value&gt;</Translation>
       </Text>
       <Text Id="YScaleData" Alignment="Left" TypographyId="Small">
@@ -148,9 +157,9 @@
     </TextGroup>
   </Texts>
   <Typographies>
-    <Typography Id="Default" Font="verdana.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="Default" Font="consola.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
     <Typography Id="Large" Font="verdana.ttf" Size="40" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
-    <Typography Id="Small" Font="verdana.ttf" Size="10" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="Small" Font="consola.ttf" Size="10" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
     <Typography Id="data" Font="verdana.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacters="." WildcardCharacterRanges="0-9" />
   </Typographies>
 </TextDatabase>

@@ -3,23 +3,23 @@
 #include <touchgfx/containers/SlideMenu.hpp>
 #include <algorithm>
 
-uint8_t maxValue = 0;
-uint8_t minValue = 255; // arbitrary initial value
-Unicode::UnicodeChar MeasureBuffer[6];
-
-// Vpp, freq, period
-uint8_t measureTarget = 0;
-
 // map [0, 255] to [-5, 5] (float) for display purpose
 float UnMap(uint8_t value)
 {
 	return ((float)value / 25.5) - 5;
 }
 
-
 Screen1View::Screen1View()
 {
+	singleToggle[0] = &XScaleToggle;
+	singleToggle[1] = &YScaleToggle;
+	singleToggle[2] = &offsetToggle;
+	singleToggle[3] = &levelToggle;
 
+	menuList[0] = &mainMenu;
+	menuList[1] = &displayMenu;
+	menuList[2] = &measureMenu;
+	menuList[3] = &triggerMenu;
 }
 
 void Screen1View::setupScreen()
@@ -35,69 +35,133 @@ void Screen1View::tearDownScreen()
 void Screen1View::onBackButtonClicked()
 {
 	// hide every menu container
-	measureMenu.setVisible(false);
-	displayMenu.setVisible(false);
+	for (int i = 1; i < 4; i ++)
+	{
+		menuList[i]->setVisible(false);
+		menuList[i]->invalidate();
+	}
 
 	// hide back button itself
 	backButton.setVisible(false);
-
-	measureMenu.invalidate();
-	displayMenu.invalidate();
 	backButton.invalidate();
+
+	// show main menu back on
+	mainMenu.setVisible(true);
+	mainMenu.invalidate();
 }
 
 void Screen1View::onDisplayMenuClicked()
 {
-	// collapse main menu first
-	slideMenu1.animateToState(SlideMenu::COLLAPSED);
+	// hide main menu first
+	mainMenu.setVisible(false);
 
 	// show display menu and back button
 	displayMenu.setVisible(true);
 	backButton.setVisible(true);
 
+	mainMenu.invalidate();
 	displayMenu.invalidate();
 	backButton.invalidate();
 }
 
+void Screen1View::onMeasureMenuClicked()
+{
+	mainMenu.setVisible(false);
+	measureMenu.setVisible(true);
+	backButton.setVisible(true);
+
+	mainMenu.invalidate();
+	measureMenu.invalidate();
+	backButton.invalidate();
+}
+
+void Screen1View::onTriggerMenuClicked()
+{
+	mainMenu.setVisible(false);
+	triggerMenu.setVisible(true);
+	backButton.setVisible(true);
+
+	mainMenu.invalidate();
+	triggerMenu.invalidate();
+	backButton.invalidate();
+}
 // TODO: naive implementation for toggling measure
 // should rearrange text position
+
+void Screen1View::onMeasureToggled(
+		const touchgfx::ToggleButton* targetButton,
+		touchgfx::TextArea* targetText)
+{
+	targetText->setVisible(!(targetButton->getState()));
+	targetText->invalidate();
+}
 void Screen1View::onVppToggled()
 {
-	if (VppToggle.getState())
-	{
-		VppText.setVisible(false);
-	}
-	else
-	{
-		VppText.setVisible(true);
-	}
-	VppText.invalidate();
+	Screen1View::onMeasureToggled(&VppToggle, &VppText);
 }
-
 void Screen1View::onFreqToggled()
 {
-	if (freqToggle.getState())
-	{
-		freqText.setVisible(false);
-	}
-	else
-	{
-		freqText.setVisible(true);
-	}
-	freqText.invalidate();
+	Screen1View::onMeasureToggled(&freqToggle, &freqText);
 }
-
 void Screen1View::onPeriodToggled()
 {
-	if (periodToggle.getState())
+	Screen1View::onMeasureToggled(&periodToggle, &periodText);
+}
+
+void Screen1View::onSingleToggle(const touchgfx::ToggleButton* targetToggle)
+{
+	for (int i = 0; i < 4; i ++)
 	{
-		periodText.setVisible(false);
+		if (singleToggle[i] != targetToggle)
+		{
+			singleToggle[i]->forceState(false);
+			singleToggle[i]->invalidate();
+		}
 	}
-	else
+	horizontalLine0.setVisible(false);
+	horizontalLine0.invalidate();
+}
+
+void Screen1View::onXScaleToggled()
+{
+	encoderTarget = 1;
+	onSingleToggle(&XScaleToggle);
+}
+
+void Screen1View::onYScaleToggled()
+{
+	encoderTarget = 2;
+	onSingleToggle(&YScaleToggle);
+}
+
+void Screen1View::onOffsetToggled()
+{
+	encoderTarget = 3;
+	onSingleToggle(&offsetToggle);
+}
+
+void Screen1View::onLevelToggled()
+{
+	encoderTarget = 4;
+	onSingleToggle(&levelToggle);
+	if (levelToggle.getState())
 	{
-		periodText.setVisible(true);
+		horizontalLine0.setVisible(true);
+		horizontalLine0.invalidate();
 	}
-	periodText.invalidate();
+}
+
+void Screen1View::onSlideMenuUpdated()
+{
+	if (slideMenu1.getState() == SlideMenu::COLLAPSED)
+	{
+		backButton.setVisible(false);
+		for (int i = 1; i < 4; i ++)
+		{
+			menuList[i]->setVisible(false);
+		}
+		mainMenu.setVisible(true);
+	}
 }
 
 void Screen1View::UpdateGraph(uint8_t* value)
@@ -110,3 +174,19 @@ void Screen1View::UpdateGraph(uint8_t* value)
 	displayGraph.invalidate();
 }
 
+void Screen1View::onTriggerTypeClicked()
+{
+	triggerType = !triggerType;
+	if (triggerType)
+	{
+		Unicode::strncpy(triggerTypeTextBuffer, "falling", TRIGGERTYPETEXT_SIZE);
+	}
+	else
+	{
+		Unicode::strncpy(triggerTypeTextBuffer, "rising", TRIGGERTYPETEXT_SIZE);
+	}
+	triggerTypeText.invalidate();
+}
+// trigger menu
+// detection type
+// level

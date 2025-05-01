@@ -72,9 +72,9 @@ protected:
     /*
      * Wildcard Buffers
      */
-    static const uint16_t FREQVALUETEXT_SIZE = 6;
+    static const uint16_t FREQVALUETEXT_SIZE = 15;
     touchgfx::Unicode::UnicodeChar freqValueTextBuffer[FREQVALUETEXT_SIZE];
-    static const uint16_t AMPVALUETEXT_SIZE = 6;
+    static const uint16_t AMPVALUETEXT_SIZE = 12;
     touchgfx::Unicode::UnicodeChar ampValueTextBuffer[AMPVALUETEXT_SIZE];
 
 private:

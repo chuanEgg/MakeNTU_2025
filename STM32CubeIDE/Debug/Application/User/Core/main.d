@@ -1,5 +1,6 @@
 Application/User/Core/main.o: \
- C:/TouchGFXProjects/MakeNTU_screen/Core/Src/main.c ../../Core/Inc/main.h \
+ C:/Users/chuan/project/MakeNTU_2025/Core/Src/main.c \
+ ../../Core/Inc/main.h \
  ../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h \
  ../../Core/Inc/stm32f7xx_hal_conf.h \
  ../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h \

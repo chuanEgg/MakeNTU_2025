@@ -38,7 +38,7 @@ Screen2ViewBase::Screen2ViewBase() :
     buttonText2.setTypedText(touchgfx::TypedText(T___SINGLEUSE_JNQA));
     add(buttonText2);
 
-    buttonText4.setXY(151, 225);
+    buttonText4.setXY(153, 225);
     buttonText4.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     buttonText4.setLinespacing(0);
     buttonText4.setTypedText(touchgfx::TypedText(T___SINGLEUSE_KQKK));
@@ -68,7 +68,7 @@ Screen2ViewBase::Screen2ViewBase() :
     ampLabelText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_GOYE));
     add(ampLabelText);
 
-    funcText.setXY(116, 22);
+    funcText.setXY(123, 21);
     funcText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     funcText.setLinespacing(0);
     funcText.setWildcard(touchgfx::TypedText(T_FUNCNAMEDATA).getText());
@@ -94,7 +94,7 @@ Screen2ViewBase::Screen2ViewBase() :
     ampSlider.setNewValueCallback(sliderValueChangedCallback);
     add(ampSlider);
 
-    freqValueText.setPosition(87, 69, 104, 24);
+    freqValueText.setPosition(87, 69, 332, 24);
     freqValueText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     freqValueText.setLinespacing(0);
     Unicode::snprintf(freqValueTextBuffer, FREQVALUETEXT_SIZE, "%s", touchgfx::TypedText(T_FREQVALUEDATA).getText());

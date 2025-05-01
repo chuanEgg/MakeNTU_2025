@@ -11,6 +11,8 @@
 #include <touchgfx/widgets/graph/GraphWrapAndClear.hpp>
 #include <touchgfx/widgets/graph/GraphElements.hpp>
 #include <touchgfx/widgets/TextAreaWithWildcard.hpp>
+#include <touchgfx/widgets/canvas/Line.hpp>
+#include <touchgfx/widgets/canvas/PainterRGB565.hpp>
 #include <touchgfx/containers/SlideMenu.hpp>
 #include <touchgfx/containers/Container.hpp>
 #include <touchgfx/widgets/Button.hpp>
@@ -52,6 +54,30 @@ public:
     {
         // Override and implement this function in Screen1
     }
+    virtual void onXScaleToggled()
+    {
+        // Override and implement this function in Screen1
+    }
+    virtual void onYScaleToggled()
+    {
+        // Override and implement this function in Screen1
+    }
+    virtual void onOffsetToggled()
+    {
+        // Override and implement this function in Screen1
+    }
+    virtual void onTriggerMenuClicked()
+    {
+        // Override and implement this function in Screen1
+    }
+    virtual void onLevelToggled()
+    {
+        // Override and implement this function in Screen1
+    }
+    virtual void onTriggerTypeClicked()
+    {
+        // Override and implement this function in Screen1
+    }
 
 protected:
     FrontendApplication& application() {
@@ -72,6 +98,14 @@ protected:
     touchgfx::TextAreaWithOneWildcard VppText;
     touchgfx::TextAreaWithOneWildcard freqText;
     touchgfx::TextAreaWithOneWildcard periodText;
+    touchgfx::Line horizontalLine0;
+    touchgfx::PainterRGB565 horizontalLine0Painter;
+    touchgfx::Line horizontalLine1;
+    touchgfx::PainterRGB565 horizontalLine1Painter;
+    touchgfx::Line verticalLine0;
+    touchgfx::PainterRGB565 verticalLine0Painter;
+    touchgfx::Line verticalLine1;
+    touchgfx::PainterRGB565 verticalLine1Painter;
     touchgfx::SlideMenu slideMenu1;
     touchgfx::Container mainMenu;
     touchgfx::Button switchButton1;
@@ -96,6 +130,11 @@ protected:
     touchgfx::TextArea YScaleText;
     touchgfx::ToggleButton offsetToggle;
     touchgfx::TextArea offsetText;
+    touchgfx::Container triggerMenu;
+    touchgfx::ToggleButton levelToggle;
+    touchgfx::TextArea levelText;
+    touchgfx::Button triggerTypeButton;
+    touchgfx::TextAreaWithOneWildcard triggerTypeText;
     touchgfx::ButtonWithIcon backButton;
 
     /*
@@ -111,8 +150,16 @@ protected:
     touchgfx::Unicode::UnicodeChar freqTextBuffer[FREQTEXT_SIZE];
     static const uint16_t PERIODTEXT_SIZE = 10;
     touchgfx::Unicode::UnicodeChar periodTextBuffer[PERIODTEXT_SIZE];
+    static const uint16_t TRIGGERTYPETEXT_SIZE = 8;
+    touchgfx::Unicode::UnicodeChar triggerTypeTextBuffer[TRIGGERTYPETEXT_SIZE];
 
 private:
+
+    /*
+     * Canvas Buffer Size
+     */
+    static const uint32_t CANVAS_BUFFER_SIZE = 7200;
+    uint8_t canvasBuffer[CANVAS_BUFFER_SIZE];
 
     /*
      * Callback Declarations

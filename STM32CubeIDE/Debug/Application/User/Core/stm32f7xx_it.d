@@ -1,5 +1,5 @@
 Application/User/Core/stm32f7xx_it.o: \
- C:/TouchGFXProjects/MakeNTU_screen/Core/Src/stm32f7xx_it.c \
+ C:/Users/chuan/project/MakeNTU_2025/Core/Src/stm32f7xx_it.c \
  ../../Core/Inc/main.h \
  ../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h \
  ../../Core/Inc/stm32f7xx_hal_conf.h \
