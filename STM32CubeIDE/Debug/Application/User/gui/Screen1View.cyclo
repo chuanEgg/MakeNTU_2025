@@ -2,8 +2,8 @@
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:144:18:virtual void touchgfx::Screen::handleTickEvent()	1
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:154:18:virtual void touchgfx::Screen::handleKeyEvent(uint8_t)	1
 C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:51:6:virtual void Screen1View::tearDownScreen()	1
-../../TouchGFX/gui/include/gui/screen1_screen/Screen1View.hpp:11:13:Screen1View::~Screen1View()	1
-../../TouchGFX/gui/include/gui/screen1_screen/Screen1View.hpp:11:13:virtual Screen1View::~Screen1View()	1
+../../TouchGFX/gui/include/gui/screen1_screen/Screen1View.hpp:12:13:Screen1View::~Screen1View()	1
+../../TouchGFX/gui/include/gui/screen1_screen/Screen1View.hpp:12:13:virtual Screen1View::~Screen1View()	1
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Bitmap.hpp:146:14:touchgfx::BitmapId touchgfx::Bitmap::getId() const	0
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Drawable.hpp:233:10:void touchgfx::Drawable::setPosition(int16_t, int16_t, int16_t, int16_t)	1
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/ToggleButton.hpp:58:10:bool touchgfx::ToggleButton::getState() const	1
@@ -22,11 +22,11 @@ C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen
 C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:88:6:virtual void Screen1View::onMeasureMenuClicked()	1
 C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:99:6:virtual void Screen1View::onTriggerMenuClicked()	1
 C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:110:6:virtual void Screen1View::onCursorMenuClicked()	1
-C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:367:6:virtual void Screen1View::onTriggerTypeClicked()	2
+C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:382:6:virtual void Screen1View::onTriggerTypeClicked()	2
 C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:144:6:virtual void Screen1View::onSingleToggle(const touchgfx::ToggleButton*)	3
 C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:205:6:virtual void Screen1View::onLevelToggled()	2
 C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:220:6:virtual void Screen1View::onCursor1XToggled()	2
 C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:236:6:virtual void Screen1View::onCursor1YToggled()	2
-C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:252:6:void Screen1View::tick()	19
-C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:334:6:virtual void Screen1View::onSlideMenuUpdated()	2
-C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:357:6:void Screen1View::UpdateGraph(uint8_t*)	5
+C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:252:6:void Screen1View::tick()	20
+C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:337:6:virtual void Screen1View::onSlideMenuUpdated()	2
+C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:372:6:void Screen1View::UpdateGraph(uint8_t*)	5

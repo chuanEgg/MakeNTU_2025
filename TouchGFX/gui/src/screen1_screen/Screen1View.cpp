@@ -9,12 +9,12 @@
 #define MAX_Y_SCALE_INDEX 12
 #define MAX_OFFSET 130
 #define MIN_OFFSET -130
-#define MAX_LEVEL 250
-#define MIN_LEVEL 5
-#define MAX_CURSOR_1X 460
+#define MAX_LEVEL 270
+#define MIN_LEVEL 25
+#define MAX_CURSOR_1X 435
 #define MIN_CURSOR_1X 20
 #define MAX_CURSOR_1Y 250
-#define MIN_CURSOR_1Y 5
+#define MIN_CURSOR_1Y 25
 
 extern "C"
 {
@@ -297,7 +297,7 @@ void Screen1View::tick()
 				triggerLevel = MIN_LEVEL;
 				encoderZero = encoderValue - (triggerLevel - lastLevel) / 5;
 			}
-			horizontalLine0.setPosition(15, (int16_t)(250 - triggerLevel), 450, 15);
+			horizontalLine0.setPosition(15, (int16_t)(MAX_LEVEL - triggerLevel), slideMenu1.getState() == SlideMenu::COLLAPSED ? 430 : 297, 15);
 			horizontalLine0.invalidate();
 			break;
 		case 5: // cursor1X
@@ -310,7 +310,7 @@ void Screen1View::tick()
 				curCursor1X = MIN_CURSOR_1X;
 				encoderZero = encoderValue - (curCursor1X - lastCursor1X) / 5;
 			}
-			verticalLine1.setPosition((int16_t)curCursor1X, 0, 15, 250);
+			verticalLine1.setPosition(slideMenu1.getState() == SlideMenu::COLLAPSED ? (int16_t)curCursor1X : (int16_t)curCursor1X * 297 / 450, 20, 15, 230);
 			verticalLine1.invalidate();
 			break;
 		case 6: // cursor1Y
@@ -323,12 +323,15 @@ void Screen1View::tick()
 				curCursor1Y = MIN_CURSOR_1Y;
 				encoderZero = encoderValue - (curCursor1Y - lastCursor1Y) / 5;
 			}
-			horizontalLine1.setPosition(15, (int16_t)(250 - curCursor1Y), 450, 15);
+			horizontalLine1.setPosition(15, (int16_t)(MAX_LEVEL - curCursor1Y), slideMenu1.getState() == SlideMenu::COLLAPSED ? 435 : 297, 15);
 			horizontalLine1.invalidate();
 			break;
 		default:
 			break;
 	}
+	Unicode::snprintfFloat(cursor1DataTextBuffer1, 10, "%.3f\0", curCursor1X);
+	Unicode::snprintfFloat(cursor1DataTextBuffer2, 10, "%.3f\0", curCursor1Y);
+	cursor1DataText.invalidate();
 }
 
 void Screen1View::onSlideMenuUpdated()
@@ -337,7 +340,7 @@ void Screen1View::onSlideMenuUpdated()
 	{
 //		slideMenu.setPisition()
 		backButton.setVisible(false);
-		for (int i = 1; i < 4; i ++)
+		for (int i = 1; i < 5; i ++)
 		{
 			menuList[i]->setVisible(false);
 		}
@@ -346,11 +349,23 @@ void Screen1View::onSlideMenuUpdated()
 		displayGraph.invalidate();
 //		slideMenu1.setXY(486, 0);
 //		slideMenu1.invalidate();
+		horizontalLine0.setPosition(15, (int16_t)(250 - triggerLevel), 435, 15);
+		horizontalLine0.invalidate();
+		horizontalLine1.setPosition(15, (int16_t)(250 - curCursor1Y), 435, 15);
+		horizontalLine1.invalidate();
+		verticalLine1.setPosition((int16_t)curCursor1X, 20, 15, 230);
+		verticalLine1.invalidate();
 	}
 	else
 	{
-		displayGraph.setPosition(15, 20, 297, 250);
+		displayGraph.setPosition(15, 20, 297, 230);
 		displayGraph.invalidate();
+		horizontalLine0.setPosition(15, (int16_t)(250 - triggerLevel), 297, 15);
+		horizontalLine0.invalidate();
+		horizontalLine1.setPosition(15, (int16_t)(250 - curCursor1Y), 297, 15);
+		horizontalLine1.invalidate();
+		verticalLine1.setPosition((int16_t)curCursor1X * 297 / 435, 20, 15, 230);
+		verticalLine1.invalidate();
 	}
 }
 

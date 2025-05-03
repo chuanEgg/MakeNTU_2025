@@ -10,8 +10,14 @@
       </Text>
     </TextGroup>
     <TextGroup Id="Unsorted">
-      <Text Id="__SingleUse_LZWQ" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">cursor1: x=0.0, y=0.0</Translation>
+      <Text Id="cursor1Data2" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">1.234</Translation>
+      </Text>
+      <Text Id="cursor1Data1" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">1.234</Translation>
+      </Text>
+      <Text Id="__SingleUse_LZWQ" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">1: x=&lt;value&gt;, y=&lt;value&gt; V</Translation>
       </Text>
       <Text Id="__SingleUse_XFCZ" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">1 X</Translation>
@@ -177,7 +183,7 @@
   <Typographies>
     <Typography Id="Default" Font="consola.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WidgetWildcardCharacters="-., 0123456789" WildcardCharacterRanges="0-9" />
     <Typography Id="Large" Font="verdana.ttf" Size="40" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
-    <Typography Id="Small" Font="consola.ttf" Size="10" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="Small" Font="consola.ttf" Size="10" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
     <Typography Id="data" Font="verdana.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacters="." WildcardCharacterRanges="0-9" />
   </Typographies>
 </TextDatabase>

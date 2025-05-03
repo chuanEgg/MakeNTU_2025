@@ -118,10 +118,14 @@ protected:
     touchgfx::PainterRGB565 horizontalLine0Painter;
     touchgfx::Line horizontalLine1;
     touchgfx::PainterRGB565 horizontalLine1Painter;
+    touchgfx::Line horizontalLine2;
+    touchgfx::PainterRGB565 horizontalLine2Painter;
     touchgfx::Line verticalLine0;
     touchgfx::PainterRGB565 verticalLine0Painter;
     touchgfx::Line verticalLine1;
     touchgfx::PainterRGB565 verticalLine1Painter;
+    touchgfx::Line verticalLine2;
+    touchgfx::PainterRGB565 verticalLine2Painter;
     touchgfx::SlideMenu slideMenu1;
     touchgfx::Container mainMenu;
     touchgfx::Button switchButton1;
@@ -159,7 +163,7 @@ protected:
     touchgfx::TextArea cursor1YText;
     touchgfx::TextArea cursor1XText;
     touchgfx::ButtonWithIcon backButton;
-    touchgfx::TextArea textArea1;
+    touchgfx::TextAreaWithTwoWildcards cursor1DataText;
 
     /*
      * Wildcard Buffers
@@ -176,6 +180,10 @@ protected:
     touchgfx::Unicode::UnicodeChar periodTextBuffer[PERIODTEXT_SIZE];
     static const uint16_t TRIGGERTYPETEXT_SIZE = 8;
     touchgfx::Unicode::UnicodeChar triggerTypeTextBuffer[TRIGGERTYPETEXT_SIZE];
+    static const uint16_t CURSOR1DATATEXTBUFFER1_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar cursor1DataTextBuffer1[CURSOR1DATATEXTBUFFER1_SIZE];
+    static const uint16_t CURSOR1DATATEXTBUFFER2_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar cursor1DataTextBuffer2[CURSOR1DATATEXTBUFFER2_SIZE];
 
 private:
 
