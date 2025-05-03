@@ -15,8 +15,9 @@
             "Type": "DynamicGraph",
             "Name": "displayGraph",
             "X": 15,
-            "Width": 297,
-            "Height": 250,
+            "Y": 20,
+            "Width": 435,
+            "Height": 230,
             "DataSeed": -104249173,
             "NumberOfValues": 200,
             "MaxY": 260.0,
@@ -163,7 +164,7 @@
             "Name": "horizontalLine0",
             "X": 15,
             "Y": 161,
-            "Width": 455,
+            "Width": 435,
             "Height": 15,
             "Visible": false,
             "Color": {
@@ -171,7 +172,7 @@
               "Blue": 187
             },
             "StartY": 3.0,
-            "EndX": 450.0,
+            "EndX": 435.0,
             "EndY": 3.0,
             "LineWidth": 2.0,
             "LineEndingStyle": "Butt"
@@ -181,7 +182,7 @@
             "Name": "horizontalLine1",
             "X": 15,
             "Y": 111,
-            "Width": 450,
+            "Width": 435,
             "Height": 15,
             "Visible": false,
             "Color": {
@@ -189,7 +190,25 @@
               "Green": 187
             },
             "StartY": 3.0,
-            "EndX": 450.0,
+            "EndX": 435.0,
+            "EndY": 3.0,
+            "LineWidth": 2.0,
+            "LineEndingStyle": "Butt"
+          },
+          {
+            "Type": "Line",
+            "Name": "horizontalLine2",
+            "X": 15,
+            "Y": 111,
+            "Width": 435,
+            "Height": 15,
+            "Visible": false,
+            "Color": {
+              "Green": 187,
+              "Blue": 187
+            },
+            "StartY": 3.0,
+            "EndX": 435.0,
             "EndY": 3.0,
             "LineWidth": 2.0,
             "LineEndingStyle": "Butt"
@@ -198,8 +217,9 @@
             "Type": "Line",
             "Name": "verticalLine0",
             "X": 90,
+            "Y": 20,
             "Width": 15,
-            "Height": 250,
+            "Height": 230,
             "Visible": false,
             "Color": {
               "Green": 187,
@@ -215,12 +235,31 @@
             "Type": "Line",
             "Name": "verticalLine1",
             "X": 120,
+            "Y": 20,
             "Width": 15,
-            "Height": 250,
+            "Height": 230,
             "Visible": false,
             "Color": {
               "Red": 187,
               "Green": 187
+            },
+            "StartX": 3.0,
+            "EndX": 3.0,
+            "EndY": 250.0,
+            "LineWidth": 2.0,
+            "LineEndingStyle": "Butt"
+          },
+          {
+            "Type": "Line",
+            "Name": "verticalLine2",
+            "X": 120,
+            "Y": 20,
+            "Width": 15,
+            "Height": 230,
+            "Visible": false,
+            "Color": {
+              "Green": 187,
+              "Blue": 187
             },
             "StartX": 3.0,
             "EndX": 3.0,
@@ -240,7 +279,7 @@
             "FileNameButtonPressed": "right_slide_menu_button.png",
             "FileNameButtonReleased": "right_slide_menu_button.png",
             "ButtonY": 115,
-            "State": "Expanded",
+            "State": "Collapsed",
             "ExpandDirection": "West",
             "Easing": "Cubic",
             "EasingOption": "InOut",
@@ -695,14 +734,28 @@
           },
           {
             "Type": "TextArea",
-            "Name": "textArea1",
+            "Name": "cursor1DataText",
             "X": 15,
-            "Y": 10,
-            "Width": 231,
-            "Height": 24,
+            "Y": 4,
+            "Width": 126,
+            "Height": 12,
             "TextId": "__SingleUse_LZWQ",
             "TextRotation": "0",
-            "AutoSize": true
+            "Color": {
+              "Red": 187,
+              "Green": 187
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "cursor1Data1",
+              "UseBuffer": true,
+              "BufferSize": 10
+            },
+            "Wildcard2": {
+              "TextId": "cursor1Data2",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
           }
         ],
         "Interactions": [
@@ -787,7 +840,8 @@
           {
             "InteractionName": "slideMenuStateChange",
             "Trigger": {
-              "Type": "TriggerNone"
+              "Type": "TriggerSlideMenuStateChanged",
+              "TriggerComponent": "slideMenu1"
             },
             "Action": {
               "Type": "ActionCustom",

@@ -1,4 +1,0 @@
-D:/2025MakeNTU/STM32projects/MakeNTU_2025/Core/adc_routine/adc_routine.c:20:6:adcInit	24	static
-D:/2025MakeNTU/STM32projects/MakeNTU_2025/Core/adc_routine/adc_routine.c:36:6:adcStart	0	static
-D:/2025MakeNTU/STM32projects/MakeNTU_2025/Core/adc_routine/adc_routine.c:41:6:HAL_ADC_ConvHalfCpltCallback	8	static
-D:/2025MakeNTU/STM32projects/MakeNTU_2025/Core/adc_routine/adc_routine.c:58:6:HAL_ADC_ConvCpltCallback	8	static

@@ -8,7 +8,8 @@
 #include <images/BitmapDatabase.hpp>
 
 Screen1ViewBase::Screen1ViewBase() :
-    buttonCallback(this, &Screen1ViewBase::buttonCallbackHandler)
+    buttonCallback(this, &Screen1ViewBase::buttonCallbackHandler),
+    slideMenuStateChangedCallback(this, &Screen1ViewBase::slideMenuStateChangedCallbackHandler)
 {
     touchgfx::CanvasWidgetRenderer::setupBuffer(canvasBuffer, CANVAS_BUFFER_SIZE);
 
@@ -20,7 +21,7 @@ Screen1ViewBase::Screen1ViewBase() :
     background1.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     add(background1);
 
-    displayGraph.setPosition(15, 0, 297, 250);
+    displayGraph.setPosition(15, 20, 435, 230);
     displayGraph.setScale(1);
     displayGraph.setGraphAreaMargin(0, 0, 0, 0);
     displayGraph.setGraphAreaPadding(0, 0, 0, 0);
@@ -86,27 +87,37 @@ Screen1ViewBase::Screen1ViewBase() :
     periodText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_2ZXP));
     add(periodText);
 
-    horizontalLine0.setPosition(15, 161, 455, 15);
+    horizontalLine0.setPosition(15, 161, 435, 15);
     horizontalLine0Painter.setColor(touchgfx::Color::getColorFromRGB(0, 187, 187));
     horizontalLine0.setPainter(horizontalLine0Painter);
     horizontalLine0.setStart(0, 3);
-    horizontalLine0.setEnd(450, 3);
+    horizontalLine0.setEnd(435, 3);
     horizontalLine0.setLineWidth(2);
     horizontalLine0.setLineEndingStyle(touchgfx::Line::BUTT_CAP_ENDING);
     horizontalLine0.setVisible(false);
     add(horizontalLine0);
 
-    horizontalLine1.setPosition(15, 111, 450, 15);
+    horizontalLine1.setPosition(15, 111, 435, 15);
     horizontalLine1Painter.setColor(touchgfx::Color::getColorFromRGB(187, 187, 0));
     horizontalLine1.setPainter(horizontalLine1Painter);
     horizontalLine1.setStart(0, 3);
-    horizontalLine1.setEnd(450, 3);
+    horizontalLine1.setEnd(435, 3);
     horizontalLine1.setLineWidth(2);
     horizontalLine1.setLineEndingStyle(touchgfx::Line::BUTT_CAP_ENDING);
     horizontalLine1.setVisible(false);
     add(horizontalLine1);
 
-    verticalLine0.setPosition(90, 0, 15, 250);
+    horizontalLine2.setPosition(15, 111, 435, 15);
+    horizontalLine2Painter.setColor(touchgfx::Color::getColorFromRGB(0, 187, 187));
+    horizontalLine2.setPainter(horizontalLine2Painter);
+    horizontalLine2.setStart(0, 3);
+    horizontalLine2.setEnd(435, 3);
+    horizontalLine2.setLineWidth(2);
+    horizontalLine2.setLineEndingStyle(touchgfx::Line::BUTT_CAP_ENDING);
+    horizontalLine2.setVisible(false);
+    add(horizontalLine2);
+
+    verticalLine0.setPosition(90, 20, 15, 230);
     verticalLine0Painter.setColor(touchgfx::Color::getColorFromRGB(0, 187, 187));
     verticalLine0.setPainter(verticalLine0Painter);
     verticalLine0.setStart(3, 0);
@@ -116,7 +127,7 @@ Screen1ViewBase::Screen1ViewBase() :
     verticalLine0.setVisible(false);
     add(verticalLine0);
 
-    verticalLine1.setPosition(120, 0, 15, 250);
+    verticalLine1.setPosition(120, 20, 15, 230);
     verticalLine1Painter.setColor(touchgfx::Color::getColorFromRGB(187, 187, 0));
     verticalLine1.setPainter(verticalLine1Painter);
     verticalLine1.setStart(3, 0);
@@ -126,18 +137,29 @@ Screen1ViewBase::Screen1ViewBase() :
     verticalLine1.setVisible(false);
     add(verticalLine1);
 
+    verticalLine2.setPosition(120, 20, 15, 230);
+    verticalLine2Painter.setColor(touchgfx::Color::getColorFromRGB(0, 187, 187));
+    verticalLine2.setPainter(verticalLine2Painter);
+    verticalLine2.setStart(3, 0);
+    verticalLine2.setEnd(3, 250);
+    verticalLine2.setLineWidth(2);
+    verticalLine2.setLineEndingStyle(touchgfx::Line::BUTT_CAP_ENDING);
+    verticalLine2.setVisible(false);
+    add(verticalLine2);
+
     slideMenu1.setXY(312, 0);
     slideMenu1.setup(touchgfx::SlideMenu::WEST,
         touchgfx::Bitmap(BITMAP_RIGHT_SLIDE_MENU_BACKGROUND_ID),
         touchgfx::Bitmap(BITMAP_RIGHT_SLIDE_MENU_BUTTON_ID),
         touchgfx::Bitmap(BITMAP_RIGHT_SLIDE_MENU_BUTTON_ID),
         20, 0, 0, 115);
-    slideMenu1.setState(touchgfx::SlideMenu::EXPANDED);
+    slideMenu1.setState(touchgfx::SlideMenu::COLLAPSED);
     slideMenu1.setVisiblePixelsWhenCollapsed(45);
     slideMenu1.setHiddenPixelsWhenExpanded(15);
     slideMenu1.setAnimationEasingEquation(touchgfx::EasingEquations::cubicEaseInOut);
     slideMenu1.setAnimationDuration(18);
     slideMenu1.setExpandedStateTimeout(0);
+    slideMenu1.setStateChangedCallback(slideMenuStateChangedCallback);
     mainMenu.setPosition(39, 10, 250, 250);
     switchButton1.setXY(0, 0);
     switchButton1.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_ACTION_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_PRESSED_ID));
@@ -334,11 +356,16 @@ Screen1ViewBase::Screen1ViewBase() :
     backButton.setAction(buttonCallback);
     add(backButton);
 
-    textArea1.setXY(15, 10);
-    textArea1.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
-    textArea1.setLinespacing(0);
-    textArea1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_LZWQ));
-    add(textArea1);
+    cursor1DataText.setXY(15, 4);
+    cursor1DataText.setColor(touchgfx::Color::getColorFromRGB(187, 187, 0));
+    cursor1DataText.setLinespacing(0);
+    touchgfx::Unicode::snprintf(cursor1DataTextBuffer1, CURSOR1DATATEXTBUFFER1_SIZE, "%s", touchgfx::TypedText(T_CURSOR1DATA1).getText());
+    cursor1DataText.setWildcard1(cursor1DataTextBuffer1);
+    touchgfx::Unicode::snprintf(cursor1DataTextBuffer2, CURSOR1DATATEXTBUFFER2_SIZE, "%s", touchgfx::TypedText(T_CURSOR1DATA2).getText());
+    cursor1DataText.setWildcard2(cursor1DataTextBuffer2);
+    cursor1DataText.resizeToCurrentText();
+    cursor1DataText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_LZWQ));
+    add(cursor1DataText);
 }
 
 Screen1ViewBase::~Screen1ViewBase()
@@ -464,5 +491,16 @@ void Screen1ViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& src)
         //When cursor1YToggle clicked call virtual function
         //Call onCursor1YToggled
         onCursor1YToggled();
+    }
+}
+
+void Screen1ViewBase::slideMenuStateChangedCallbackHandler(const touchgfx::SlideMenu& src)
+{
+    if (&src == &slideMenu1)
+    {
+        //slideMenuStateChange
+        //When slideMenu1 state changed call virtual function
+        //Call onSlideMenuUpdated
+        onSlideMenuUpdated();
     }
 }
