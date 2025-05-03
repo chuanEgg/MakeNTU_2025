@@ -20,7 +20,7 @@ Screen1ViewBase::Screen1ViewBase() :
     background1.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     add(background1);
 
-    displayGraph.setPosition(15, 0, 450, 250);
+    displayGraph.setPosition(15, 0, 297, 250);
     displayGraph.setScale(1);
     displayGraph.setGraphAreaMargin(0, 0, 0, 0);
     displayGraph.setGraphAreaPadding(0, 0, 0, 0);

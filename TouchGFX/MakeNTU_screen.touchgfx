@@ -15,7 +15,7 @@
             "Type": "DynamicGraph",
             "Name": "displayGraph",
             "X": 15,
-            "Width": 450,
+            "Width": 297,
             "Height": 250,
             "DataSeed": -104249173,
             "NumberOfValues": 200,

@@ -341,6 +341,10 @@ void Screen1View::onSlideMenuUpdated()
 		}
 		mainMenu.setVisible(true);
 	}
+	else
+	{
+//		displayGraph.setPosition(15, 0, 297, 250);
+	}
 }
 
 void Screen1View::UpdateGraph(uint8_t* value)

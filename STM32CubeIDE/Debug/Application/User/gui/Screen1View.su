@@ -22,11 +22,11 @@ C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen
 C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:87:6:virtual void Screen1View::onMeasureMenuClicked()	8	static
 C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:98:6:virtual void Screen1View::onTriggerMenuClicked()	8	static
 C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:109:6:virtual void Screen1View::onCursorMenuClicked()	8	static
-C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:356:6:virtual void Screen1View::onTriggerTypeClicked()	8	static
+C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:360:6:virtual void Screen1View::onTriggerTypeClicked()	8	static
 C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:143:6:virtual void Screen1View::onSingleToggle(const touchgfx::ToggleButton*)	24	static
 C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:204:6:virtual void Screen1View::onLevelToggled()	16	static
 C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:219:6:virtual void Screen1View::onCursor1XToggled()	16	static
 C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:235:6:virtual void Screen1View::onCursor1YToggled()	16	static
 C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:251:6:void Screen1View::tick()	24	static
 C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:333:6:virtual void Screen1View::onSlideMenuUpdated()	8	static
-C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:346:6:void Screen1View::UpdateGraph(uint8_t*)	32	static
+C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:350:6:void Screen1View::UpdateGraph(uint8_t*)	32	static
