@@ -90,10 +90,10 @@ TIM_HandleTypeDef htim8;
 
 SDRAM_HandleTypeDef hsdram1;
 
-/* Definitions for mainTask */
-osThreadId_t mainTaskHandle;
-const osThreadAttr_t mainTask_attributes = {
-  .name = "mainTask",
+/* Definitions for defaultTask */
+osThreadId_t defaultTaskHandle;
+const osThreadAttr_t defaultTask_attributes = {
+  .name = "defaultTask",
   .stack_size = 128 * 4,
   .priority = (osPriority_t) osPriorityNormal,
 };
@@ -111,12 +111,12 @@ const osThreadAttr_t videoTask_attributes = {
   .stack_size = 1000 * 4,
   .priority = (osPriority_t) osPriorityLow,
 };
-/* Definitions for adcRoutine */
-osThreadId_t adcRoutineHandle;
-const osThreadAttr_t adcRoutine_attributes = {
-  .name = "adcRoutine",
+/* Definitions for sampleADC */
+osThreadId_t sampleADCHandle;
+const osThreadAttr_t sampleADC_attributes = {
+  .name = "sampleADC",
   .stack_size = 128 * 4,
-  .priority = (osPriority_t) osPriorityAboveNormal,
+  .priority = (osPriority_t) osPriorityLow,
 };
 /* USER CODE BEGIN PV */
 static FMC_SDRAM_CommandTypeDef Command;
@@ -138,10 +138,10 @@ static void MX_ADC1_Init(void);
 static void MX_ADC2_Init(void);
 static void MX_ADC3_Init(void);
 static void MX_TIM1_Init(void);
-void StartMain(void *argument);
+void StartDefaultTask(void *argument);
 extern void TouchGFX_Task(void *argument);
 extern void videoTaskFunc(void *argument);
-void StartADCRoutine(void *argument);
+void StartSampleADC(void *argument);
 
 /* USER CODE BEGIN PFP */
 void GetManufacturerId (uint8_t *manufacturer_id);
@@ -251,8 +251,8 @@ int main(void)
   /* USER CODE END RTOS_QUEUES */
 
   /* Create the thread(s) */
-  /* creation of mainTask */
-  mainTaskHandle = osThreadNew(StartMain, NULL, &mainTask_attributes);
+  /* creation of defaultTask */
+  defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
 
   /* creation of TouchGFXTask */
   TouchGFXTaskHandle = osThreadNew(TouchGFX_Task, NULL, &TouchGFXTask_attributes);
@@ -260,8 +260,8 @@ int main(void)
   /* creation of videoTask */
   videoTaskHandle = osThreadNew(videoTaskFunc, NULL, &videoTask_attributes);
 
-  /* creation of adcRoutine */
-  adcRoutineHandle = osThreadNew(StartADCRoutine, NULL, &adcRoutine_attributes);
+  /* creation of sampleADC */
+  sampleADCHandle = osThreadNew(StartSampleADC, NULL, &sampleADC_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -1120,14 +1120,14 @@ void EnableMemoryMappedMode(uint8_t manufacturer_id)
 
 /* USER CODE END 4 */
 
-/* USER CODE BEGIN Header_StartMain */
+/* USER CODE BEGIN Header_StartDefaultTask */
 /**
-  * @brief  Function implementing the mainTask thread.
+  * @brief  Function implementing the defaultTask thread.
   * @param  argument: Not used
   * @retval None
   */
-/* USER CODE END Header_StartMain */
-void StartMain(void *argument)
+/* USER CODE END Header_StartDefaultTask */
+void StartDefaultTask(void *argument)
 {
   /* USER CODE BEGIN 5 */
 	for (int i = 0; i < 256; i ++)
@@ -1151,32 +1151,22 @@ void StartMain(void *argument)
   /* USER CODE END 5 */
 }
 
-/* USER CODE BEGIN Header_StartADCRoutine */
+/* USER CODE BEGIN Header_StartSampleADC */
 /**
-* @brief Function implementing the adcRoutine thread.
+* @brief Function implementing the sampleADC thread.
 * @param argument: Not used
 * @retval None
 */
-/* USER CODE END Header_StartADCRoutine */
-void StartADCRoutine(void *argument)
+/* USER CODE END Header_StartSampleADC */
+void StartSampleADC(void *argument)
 {
-  /* USER CODE BEGIN StartADCRoutine */
-	adcInit(&hadc1, &hadc2, &hadc3, &htim1);
-	adcStart(&htim1);
+  /* USER CODE BEGIN StartSampleADC */
   /* Infinite loop */
   for(;;)
   {
-    if(start_sample)
-    {
-    	// should know if capture data is enough and if should measure
-        captureData();
-        measure();
-        start_sample = 0;
-        start_plot = 1;
-    }
     osDelay(1);
   }
-  /* USER CODE END StartADCRoutine */
+  /* USER CODE END StartSampleADC */
 }
 
  /* MPU Configuration */

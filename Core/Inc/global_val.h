@@ -20,7 +20,8 @@ typedef enum
 {
     TRIGGER_MODE_RISING,
     TRIGGER_MODE_FALLING,
-    NUM_TRIGGER_MODES
+//    NUM_TRIGGER_MODES,
+	TRIGGER_MODE_BOTH
 } trigger_mode_typedef;
 
 extern uint8_t trigger_level; // 0-255, maitained by GFX

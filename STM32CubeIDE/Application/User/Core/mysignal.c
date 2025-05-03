@@ -5,7 +5,7 @@
  *      Author: choua
  */
 
-#include "signal.h"
+#include "mysignal.h"
 #include <stdint.h>
 
 

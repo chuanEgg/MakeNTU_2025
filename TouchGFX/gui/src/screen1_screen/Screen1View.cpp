@@ -2,8 +2,7 @@
 #include <texts/TextKeysAndLanguages.hpp>
 #include <touchgfx/containers/SlideMenu.hpp>
 #include <algorithm>
-
-#include "global_val.h"
+#include <global_val.h>
 
 #define SCREEN_HEIGHT 260
 #define SCREEN_WIDTH 200
@@ -430,6 +429,10 @@ void Screen1View::onSlideMenuUpdated()
 		horizontalLine1.invalidate();
 		verticalLine1.setPosition((int16_t)curCursor1X, 20, 15, 230);
 		verticalLine1.invalidate();
+		horizontalLine2.setPosition(15, (int16_t)(250 - curCursor2Y), 435, 15);
+		horizontalLine2.invalidate();
+		verticalLine2.setPosition((int16_t)curCursor2X, 20, 15, 230);
+		verticalLine2.invalidate();
 	}
 	else
 	{
@@ -441,6 +444,10 @@ void Screen1View::onSlideMenuUpdated()
 		horizontalLine1.invalidate();
 		verticalLine1.setPosition((int16_t)curCursor1X * 297 / 435, 20, 15, 230);
 		verticalLine1.invalidate();
+		horizontalLine2.setPosition(15, (int16_t)(250 - curCursor2Y), 297, 15);
+		horizontalLine2.invalidate();
+		verticalLine2.setPosition((int16_t)curCursor2X * 297 / 435, 20, 15, 230);
+		verticalLine2.invalidate();
 	}
 }
 
