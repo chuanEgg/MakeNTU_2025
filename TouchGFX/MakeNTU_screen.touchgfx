@@ -240,7 +240,7 @@
             "FileNameButtonPressed": "right_slide_menu_button.png",
             "FileNameButtonReleased": "right_slide_menu_button.png",
             "ButtonY": 115,
-            "State": "Collapsed",
+            "State": "Expanded",
             "ExpandDirection": "West",
             "Easing": "Cubic",
             "EasingOption": "InOut",
@@ -291,6 +291,15 @@
                     "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_action.png"
                   },
                   {
+                    "Type": "Button",
+                    "Name": "cursorMenuButton",
+                    "Y": 192,
+                    "Width": 100,
+                    "Height": 36,
+                    "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_normal.png",
+                    "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_action.png"
+                  },
+                  {
                     "Type": "TextArea",
                     "Name": "displayText",
                     "X": 12,
@@ -298,6 +307,22 @@
                     "Width": 77,
                     "Height": 24,
                     "TextId": "__SingleUse_5SG4",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "AutoSize": true
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "cursorText",
+                    "X": 17,
+                    "Y": 196,
+                    "Width": 66,
+                    "Height": 24,
+                    "TextId": "__SingleUse_1WEO",
                     "TextRotation": "0",
                     "Color": {
                       "Red": 255,

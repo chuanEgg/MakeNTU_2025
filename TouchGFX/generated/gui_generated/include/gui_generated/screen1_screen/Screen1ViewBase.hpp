@@ -111,7 +111,9 @@ protected:
     touchgfx::Button switchButton1;
     touchgfx::TextArea switchText;
     touchgfx::Button displayMenuButton;
+    touchgfx::Button cursorMenuButton;
     touchgfx::TextArea displayText;
+    touchgfx::TextArea cursorText;
     touchgfx::Button measureMenuButton;
     touchgfx::TextArea measureText;
     touchgfx::Button triggerMenuButton;

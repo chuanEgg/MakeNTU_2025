@@ -132,7 +132,7 @@ Screen1ViewBase::Screen1ViewBase() :
         touchgfx::Bitmap(BITMAP_RIGHT_SLIDE_MENU_BUTTON_ID),
         touchgfx::Bitmap(BITMAP_RIGHT_SLIDE_MENU_BUTTON_ID),
         20, 0, 0, 115);
-    slideMenu1.setState(touchgfx::SlideMenu::COLLAPSED);
+    slideMenu1.setState(touchgfx::SlideMenu::EXPANDED);
     slideMenu1.setVisiblePixelsWhenCollapsed(45);
     slideMenu1.setHiddenPixelsWhenExpanded(15);
     slideMenu1.setAnimationEasingEquation(touchgfx::EasingEquations::cubicEaseInOut);
@@ -155,11 +155,21 @@ Screen1ViewBase::Screen1ViewBase() :
     displayMenuButton.setAction(buttonCallback);
     mainMenu.add(displayMenuButton);
 
+    cursorMenuButton.setXY(0, 192);
+    cursorMenuButton.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_ACTION_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_NORMAL_ID));
+    mainMenu.add(cursorMenuButton);
+
     displayText.setXY(12, 52);
     displayText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     displayText.setLinespacing(0);
     displayText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_5SG4));
     mainMenu.add(displayText);
+
+    cursorText.setXY(17, 196);
+    cursorText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    cursorText.setLinespacing(0);
+    cursorText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_1WEO));
+    mainMenu.add(cursorText);
 
     measureMenuButton.setXY(0, 96);
     measureMenuButton.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_ACTION_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_NORMAL_ID));

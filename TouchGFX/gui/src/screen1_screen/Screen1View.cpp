@@ -128,13 +128,21 @@ void Screen1View::onSingleToggle(const touchgfx::ToggleButton* targetToggle)
 	}
 	horizontalLine0.setVisible(false);
 	horizontalLine0.invalidate();
+	lastXScaleIndex = curXScale;
 	lastYScaleIndex = curYScale;
 	lastOffset = curOffset;
+	lastLevel = triggerLevel;
 }
 
 void Screen1View::onXScaleToggled()
 {
 	encoderTarget = (XScaleToggle.getState()) ? 1 : 0;
+	if(XScaleToggle.getState() == false) {
+			lastXScaleIndex = curXScale;
+		}
+		else {
+			curXScale = lastXScaleIndex;
+		}
 	onSingleToggle(&XScaleToggle);
 }
 
@@ -168,8 +176,12 @@ void Screen1View::onLevelToggled()
 	onSingleToggle(&levelToggle);
 	if (levelToggle.getState())
 	{
+		triggerLevel = lastLevel;
 		horizontalLine0.setVisible(true);
 		horizontalLine0.invalidate();
+	}
+	else {
+		lastLevel = triggerLevel;
 	}
 }
 
@@ -179,6 +191,15 @@ void Screen1View::tick()
 		case 0:
 			break;
 		case 1: // XScale
+			curXScale = lastXScaleIndex + encoderValue - encoderZero;
+			if(curXScale > maxXScaleIndex) {
+				curXScale = maxXScaleIndex;
+				encoderZero = lastXScaleIndex + encoderValue - curXScale;
+			}
+			if(curXScale < 0) {
+				curXScale = 0;
+				encoderZero = lastXScaleIndex + encoderValue - curXScale;
+			}
 			break;
 		case 2: // YScale
 			curYScale = lastYScaleIndex + encoderValue - encoderZero;
@@ -203,6 +224,17 @@ void Screen1View::tick()
 			}
 			break;
 		case 4: // level
+			triggerLevel = lastLevel + (encoderValue - encoderZero) * 5;
+			if(triggerLevel >= maxLevel) {
+				triggerLevel = maxLevel;
+				encoderZero = encoderValue - (triggerLevel - lastLevel) / 5;
+			}
+			if(triggerLevel <= minLevel) {
+				triggerLevel = minLevel;
+				encoderZero = encoderValue - (triggerLevel - lastLevel) / 5;
+			}
+			horizontalLine0.setPosition(15, (int16_t)(250-triggerLevel), 450, 15);
+			horizontalLine0.invalidate();
 			break;
 	}
 }

@@ -10,6 +10,9 @@
       </Text>
     </TextGroup>
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_1WEO" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">cursor</Translation>
+      </Text>
       <Text Id="__SingleUse_Y981" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">&lt;&gt;</Translation>
       </Text>

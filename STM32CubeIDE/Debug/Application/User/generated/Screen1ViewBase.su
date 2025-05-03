@@ -124,7 +124,7 @@
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/GraphElements.hpp:618:7:touchgfx::GraphElementGridY::~GraphElementGridY()	0	static
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextAreaWithWildcard.hpp:62:7:touchgfx::TextAreaWithOneWildcard::~TextAreaWithOneWildcard()	0	static
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Callback.hpp:357:8:touchgfx::Callback<Screen1ViewBase, const touchgfx::AbstractButton&>::~Callback()	0	static
-C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/generated/gui_generated/src/screen1_screen/Screen1ViewBase.cpp:306:6:virtual void Screen1ViewBase::setupScreen()	0	static
+C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/generated/gui_generated/src/screen1_screen/Screen1ViewBase.cpp:316:6:virtual void Screen1ViewBase::setupScreen()	0	static
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Callback.hpp:386:18:void touchgfx::Callback<dest_type, T1, void, void>::execute(T1) [with dest_type = Screen1ViewBase; T1 = const touchgfx::AbstractButton&]	8	static
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Callback.hpp:396:18:bool touchgfx::Callback<dest_type, T1, void, void>::isValid() const [with dest_type = Screen1ViewBase; T1 = const touchgfx::AbstractButton&]	0	static
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/TypedText.hpp:65:13:virtual touchgfx::TypedText::~TypedText()	8	static
@@ -136,7 +136,7 @@ C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/generated/gui_generate
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Callback.hpp:357:8:virtual touchgfx::Callback<Screen1ViewBase, const touchgfx::AbstractButton&>::~Callback()	8	static
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/GraphElements.hpp:560:17:virtual int touchgfx::GraphElementGridX::getCorrectlyScaledGridInterval(const touchgfx::AbstractDataGraph*) const	16	static
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/GraphElements.hpp:621:17:virtual int touchgfx::GraphElementGridY::getCorrectlyScaledGridInterval(const touchgfx::AbstractDataGraph*) const	16	static
-C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/generated/gui_generated/src/screen1_screen/Screen1ViewBase.cpp:311:6:void Screen1ViewBase::buttonCallbackHandler(const touchgfx::AbstractButton&)	16	static
+C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/generated/gui_generated/src/screen1_screen/Screen1ViewBase.cpp:321:6:void Screen1ViewBase::buttonCallbackHandler(const touchgfx::AbstractButton&)	16	static
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Drawable.hpp:121:18:virtual void touchgfx::Drawable::invalidateContent() const	0	static
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/AbstractDataGraph.hpp:1176:18:virtual void touchgfx::AbstractDataGraph::invalidateContent() const	8	static
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextAreaWithWildcard.hpp:43:18:virtual void touchgfx::TextAreaWithWildcardBase::invalidateContent() const	8	static
@@ -159,6 +159,6 @@ C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/generated/gui_generate
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Button.hpp:34:5:touchgfx::Button::Button()	8	static
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/ToggleButton.hpp:32:7:touchgfx::ToggleButton::ToggleButton()	8	static
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/Line.hpp:248:10:void touchgfx::Line::setLineWidth(T) [with T = int]	4	static
-C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/generated/gui_generated/src/screen1_screen/Screen1ViewBase.cpp:10:1:Screen1ViewBase::Screen1ViewBase()	296	static
-C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/generated/gui_generated/src/screen1_screen/Screen1ViewBase.cpp:301:1:Screen1ViewBase::~Screen1ViewBase()	8	static
-C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/generated/gui_generated/src/screen1_screen/Screen1ViewBase.cpp:301:1:virtual Screen1ViewBase::~Screen1ViewBase()	8	static
+C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/generated/gui_generated/src/screen1_screen/Screen1ViewBase.cpp:10:1:Screen1ViewBase::Screen1ViewBase()	304	static
+C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/generated/gui_generated/src/screen1_screen/Screen1ViewBase.cpp:311:1:Screen1ViewBase::~Screen1ViewBase()	8	static
+C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/generated/gui_generated/src/screen1_screen/Screen1ViewBase.cpp:311:1:virtual Screen1ViewBase::~Screen1ViewBase()	8	static

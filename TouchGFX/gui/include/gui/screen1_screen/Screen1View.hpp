@@ -46,17 +46,19 @@ public:
     uint8_t encoderTarget = 0;
     int16_t encoderZero = 0;
 
+    int maxXScaleIndex = 12, startXScaleIndex = 6, lastXScaleIndex = 6;
     int maxYScaleIndex = 12, startYScaleIndex = 6, lastYScaleIndex = 6;
 	float YScaleTable[13] = {0.01, 0.02, 0.05, 0.1, 0.2, 0.5, 1, 2, 5, 10, 20, 50, 100};
 	int maxOffset = 130, minOffset = -130, lastOffset = 0;
+	int16_t maxLevel = 250, minLevel = 5, lastLevel = 0;
 	// int16_t tempEncoderValue;
-	int curXScale = 0;
+	int curXScale = 6;
 	int curYScale = 6;
 	int curOffset = 0;
 
     // 0: rising edge, 1: falling edge
-    uint8_t triggerType;
-    uint8_t triggerLevel;
+    uint8_t triggerType = 0;
+    int16_t triggerLevel = 125;
 
     // ToggleButtons that should be only one being toggled
     touchgfx::ToggleButton* singleToggle[4];
