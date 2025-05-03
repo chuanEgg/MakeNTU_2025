@@ -12,7 +12,7 @@ Screen1ViewBase::Screen1ViewBase() :
 {
     touchgfx::CanvasWidgetRenderer::setupBuffer(canvasBuffer, CANVAS_BUFFER_SIZE);
 
-    __background.setPosition(0, 0, 480, 272);
+    __background.setPosition(0, 0, 0, 0);
     __background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     add(__background);
 
@@ -139,7 +139,6 @@ Screen1ViewBase::Screen1ViewBase() :
     slideMenu1.setAnimationDuration(18);
     slideMenu1.setExpandedStateTimeout(0);
     mainMenu.setPosition(39, 10, 250, 250);
-    mainMenu.setVisible(false);
     switchButton1.setXY(0, 0);
     switchButton1.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_ACTION_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_PRESSED_ID));
     switchButton1.setAction(buttonCallback);
@@ -301,21 +300,22 @@ Screen1ViewBase::Screen1ViewBase() :
     slideMenu1.add(triggerMenu);
 
     cursorMenu.setPosition(39, 10, 250, 250);
+    cursorMenu.setVisible(false);
     cursor1YToggle.setXY(0, 48);
     cursor1YToggle.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_ACTION_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_NORMAL_ID));
     cursor1YToggle.setAction(buttonCallback);
     cursorMenu.add(cursor1YToggle);
+
+    cursor1XToggle.setXY(-1, 0);
+    cursor1XToggle.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_ACTION_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_NORMAL_ID));
+    cursor1XToggle.setAction(buttonCallback);
+    cursorMenu.add(cursor1XToggle);
 
     cursor1YText.setXY(34, 52);
     cursor1YText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     cursor1YText.setLinespacing(0);
     cursor1YText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_E19V));
     cursorMenu.add(cursor1YText);
-
-    cursor1XToggle.setXY(0, 0);
-    cursor1XToggle.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_ACTION_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_PRESSED_ID));
-    cursor1XToggle.setAction(buttonCallback);
-    cursorMenu.add(cursor1XToggle);
 
     cursor1XText.setXY(34, 4);
     cursor1XText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
@@ -333,6 +333,12 @@ Screen1ViewBase::Screen1ViewBase() :
     backButton.setVisible(false);
     backButton.setAction(buttonCallback);
     add(backButton);
+
+    textArea1.setXY(15, 10);
+    textArea1.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    textArea1.setLinespacing(0);
+    textArea1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_LZWQ));
+    add(textArea1);
 }
 
 Screen1ViewBase::~Screen1ViewBase()

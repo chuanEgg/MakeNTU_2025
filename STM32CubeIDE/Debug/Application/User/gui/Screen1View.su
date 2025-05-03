@@ -1,28 +1,32 @@
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:104:18:virtual void touchgfx::Screen::afterTransition()	0	static
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:144:18:virtual void touchgfx::Screen::handleTickEvent()	0	static
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:154:18:virtual void touchgfx::Screen::handleKeyEvent(uint8_t)	0	static
-C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:37:6:virtual void Screen1View::tearDownScreen()	0	static
+C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:50:6:virtual void Screen1View::tearDownScreen()	0	static
 ../../TouchGFX/gui/include/gui/screen1_screen/Screen1View.hpp:11:13:Screen1View::~Screen1View()	8	static
 ../../TouchGFX/gui/include/gui/screen1_screen/Screen1View.hpp:11:13:virtual Screen1View::~Screen1View()	8	static
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Bitmap.hpp:146:14:touchgfx::BitmapId touchgfx::Bitmap::getId() const	8	static
+../../Middlewares/ST/touchgfx/framework/include/touchgfx/Drawable.hpp:233:10:void touchgfx::Drawable::setPosition(int16_t, int16_t, int16_t, int16_t)	24	static
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/ToggleButton.hpp:58:10:bool touchgfx::ToggleButton::getState() const	8	static
-C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:137:6:virtual void Screen1View::onXScaleToggled()	16	static
-C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:149:6:virtual void Screen1View::onYScaleToggled()	16	static
-C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:161:6:virtual void Screen1View::onOffsetToggled()	16	static
-C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:14:7:float UnMap(uint8_t)	8	static
-C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:19:1:Screen1View::Screen1View()	24	static
-C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:98:6:void Screen1View::onMeasureToggled(const touchgfx::ToggleButton*, touchgfx::TextArea*)	8	static
-C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:105:6:virtual void Screen1View::onVppToggled()	0	static
-C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:109:6:virtual void Screen1View::onFreqToggled()	0	static
-C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:113:6:virtual void Screen1View::onPeriodToggled()	0	static
-C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:32:6:virtual void Screen1View::setupScreen()	0	static
-C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:42:6:virtual void Screen1View::onBackButtonClicked()	24	static
-C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:60:6:virtual void Screen1View::onDisplayMenuClicked()	8	static
-C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:74:6:virtual void Screen1View::onMeasureMenuClicked()	8	static
-C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:85:6:virtual void Screen1View::onTriggerMenuClicked()	8	static
-C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:265:6:virtual void Screen1View::onTriggerTypeClicked()	8	static
-C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:118:6:virtual void Screen1View::onSingleToggle(const touchgfx::ToggleButton*)	24	static
-C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:173:6:virtual void Screen1View::onLevelToggled()	16	static
-C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:188:6:void Screen1View::tick()	16	static
-C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:242:6:virtual void Screen1View::onSlideMenuUpdated()	8	static
-C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:255:6:void Screen1View::UpdateGraph(uint8_t*)	32	static
+C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:168:6:virtual void Screen1View::onXScaleToggled()	16	static
+C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:180:6:virtual void Screen1View::onYScaleToggled()	16	static
+C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:192:6:virtual void Screen1View::onOffsetToggled()	16	static
+C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:24:7:float UnMap(uint8_t)	8	static
+C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:29:1:Screen1View::Screen1View()	24	static
+C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:123:6:void Screen1View::onMeasureToggled(const touchgfx::ToggleButton*, touchgfx::TextArea*)	8	static
+C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:130:6:virtual void Screen1View::onVppToggled()	0	static
+C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:134:6:virtual void Screen1View::onFreqToggled()	0	static
+C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:138:6:virtual void Screen1View::onPeriodToggled()	0	static
+C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:45:6:virtual void Screen1View::setupScreen()	0	static
+C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:55:6:virtual void Screen1View::onBackButtonClicked()	24	static
+C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:73:6:virtual void Screen1View::onDisplayMenuClicked()	8	static
+C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:87:6:virtual void Screen1View::onMeasureMenuClicked()	8	static
+C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:98:6:virtual void Screen1View::onTriggerMenuClicked()	8	static
+C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:109:6:virtual void Screen1View::onCursorMenuClicked()	8	static
+C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:356:6:virtual void Screen1View::onTriggerTypeClicked()	8	static
+C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:143:6:virtual void Screen1View::onSingleToggle(const touchgfx::ToggleButton*)	24	static
+C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:204:6:virtual void Screen1View::onLevelToggled()	16	static
+C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:219:6:virtual void Screen1View::onCursor1XToggled()	16	static
+C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:235:6:virtual void Screen1View::onCursor1YToggled()	16	static
+C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:251:6:void Screen1View::tick()	16	static
+C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:333:6:virtual void Screen1View::onSlideMenuUpdated()	8	static
+C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:346:6:void Screen1View::UpdateGraph(uint8_t*)	32	static

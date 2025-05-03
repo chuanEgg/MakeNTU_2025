@@ -31,6 +31,11 @@ public:
     virtual void onDisplayMenuClicked(); // show display menu
     virtual void onMeasureMenuClicked(); // show measure menu
     virtual void onTriggerMenuClicked(); // show trigger menu
+    virtual void onCursorMenuClicked();
+
+    // cursor
+    virtual void onCursor1XToggled();
+    virtual void onCursor1YToggled();
 
     // trigger
     virtual void onLevelToggled();
@@ -46,25 +51,28 @@ public:
     uint8_t encoderTarget = 0;
     int16_t encoderZero = 0;
 
-    int maxXScaleIndex = 12, startXScaleIndex = 6, lastXScaleIndex = 6;
-    int maxYScaleIndex = 12, startYScaleIndex = 6, lastYScaleIndex = 6;
+    int startXScaleIndex = 6, lastXScaleIndex = 6;
+    int startYScaleIndex = 6, lastYScaleIndex = 6;
 	float YScaleTable[13] = {0.01, 0.02, 0.05, 0.1, 0.2, 0.5, 1, 2, 5, 10, 20, 50, 100};
-	int maxOffset = 130, minOffset = -130, lastOffset = 0;
-	int16_t maxLevel = 250, minLevel = 5, lastLevel = 0;
+	int lastOffset = 0;
+	int16_t lastLevel = 0;
+	int16_t lastCursor1X = 120, lastCursor1Y = 50;
 	// int16_t tempEncoderValue;
 	int curXScale = 6;
 	int curYScale = 6;
 	int curOffset = 0;
+	int curCursor1X = 120;
+	int curCursor1Y = 50;
 
     // 0: rising edge, 1: falling edge
     uint8_t triggerType = 0;
     int16_t triggerLevel = 125;
 
     // ToggleButtons that should be only one being toggled
-    touchgfx::ToggleButton* singleToggle[4];
+    touchgfx::ToggleButton* singleToggle[6];
 
     // list to maintain menu items
-    touchgfx::Container* menuList[4];
+    touchgfx::Container* menuList[5];
 protected:
 };
 

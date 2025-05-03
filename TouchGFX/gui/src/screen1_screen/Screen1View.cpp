@@ -5,6 +5,16 @@
 
 #define SCREEN_HEIGHT 260
 #define SCREEN_WIDTH 200
+#define MAX_X_SCALE_INDEX 12
+#define MAX_Y_SCALE_INDEX 12
+#define MAX_OFFSET 130
+#define MIN_OFFSET -130
+#define MAX_LEVEL 250
+#define MIN_LEVEL 5
+#define MAX_CURSOR_1X 460
+#define MIN_CURSOR_1X 20
+#define MAX_CURSOR_1Y 250
+#define MIN_CURSOR_1Y 5
 
 extern "C"
 {
@@ -22,11 +32,14 @@ Screen1View::Screen1View()
 	singleToggle[1] = &YScaleToggle;
 	singleToggle[2] = &offsetToggle;
 	singleToggle[3] = &levelToggle;
+	singleToggle[4] = &cursor1XToggle;
+	singleToggle[5] = &cursor1YToggle;
 
 	menuList[0] = &mainMenu;
 	menuList[1] = &displayMenu;
 	menuList[2] = &measureMenu;
 	menuList[3] = &triggerMenu;
+	menuList[4] = &cursorMenu;
 }
 
 void Screen1View::setupScreen()
@@ -42,7 +55,7 @@ void Screen1View::tearDownScreen()
 void Screen1View::onBackButtonClicked()
 {
 	// hide every menu container
-	for (int i = 1; i < 4; i ++)
+	for (int i = 1; i < 5; i ++)
 	{
 		menuList[i]->setVisible(false);
 		menuList[i]->invalidate();
@@ -92,6 +105,18 @@ void Screen1View::onTriggerMenuClicked()
 	triggerMenu.invalidate();
 	backButton.invalidate();
 }
+
+void Screen1View::onCursorMenuClicked()
+{
+    mainMenu.setVisible(false);
+    cursorMenu.setVisible(true);
+    backButton.setVisible(true);
+
+    mainMenu.invalidate();
+	cursorMenu.invalidate();
+	backButton.invalidate();
+}
+
 // TODO: naive implementation for toggling measure
 // should rearrange text position
 
@@ -118,7 +143,7 @@ void Screen1View::onPeriodToggled()
 void Screen1View::onSingleToggle(const touchgfx::ToggleButton* targetToggle)
 {
 	encoderZero = encoderValue;
-	for (int i = 0; i < 4; i ++)
+	for (int i = 0; i < 6; i ++)
 	{
 		if (singleToggle[i] != targetToggle)
 		{
@@ -128,10 +153,16 @@ void Screen1View::onSingleToggle(const touchgfx::ToggleButton* targetToggle)
 	}
 	horizontalLine0.setVisible(false);
 	horizontalLine0.invalidate();
+	horizontalLine1.setVisible(false);
+	horizontalLine1.invalidate();
+	verticalLine1.setVisible(false);
+	verticalLine1.invalidate();
 	lastXScaleIndex = curXScale;
 	lastYScaleIndex = curYScale;
 	lastOffset = curOffset;
 	lastLevel = triggerLevel;
+	lastCursor1X = curCursor1X;
+	lastCursor1Y = curCursor1Y;
 }
 
 void Screen1View::onXScaleToggled()
@@ -185,6 +216,38 @@ void Screen1View::onLevelToggled()
 	}
 }
 
+void Screen1View::onCursor1XToggled()
+{
+	encoderTarget = (cursor1XToggle.getState()) ? 5 : 0;
+	onSingleToggle(&cursor1XToggle);
+	if(cursor1XToggle.getState() == false) {
+		lastCursor1X = curCursor1X;
+	}
+	else {
+		curCursor1X = lastCursor1X;
+		horizontalLine1.setVisible(true);
+		horizontalLine1.invalidate();
+		verticalLine1.setVisible(true);
+		verticalLine1.invalidate();
+	}
+}
+
+void Screen1View::onCursor1YToggled()
+{
+	encoderTarget = (cursor1YToggle.getState()) ? 6 : 0;
+	onSingleToggle(&cursor1YToggle);
+	if(cursor1YToggle.getState() == false) {
+		lastCursor1Y = curCursor1Y;
+	}
+	else {
+		curCursor1Y = lastCursor1Y;
+		horizontalLine1.setVisible(true);
+		horizontalLine1.invalidate();
+		verticalLine1.setVisible(true);
+		verticalLine1.invalidate();
+	}
+}
+
 void Screen1View::tick()
 {
 	switch(encoderTarget) {
@@ -192,8 +255,8 @@ void Screen1View::tick()
 			break;
 		case 1: // XScale
 			curXScale = lastXScaleIndex + encoderValue - encoderZero;
-			if(curXScale > maxXScaleIndex) {
-				curXScale = maxXScaleIndex;
+			if(curXScale > MAX_X_SCALE_INDEX) {
+				curXScale = MAX_X_SCALE_INDEX;
 				encoderZero = lastXScaleIndex + encoderValue - curXScale;
 			}
 			if(curXScale < 0) {
@@ -203,8 +266,8 @@ void Screen1View::tick()
 			break;
 		case 2: // YScale
 			curYScale = lastYScaleIndex + encoderValue - encoderZero;
-			if(curYScale > maxYScaleIndex) {
-				curYScale = maxYScaleIndex;
+			if(curYScale > MAX_Y_SCALE_INDEX) {
+				curYScale = MAX_Y_SCALE_INDEX;
 				encoderZero = lastYScaleIndex + encoderValue - curYScale;
 			}
 			if(curYScale < 0) {
@@ -214,27 +277,55 @@ void Screen1View::tick()
 			break;
 		case 3: // offset
 			curOffset = lastOffset + (encoderValue - encoderZero) * 5;
-			if(curOffset > maxOffset) {
-				curOffset = maxOffset;
+			if(curOffset > MAX_OFFSET) {
+				curOffset = MAX_OFFSET;
 				encoderZero = encoderValue - (curOffset - lastOffset) / 5;
 			}
-			if(curOffset < minOffset) {
-				curOffset = minOffset;
+			if(curOffset < MIN_OFFSET) {
+				curOffset = MIN_OFFSET;
 				encoderZero = encoderValue - (curOffset - lastOffset) / 5;
 			}
 			break;
 		case 4: // level
 			triggerLevel = lastLevel + (encoderValue - encoderZero) * 5;
-			if(triggerLevel >= maxLevel) {
-				triggerLevel = maxLevel;
+			if(triggerLevel >= MAX_LEVEL) {
+				triggerLevel = MAX_LEVEL;
 				encoderZero = encoderValue - (triggerLevel - lastLevel) / 5;
 			}
-			if(triggerLevel <= minLevel) {
-				triggerLevel = minLevel;
+			if(triggerLevel <= MIN_LEVEL) {
+				triggerLevel = MIN_LEVEL;
 				encoderZero = encoderValue - (triggerLevel - lastLevel) / 5;
 			}
-			horizontalLine0.setPosition(15, (int16_t)(250-triggerLevel), 450, 15);
+			horizontalLine0.setPosition(15, (int16_t)(250 - triggerLevel), 450, 15);
 			horizontalLine0.invalidate();
+			break;
+		case 5: // cursor1X
+			curCursor1X = lastCursor1X + (encoderValue - encoderZero) * 5;
+			if(curCursor1X >= MAX_CURSOR_1X) {
+				curCursor1X = MAX_CURSOR_1X;
+				encoderZero = encoderValue - (curCursor1X - lastCursor1X) / 5;
+			}
+			if(curCursor1X <= MIN_CURSOR_1X) {
+				curCursor1X = MIN_CURSOR_1X;
+				encoderZero = encoderValue - (curCursor1X - lastCursor1X) / 5;
+			}
+			verticalLine1.setPosition((int16_t)curCursor1X, 0, 15, 250);
+			verticalLine1.invalidate();
+			break;
+		case 6: // cursor1Y
+			curCursor1Y = lastCursor1Y + (encoderValue - encoderZero) * 5;
+			if(curCursor1Y >= MAX_CURSOR_1Y) {
+				curCursor1Y = MAX_CURSOR_1Y;
+				encoderZero = encoderValue - (curCursor1Y - lastCursor1Y) / 5;
+			}
+			if(curCursor1Y <= MIN_CURSOR_1Y) {
+				curCursor1Y = MIN_CURSOR_1Y;
+				encoderZero = encoderValue - (curCursor1Y - lastCursor1Y) / 5;
+			}
+			horizontalLine1.setPosition(15, (int16_t)(250 - curCursor1Y), 450, 15);
+			horizontalLine1.invalidate();
+			break;
+		default:
 			break;
 	}
 }

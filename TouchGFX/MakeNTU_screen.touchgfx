@@ -3,7 +3,6 @@
     "Screens": [
       {
         "Name": "Screen1",
-        "CanvasBufferSize": 7200,
         "Components": [
           {
             "Type": "Box",
@@ -255,7 +254,6 @@
                 "Y": 10,
                 "Width": 250,
                 "Height": 250,
-                "Visible": false,
                 "Components": [
                   {
                     "Type": "Button",
@@ -622,11 +620,21 @@
                 "Y": 10,
                 "Width": 250,
                 "Height": 250,
+                "Visible": false,
                 "Components": [
                   {
                     "Type": "ToggleButton",
                     "Name": "cursor1YToggle",
                     "Y": 48,
+                    "Width": 100,
+                    "Height": 36,
+                    "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_normal.png",
+                    "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_action.png"
+                  },
+                  {
+                    "Type": "ToggleButton",
+                    "Name": "cursor1XToggle",
+                    "X": -1,
                     "Width": 100,
                     "Height": 36,
                     "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_normal.png",
@@ -647,15 +655,6 @@
                       "Blue": 255
                     },
                     "AutoSize": true
-                  },
-                  {
-                    "Type": "Button",
-                    "Name": "cursor1XToggle",
-                    "Width": 100,
-                    "Height": 36,
-                    "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_pressed.png",
-                    "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_action.png",
-                    "Preset": "alternate_theme\\presets\\button\\regular\\height_36\\tiny_round_action.json"
                   },
                   {
                     "Type": "TextArea",
@@ -692,6 +691,17 @@
             "IconX": 30,
             "IconHeight": 36,
             "IconWidth": 36
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea1",
+            "X": 15,
+            "Y": 10,
+            "Width": 231,
+            "Height": 24,
+            "TextId": "__SingleUse_LZWQ",
+            "TextRotation": "0",
+            "AutoSize": true
           }
         ],
         "Interactions": [
@@ -1191,7 +1201,6 @@
       },
       {
         "Name": "Screen3",
-        "CanvasBufferSize": 7200,
         "Components": [
           {
             "Type": "Box",
@@ -1354,35 +1363,30 @@
     ],
     "CustomContainerDefinitions": [],
     "Name": "MakeNTU_screen",
-    "Resolution": {
-      "Width": 480,
-      "Height": 272
-    },
-    "SelectedColorDepth": 16,
+    "Resolution": {},
+    "SelectedColorDepth": 32,
     "StartupScreenName": "Screen1",
     "SelectedStartupLanguage": "GB",
     "TouchGfxPath": "../Middlewares/ST/touchgfx",
     "UIPath": ".",
     "AvailableColorDepths": [
-      16
+      32
     ],
     "AvailableLCDs": {
-      "16": "LCD16bpp"
+      "16": "LCD16bpp",
+      "32": "LCD32bpp"
     },
     "AvailableSections": [
       "ExtFlashSection",
       "IntFlashSection"
     ],
     "AvailableResolutions": [
-      {
-        "Width": 480,
-        "Height": 272
-      }
+      {}
     ],
     "PhysicalButtons": [],
     "FrameworkFeatures": {
-      "LCD16bpp": {
-        "Id": "LCD16bpp",
+      "LCD32bpp": {
+        "Id": "LCD32bpp",
         "IsEnabled": true
       }
     },
@@ -1406,11 +1410,7 @@
     "ProjectFile": "../STM32F746G_DISCO.ioc",
     "OptionalComponentsRoot": "../Middlewares/ST/touchgfx_components",
     "OptionalComponents": [],
-    "AdditionalFeatures": [
-      "CWRVector",
-      "VectorFonts",
-      "Video"
-    ]
+    "AdditionalFeatures": []
   },
   "Version": "4.25.0",
   "CreatedBy": "4.25.0"

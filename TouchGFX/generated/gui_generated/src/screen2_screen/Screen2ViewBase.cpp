@@ -12,7 +12,7 @@ Screen2ViewBase::Screen2ViewBase() :
     sliderValueConfirmedCallback(this, &Screen2ViewBase::sliderValueConfirmedCallbackHandler),
     sliderValueChangedCallback(this, &Screen2ViewBase::sliderValueChangedCallbackHandler)
 {
-    __background.setPosition(0, 0, 480, 272);
+    __background.setPosition(0, 0, 0, 0);
     __background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     add(__background);
 
