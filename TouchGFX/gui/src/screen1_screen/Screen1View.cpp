@@ -3,6 +3,7 @@
 #include <touchgfx/containers/SlideMenu.hpp>
 #include <algorithm>
 #include <global_val.h>
+#include <mysignal.h>
 
 #define SCREEN_HEIGHT 260
 #define SCREEN_WIDTH 200
@@ -22,7 +23,9 @@ extern uint8_t trigger_level; // 0-255
 extern uint8_t offset; // 0-255
 
 extern trigger_mode_typedef trigger_mode;
-extern int32_t time_scale;             // capture 1 data from every n points
+extern int32_t time_scale;         // capture 1 data from every n points
+extern uint8_t read_encoder;
+
 // map [0, 255] to [-5, 5] (float) for display purpose
 float UnMap(uint8_t value)
 {
@@ -302,6 +305,7 @@ void Screen1View::tick()
 		case 0:
 			break;
 		case 1: // XScale
+			read_encoder = 1;
 			curXScale = lastXScaleIndex + encoderValue - encoderZero;
 			if(curXScale > MAX_X_SCALE_INDEX) {
 				curXScale = MAX_X_SCALE_INDEX;
@@ -314,6 +318,7 @@ void Screen1View::tick()
 			time_scale = XScaleTable[curXScale];
 			break;
 		case 2: // YScale
+			read_encoder = 1;
 			curYScale = lastYScaleIndex + encoderValue - encoderZero;
 			if(curYScale > MAX_Y_SCALE_INDEX) {
 				curYScale = MAX_Y_SCALE_INDEX;
@@ -325,6 +330,7 @@ void Screen1View::tick()
 			}
 			break;
 		case 3: // offset
+			read_encoder = 1;
 			curOffset = lastOffset + (encoderValue - encoderZero) * 5;
 			if(curOffset > MAX_OFFSET) {
 				curOffset = MAX_OFFSET;
@@ -337,6 +343,7 @@ void Screen1View::tick()
 			offset = (curOffset - MIN_OFFSET) * 255 / (MAX_OFFSET - MIN_OFFSET);
 			break;
 		case 4: // level
+			read_encoder = 1;
 			triggerLevel = lastLevel + (encoderValue - encoderZero) * 5;
 			if(triggerLevel >= MAX_CURSOR_1Y) {
 				triggerLevel = MAX_CURSOR_1Y;
@@ -351,6 +358,7 @@ void Screen1View::tick()
 			horizontalLine0.invalidate();
 			break;
 		case 5: // cursor1X
+			read_encoder = 1;
 			curCursor1X = lastCursor1X + (encoderValue - encoderZero) * 5;
 			if(curCursor1X >= MAX_CURSOR_1X) {
 				curCursor1X = MAX_CURSOR_1X;
@@ -364,6 +372,7 @@ void Screen1View::tick()
 			verticalLine1.invalidate();
 			break;
 		case 6: // cursor1Y
+			read_encoder = 1;
 			curCursor1Y = lastCursor1Y + (encoderValue - encoderZero) * 5;
 			if(curCursor1Y >= MAX_CURSOR_1Y) {
 				curCursor1Y = MAX_CURSOR_1Y;
@@ -377,6 +386,7 @@ void Screen1View::tick()
 			horizontalLine1.invalidate();
 			break;
 		case 7:
+			read_encoder = 1;
 			curCursor2X = lastCursor2X + (encoderValue - encoderZero) * 5;
 			if(curCursor2X >= MAX_CURSOR_1X) {
 				curCursor2X = MAX_CURSOR_1X;
@@ -390,6 +400,7 @@ void Screen1View::tick()
 			verticalLine2.invalidate();
 			break;
 		case 8:
+			read_encoder = 1;
 			curCursor2Y = lastCursor2Y + (encoderValue - encoderZero) * 5;
 			if(curCursor2Y >= MAX_CURSOR_1Y) {
 				curCursor2Y = MAX_CURSOR_1Y;
