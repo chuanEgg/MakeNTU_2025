@@ -1172,9 +1172,20 @@ void StartMain(void *argument)
 void StartSampleADC(void *argument)
 {
   /* USER CODE BEGIN StartSampleADC */
+	adcInit(&hadc1, &hadc2, &hadc3, &htim1);
+	adcStart(&htim1);
   /* Infinite loop */
   for(;;)
   {
+    if(start_sample)
+    {
+    	// should know if capture data is enough and if should measure
+        if (captureData())
+        {
+        	start_plot = 1;
+        	start_sample = 0;
+        }
+    }
     osDelay(1);
   }
   /* USER CODE END StartSampleADC */

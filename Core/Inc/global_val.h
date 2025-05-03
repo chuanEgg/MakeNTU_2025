@@ -24,7 +24,7 @@ typedef enum
 	TRIGGER_MODE_BOTH
 } trigger_mode_typedef;
 
-extern uint8_t trigger_level; // 0-255, maitained by GFX
+extern uint8_t trigger_level; // 0-255, maintained by GFX
 extern uint8_t v_offset; // 0-255, maintained by GFX
 
 extern trigger_mode_typedef trigger_mode;

@@ -11,6 +11,7 @@
 // #include "main.h"
 #include "stdio.h"
 #include "stdint.h"
+#include "stdbool.h"
 #include "adc_routine.h"
 #include "global_val.h"
 
@@ -39,8 +40,12 @@ extern double period_output;
 
 extern int adc_intermediate_index;
 
-void captureData(void);
-void measure(void);
+extern volatile uint8_t trigger_found;
+// extern volatile uint8_t data_done;
+extern volatile uint8_t measure_done;
+
+int captureData(void);
+// void measure(void);
 
 
 #endif /* ADC_SAMPLING_SAMPLING_H_ */
