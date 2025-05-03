@@ -10,6 +10,7 @@
 #include <touchgfx/widgets/Box.hpp>
 #include <touchgfx/widgets/graph/GraphWrapAndClear.hpp>
 #include <touchgfx/widgets/graph/GraphElements.hpp>
+#include <touchgfx/widgets/graph/GraphLabels.hpp>
 #include <touchgfx/widgets/canvas/PainterRGB565.hpp>
 #include <touchgfx/widgets/Button.hpp>
 #include <touchgfx/widgets/TextArea.hpp>
@@ -42,6 +43,8 @@ protected:
     touchgfx::GraphWrapAndClear<100> bodeGraph;
     touchgfx::GraphElementGridX bodeGraphMajorXAxisGrid;
     touchgfx::GraphElementGridY bodeGraphMajorYAxisGrid;
+    touchgfx::GraphLabelsX bodeGraphMajorXAxisLabel;
+    touchgfx::GraphLabelsY bodeGraphMajorYAxisLabel;
     touchgfx::GraphElementLine bodeGraphLine1;
     touchgfx::PainterRGB565 bodeGraphLine1Painter;
     touchgfx::Button switchScreen5;

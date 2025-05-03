@@ -4,8 +4,8 @@
 #include <gui_generated/screen3_screen/Screen3ViewBase.hpp>
 #include <touchgfx/canvas_widget_renderer/CanvasWidgetRenderer.hpp>
 #include <touchgfx/Color.hpp>
-#include <images/BitmapDatabase.hpp>
 #include <texts/TextKeysAndLanguages.hpp>
+#include <images/BitmapDatabase.hpp>
 
 Screen3ViewBase::Screen3ViewBase() :
     buttonCallback(this, &Screen3ViewBase::buttonCallbackHandler)
@@ -38,6 +38,18 @@ Screen3ViewBase::Screen3ViewBase() :
     bodeGraphMajorYAxisGrid.setAlpha(70);
     bodeGraphMajorYAxisGrid.setScale(1);
     bodeGraph.addGraphElement(bodeGraphMajorYAxisGrid);
+
+    bodeGraphMajorXAxisLabel.setInterval(10);
+    bodeGraphMajorXAxisLabel.setLabelTypedText(touchgfx::TypedText(T___SINGLEUSE_Y981));
+    bodeGraphMajorXAxisLabel.setColor(touchgfx::Color::getColorFromRGB(20, 151, 197));
+    bodeGraphMajorXAxisLabel.setScale(1);
+    bodeGraph.addBottomElement(bodeGraphMajorXAxisLabel);
+
+    bodeGraphMajorYAxisLabel.setInterval(26);
+    bodeGraphMajorYAxisLabel.setLabelTypedText(touchgfx::TypedText(T___SINGLEUSE_K8L8));
+    bodeGraphMajorYAxisLabel.setColor(touchgfx::Color::getColorFromRGB(20, 151, 197));
+    bodeGraphMajorYAxisLabel.setScale(1);
+    bodeGraph.addLeftElement(bodeGraphMajorYAxisLabel);
 
     bodeGraphLine1Painter.setColor(touchgfx::Color::getColorFromRGB(196, 188, 22));
     bodeGraphLine1.setPainter(bodeGraphLine1Painter);
