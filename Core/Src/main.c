@@ -91,10 +91,10 @@ TIM_HandleTypeDef htim8;
 
 SDRAM_HandleTypeDef hsdram1;
 
-/* Definitions for defaultTask */
-osThreadId_t defaultTaskHandle;
-const osThreadAttr_t defaultTask_attributes = {
-  .name = "defaultTask",
+/* Definitions for mainTask */
+osThreadId_t mainTaskHandle;
+const osThreadAttr_t mainTask_attributes = {
+  .name = "mainTask",
   .stack_size = 128 * 4,
   .priority = (osPriority_t) osPriorityNormal,
 };
@@ -146,7 +146,7 @@ static void MX_ADC1_Init(void);
 static void MX_ADC2_Init(void);
 static void MX_ADC3_Init(void);
 static void MX_TIM1_Init(void);
-void StartDefaultTask(void *argument);
+void StartMain(void *argument);
 extern void TouchGFX_Task(void *argument);
 extern void videoTaskFunc(void *argument);
 void StartSampleADC(void *argument);
@@ -261,8 +261,8 @@ int main(void)
   /* USER CODE END RTOS_QUEUES */
 
   /* Create the thread(s) */
-  /* creation of defaultTask */
-  defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
+  /* creation of mainTask */
+  mainTaskHandle = osThreadNew(StartMain, NULL, &mainTask_attributes);
 
   /* creation of TouchGFXTask */
   TouchGFXTaskHandle = osThreadNew(TouchGFX_Task, NULL, &TouchGFXTask_attributes);
@@ -1133,14 +1133,14 @@ void EnableMemoryMappedMode(uint8_t manufacturer_id)
 
 /* USER CODE END 4 */
 
-/* USER CODE BEGIN Header_StartDefaultTask */
+/* USER CODE BEGIN Header_StartMain */
 /**
-  * @brief  Function implementing the defaultTask thread.
+  * @brief  Function implementing the mainTask thread.
   * @param  argument: Not used
   * @retval None
   */
-/* USER CODE END Header_StartDefaultTask */
-void StartDefaultTask(void *argument)
+/* USER CODE END Header_StartMain */
+void StartMain(void *argument)
 {
   /* USER CODE BEGIN 5 */
 	for (int i = 0; i < 256; i ++)

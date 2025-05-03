@@ -125,9 +125,11 @@ void captureData(void)
             case TRIGGER_MODE_FALLING :
                 trigger_found = (prev_val >= trigger_level && curr_val < trigger_level);
                 break;
-            case TRIGGER_MODE_BOTH :
-                trigger_found = (prev_val <= trigger_level && curr_val > trigger_level) || (prev_val >= trigger_level && curr_val < trigger_level);
+            default: 
                 break;
+            // case TRIGGER_MODE_BOTH :
+            //     trigger_found = (prev_val <= trigger_level && curr_val > trigger_level) || (prev_val >= trigger_level && curr_val < trigger_level);
+            //     break;
         }
 
         if (trigger_found)
