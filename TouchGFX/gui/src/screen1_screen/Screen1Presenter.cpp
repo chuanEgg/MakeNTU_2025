@@ -19,9 +19,9 @@ void Screen1Presenter::deactivate()
 
 }
 
-void Screen1Presenter::UpdateGraph(uint8_t* value)
+void Screen1Presenter::UpdateGraph(uint8_t* dataHead, uint8_t* dataTail, uint8_t* graphHead)
 {
-	view.UpdateGraph(value);
+	view.UpdateGraph(dataHead, dataTail, graphHead);
 }
 
 void Screen1Presenter::tick()

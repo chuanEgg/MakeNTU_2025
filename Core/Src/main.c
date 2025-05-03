@@ -171,6 +171,7 @@ uint8_t Map(float value)
 	return (uint8_t)((value + 5) * 25.5);
 }
 
+uint8_t* dataHead, *dataTail, *graphHead;
 // 0: sine, 1: square, 2: Triangle, 3: pwm
 uint8_t funcType = 3;
 
@@ -1154,6 +1155,9 @@ void StartMain(void *argument)
 	  {
 		  GraphData[i] = sine_wave[(i + tick) % 256];
 	  }
+	  graphHead = GraphData + 100;
+	  dataHead = GraphData;
+	  dataTail = GraphData + 200;
 	  tick += 1;
 	  tick %= 256;
 	  bUpdate = 1;

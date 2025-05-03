@@ -48,7 +48,7 @@ public:
     virtual void onSingleToggle(const touchgfx::ToggleButton* targetToggle);
 
     // graph
-    void UpdateGraph(uint8_t* value); // update dynamicGraph
+    void UpdateGraph(uint8_t* dataHead, uint8_t* dataTail, uint8_t* graphHead); // update dynamicGraph
 
     // 0: nothing, 1: XScale, 2: YScale, 3: offset, 4: level
     uint8_t encoderTarget = 0;

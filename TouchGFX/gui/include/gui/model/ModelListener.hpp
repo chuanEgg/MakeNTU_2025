@@ -17,7 +17,7 @@ public:
     }
 
     // update dynamic graph
-    virtual void UpdateGraph(uint8_t*) {}
+    virtual void UpdateGraph(uint8_t*, uint8_t*, uint8_t*) {}
     virtual void tick() {}
 
 protected:
