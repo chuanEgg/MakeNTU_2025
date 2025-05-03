@@ -1,8 +1,9 @@
 #include <gui/model/Model.hpp>
 #include <gui/model/ModelListener.hpp>
 #include "main.h"
+#include "global_val.h"
 
-extern uint8_t GraphData[NUM_DATA_POINT];
+extern uint8_t GraphData[LCD_NUM_POINT];
 extern uint8_t bUpdate;
 
 Model::Model() : modelListener(0)

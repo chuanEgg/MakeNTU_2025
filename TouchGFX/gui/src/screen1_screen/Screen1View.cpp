@@ -3,6 +3,8 @@
 #include <touchgfx/containers/SlideMenu.hpp>
 #include <algorithm>
 
+#include "global_val.h"
+
 #define SCREEN_HEIGHT 260
 #define SCREEN_WIDTH 200
 #define MAX_X_SCALE_INDEX 12
@@ -445,7 +447,7 @@ void Screen1View::onSlideMenuUpdated()
 void Screen1View::UpdateGraph(uint8_t* value)
 {
 	displayGraph.clear();
-	for (int i = 0; i < NUM_DATA_POINT; i ++)
+	for (int i = 0; i < LCD_NUM_POINT; i ++)
 	{
 		displayGraph.addDataPoint((value[i] - (SCREEN_HEIGHT / 2)) * YScaleTable[curYScale] + (SCREEN_HEIGHT / 2) + curOffset);
 	}

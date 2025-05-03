@@ -10,12 +10,16 @@
 #include "../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc.h"
 #include "../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_tim.h"
 #include "../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h"
+#include "signal.h"
 
 #include <stdint.h>
 
 uint8_t adc_raw_buffer[3][ADC_BUFFER_LEN] = {0};
-uint32_t adc_conv_cplt[3] = {0};
-uint32_t adc_half_conv_cplt[3] = {0};
+uint8_t adc_conv_cplt[3] = {0};
+uint8_t adc_half_conv_cplt[3] = {0};
+uint8_t is_top_half = 1; // indicate which half of adc buffer is active
+
+extern uint8_t start_sample; // indicate whether to start sampling or not
 
 void adcInit(ADC_HandleTypeDef *hadc1, ADC_HandleTypeDef *hadc2, ADC_HandleTypeDef *hadc3, TIM_HandleTypeDef *htim)
 {
@@ -40,34 +44,36 @@ void adcStart(TIM_HandleTypeDef *htim)
 
 void HAL_ADC_ConvHalfCpltCallback(ADC_HandleTypeDef *hadc)
 {
-    if(hadc->Instance == ADC1)
-    {
-	      HAL_GPIO_TogglePin(GPIOG, GPIO_PIN_7);
-        adc_half_conv_cplt[0]++;
-    }
-    else if(hadc->Instance == ADC2)
-    {
-        adc_half_conv_cplt[1]++;
-    }
-    else if(hadc->Instance == ADC3)
-    {
-        adc_half_conv_cplt[2]++;
-    }
+    is_top_half = 1; // indicate which half of adc buffer is active
+    HAL_GPIO_TogglePin(GPIOG, GPIO_PIN_7);
+    // if(hadc->Instance == ADC1)
+    // {
+    //     adc_half_conv_cplt[0]++;
+    // }
+    // else if(hadc->Instance == ADC2)
+    // {
+    //     adc_half_conv_cplt[1]++;
+    // }
+    // else if(hadc->Instance == ADC3)
+    // {
+    //     adc_half_conv_cplt[2]++;
+    // }
 }
 
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
 {
-	if(hadc->Instance == ADC1)
-	{
-	      HAL_GPIO_TogglePin(GPIOG, GPIO_PIN_7);
-		adc_conv_cplt[0]++;
-	}
-	else if(hadc->Instance == ADC2)
-	{
-		adc_conv_cplt[1]++;
-	}
-	else if(hadc->Instance == ADC3)
-	{
-		adc_conv_cplt[2]++;
-	}
+    is_top_half = 0; // indicate which half of adc buffer is active
+    HAL_GPIO_TogglePin(GPIOG, GPIO_PIN_7);
+    // if(hadc->Instance == ADC1)
+    // {
+    //     adc_conv_cplt[0]++;
+    // }
+    // else if(hadc->Instance == ADC2)
+    // {
+    //     adc_conv_cplt[1]++;
+    // }
+    // else if(hadc->Instance == ADC3)
+    // {
+    //     adc_conv_cplt[2]++;
+    // }
 }

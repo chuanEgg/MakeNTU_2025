@@ -28,6 +28,7 @@
 #include <math.h>
 
 #include "adc_routine.h"
+#include "global_val.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -89,10 +90,10 @@ TIM_HandleTypeDef htim8;
 
 SDRAM_HandleTypeDef hsdram1;
 
-/* Definitions for defaultTask */
-osThreadId_t defaultTaskHandle;
-const osThreadAttr_t defaultTask_attributes = {
-  .name = "defaultTask",
+/* Definitions for mainTask */
+osThreadId_t mainTaskHandle;
+const osThreadAttr_t mainTask_attributes = {
+  .name = "mainTask",
   .stack_size = 128 * 4,
   .priority = (osPriority_t) osPriorityNormal,
 };
@@ -110,12 +111,12 @@ const osThreadAttr_t videoTask_attributes = {
   .stack_size = 1000 * 4,
   .priority = (osPriority_t) osPriorityLow,
 };
-/* Definitions for sampleADC */
-osThreadId_t sampleADCHandle;
-const osThreadAttr_t sampleADC_attributes = {
-  .name = "sampleADC",
+/* Definitions for adcRoutine */
+osThreadId_t adcRoutineHandle;
+const osThreadAttr_t adcRoutine_attributes = {
+  .name = "adcRoutine",
   .stack_size = 128 * 4,
-  .priority = (osPriority_t) osPriorityLow,
+  .priority = (osPriority_t) osPriorityAboveNormal,
 };
 /* USER CODE BEGIN PV */
 static FMC_SDRAM_CommandTypeDef Command;
@@ -137,10 +138,10 @@ static void MX_ADC1_Init(void);
 static void MX_ADC2_Init(void);
 static void MX_ADC3_Init(void);
 static void MX_TIM1_Init(void);
-void StartDefaultTask(void *argument);
+void StartMain(void *argument);
 extern void TouchGFX_Task(void *argument);
 extern void videoTaskFunc(void *argument);
-void StartSampleADC(void *argument);
+void StartADCRoutine(void *argument);
 
 /* USER CODE BEGIN PFP */
 void GetManufacturerId (uint8_t *manufacturer_id);
@@ -150,7 +151,7 @@ void EnableMemoryMappedMode(uint8_t manufacturer_id);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-uint8_t GraphData[NUM_DATA_POINT] = {0};
+uint8_t GraphData[LCD_NUM_POINT] = {0};
 uint32_t tick = 0;
 uint8_t sine_wave[256];
 uint8_t bUpdate = 0; // set to true when graph needs to be updated
@@ -250,17 +251,17 @@ int main(void)
   /* USER CODE END RTOS_QUEUES */
 
   /* Create the thread(s) */
-  /* creation of defaultTask */
-  defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
+  /* creation of mainTask */
+  mainTaskHandle = osThreadNew(StartMain, NULL, &mainTask_attributes);
 
   /* creation of TouchGFXTask */
   TouchGFXTaskHandle = osThreadNew(TouchGFX_Task, NULL, &TouchGFXTask_attributes);
 
   /* creation of videoTask */
-  // videoTaskHandle = osThreadNew(videoTaskFunc, NULL, &videoTask_attributes);
+  videoTaskHandle = osThreadNew(videoTaskFunc, NULL, &videoTask_attributes);
 
-  /* creation of sampleADC */
-  sampleADCHandle = osThreadNew(StartSampleADC, NULL, &sampleADC_attributes);
+  /* creation of adcRoutine */
+  adcRoutineHandle = osThreadNew(StartADCRoutine, NULL, &adcRoutine_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -865,10 +866,10 @@ static void MX_DMA_Init(void)
   HAL_NVIC_SetPriority(DMA2_Stream0_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(DMA2_Stream0_IRQn);
   /* DMA2_Stream1_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA2_Stream1_IRQn, 0, 0);
+  HAL_NVIC_SetPriority(DMA2_Stream1_IRQn, 5, 0);
   HAL_NVIC_EnableIRQ(DMA2_Stream1_IRQn);
   /* DMA2_Stream2_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA2_Stream2_IRQn, 0, 0);
+  HAL_NVIC_SetPriority(DMA2_Stream2_IRQn, 5, 0);
   HAL_NVIC_EnableIRQ(DMA2_Stream2_IRQn);
 
 }
@@ -1119,14 +1120,14 @@ void EnableMemoryMappedMode(uint8_t manufacturer_id)
 
 /* USER CODE END 4 */
 
-/* USER CODE BEGIN Header_StartDefaultTask */
+/* USER CODE BEGIN Header_StartMain */
 /**
-  * @brief  Function implementing the defaultTask thread.
+  * @brief  Function implementing the mainTask thread.
   * @param  argument: Not used
   * @retval None
   */
-/* USER CODE END Header_StartDefaultTask */
-void StartDefaultTask(void *argument)
+/* USER CODE END Header_StartMain */
+void StartMain(void *argument)
 {
   /* USER CODE BEGIN 5 */
 	for (int i = 0; i < 256; i ++)
@@ -1138,7 +1139,7 @@ void StartDefaultTask(void *argument)
   {
 	  encoderValue = (int16_t)__HAL_TIM_GET_COUNTER(&htim8);
 //	  __HAL_TIM_SET_COUNTER(&htim8, 0);
-	  for (int i=0; i< NUM_DATA_POINT; i++)
+	  for (int i=0; i< LCD_NUM_POINT; i++)
 	  {
 		  GraphData[i] = sine_wave[(i + tick) % 256];
 	  }
@@ -1150,25 +1151,32 @@ void StartDefaultTask(void *argument)
   /* USER CODE END 5 */
 }
 
-/* USER CODE BEGIN Header_StartSampleADC */
+/* USER CODE BEGIN Header_StartADCRoutine */
 /**
-* @brief Function implementing the sampleADC thread.
+* @brief Function implementing the adcRoutine thread.
 * @param argument: Not used
 * @retval None
 */
-/* USER CODE END Header_StartSampleADC */
-void StartSampleADC(void *argument)
+/* USER CODE END Header_StartADCRoutine */
+void StartADCRoutine(void *argument)
 {
-  /* USER CODE BEGIN StartSampleADC */
+  /* USER CODE BEGIN StartADCRoutine */
 	adcInit(&hadc1, &hadc2, &hadc3, &htim1);
 	adcStart(&htim1);
   /* Infinite loop */
   for(;;)
   {
-	  checkpoint++;
-    osDelay(100);
+    if(start_sample)
+    {
+    	// should know if capture data is enough and if should measure
+        captureData();
+        measure();
+        start_sample = 0;
+        start_plot = 1;
+    }
+    osDelay(1);
   }
-  /* USER CODE END StartSampleADC */
+  /* USER CODE END StartADCRoutine */
 }
 
  /* MPU Configuration */
