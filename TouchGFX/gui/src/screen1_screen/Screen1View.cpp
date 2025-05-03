@@ -3,6 +3,9 @@
 #include <touchgfx/containers/SlideMenu.hpp>
 #include <algorithm>
 
+#define SCREEN_HEIGHT 260
+#define SCREEN_WIDTH 200
+
 extern "C"
 {
 	extern int16_t encoderValue;
@@ -114,6 +117,7 @@ void Screen1View::onPeriodToggled()
 
 void Screen1View::onSingleToggle(const touchgfx::ToggleButton* targetToggle)
 {
+	encoderZero = encoderValue;
 	for (int i = 0; i < 4; i ++)
 	{
 		if (singleToggle[i] != targetToggle)
@@ -135,6 +139,12 @@ void Screen1View::onXScaleToggled()
 void Screen1View::onYScaleToggled()
 {
 	encoderTarget = (YScaleToggle.getState()) ? 2 : 0;
+	if(YScaleToggle.getState() == false) {
+		curYScale = lastYScaleIndex;
+	}
+	else {
+		lastYScaleIndex = curYScale;
+	}
 	onSingleToggle(&YScaleToggle);
 }
 
@@ -157,13 +167,27 @@ void Screen1View::onLevelToggled()
 
 void Screen1View::tick()
 {
-//	if (encoderTarget)
-//	{
-//		switch (encoderTarget)
-//		{
-//		case 1:
-//		}
-//	}
+	switch(encoderTarget) {
+		case 0:
+			break;
+		case 1: // XScale
+			break;
+		case 2: // YScale
+			curYScale = lastYScaleIndex + encoderValue - encoderZero;
+			if(curYScale > maxYScaleIndex) {
+				curYScale = maxYScaleIndex;
+				encoderZero = lastYScaleIndex + encoderValue - curYScale;
+			}
+			if(curYScale < 0) {
+				curYScale = 0;
+				encoderZero = lastYScaleIndex + encoderValue - curYScale;
+			}
+			break;
+		case 3: // offset
+			break;
+		case 4: // level
+			break;
+	}
 }
 
 void Screen1View::onSlideMenuUpdated()
@@ -184,7 +208,7 @@ void Screen1View::UpdateGraph(uint8_t* value)
 	displayGraph.clear();
 	for (int i = 0; i < NUM_DATA_POINT; i ++)
 	{
-		displayGraph.addDataPoint(value[i]);
+		displayGraph.addDataPoint((value[i] - (SCREEN_HEIGHT / 2)) * YScaleTable[curYScale] + (SCREEN_HEIGHT / 2));
 	}
 	displayGraph.invalidate();
 }
