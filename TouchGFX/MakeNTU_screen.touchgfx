@@ -181,7 +181,7 @@
             "Type": "Line",
             "Name": "horizontalLine1",
             "X": 15,
-            "Y": 111,
+            "Y": 220,
             "Width": 435,
             "Height": 15,
             "Visible": false,
@@ -199,7 +199,7 @@
             "Type": "Line",
             "Name": "horizontalLine2",
             "X": 15,
-            "Y": 111,
+            "Y": 220,
             "Width": 435,
             "Height": 15,
             "Visible": false,
@@ -681,6 +681,26 @@
                     "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_action.png"
                   },
                   {
+                    "Type": "ToggleButton",
+                    "Name": "cursor2XToggle",
+                    "X": -1,
+                    "Y": 96,
+                    "Width": 100,
+                    "Height": 36,
+                    "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_normal.png",
+                    "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_active.png"
+                  },
+                  {
+                    "Type": "ToggleButton",
+                    "Name": "cursor2YToggle",
+                    "X": -1,
+                    "Y": 142,
+                    "Width": 100,
+                    "Height": 36,
+                    "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_normal.png",
+                    "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_active.png"
+                  },
+                  {
                     "Type": "TextArea",
                     "Name": "cursor1YText",
                     "X": 34,
@@ -711,6 +731,28 @@
                       "Blue": 255
                     },
                     "AutoSize": true
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "cursor2XText",
+                    "X": 34,
+                    "Y": 100,
+                    "Width": 33,
+                    "Height": 24,
+                    "TextId": "__SingleUse_B2ZS",
+                    "TextRotation": "0",
+                    "AutoSize": true
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "cursor2YText",
+                    "X": 34,
+                    "Y": 148,
+                    "Width": 33,
+                    "Height": 24,
+                    "TextId": "__SingleUse_O3GV",
+                    "TextRotation": "0",
+                    "AutoSize": true
                   }
                 ]
               }
@@ -719,7 +761,7 @@
           {
             "Type": "ButtonWithIcon",
             "Name": "backButton",
-            "X": 370,
+            "X": 366,
             "Y": 214,
             "Width": 100,
             "Height": 36,
@@ -747,12 +789,37 @@
             },
             "AutoSize": true,
             "Wildcard1": {
-              "TextId": "cursor1Data1",
+              "TextId": "cursor2Data1",
               "UseBuffer": true,
               "BufferSize": 10
             },
             "Wildcard2": {
-              "TextId": "cursor1Data2",
+              "TextId": "cursor2Data2",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "cursor2DataText",
+            "X": 169,
+            "Y": 4,
+            "Width": 126,
+            "Height": 12,
+            "TextId": "__SingleUse_Y2DS",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 187,
+              "Green": 187
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "cursor2Data1",
+              "UseBuffer": true,
+              "BufferSize": 10
+            },
+            "Wildcard2": {
+              "TextId": "cursor2Data2",
               "UseBuffer": true,
               "BufferSize": 10
             }
@@ -945,6 +1012,28 @@
             "Action": {
               "Type": "ActionCustom",
               "FunctionName": "onCursor1YToggled"
+            }
+          },
+          {
+            "InteractionName": "onCursor2XToggled",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "cursor2XToggle"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onCursor2XToggled"
+            }
+          },
+          {
+            "InteractionName": "onCursor2YToggled",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "cursor2YToggle"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onCursor2YToggled"
             }
           }
         ]

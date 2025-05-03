@@ -94,6 +94,14 @@ public:
     {
         // Override and implement this function in Screen1
     }
+    virtual void onCursor2XToggled()
+    {
+        // Override and implement this function in Screen1
+    }
+    virtual void onCursor2YToggled()
+    {
+        // Override and implement this function in Screen1
+    }
 
 protected:
     FrontendApplication& application() {
@@ -160,10 +168,15 @@ protected:
     touchgfx::Container cursorMenu;
     touchgfx::ToggleButton cursor1YToggle;
     touchgfx::ToggleButton cursor1XToggle;
+    touchgfx::ToggleButton cursor2XToggle;
+    touchgfx::ToggleButton cursor2YToggle;
     touchgfx::TextArea cursor1YText;
     touchgfx::TextArea cursor1XText;
+    touchgfx::TextArea cursor2XText;
+    touchgfx::TextArea cursor2YText;
     touchgfx::ButtonWithIcon backButton;
     touchgfx::TextAreaWithTwoWildcards cursor1DataText;
+    touchgfx::TextAreaWithTwoWildcards cursor2DataText;
 
     /*
      * Wildcard Buffers
@@ -184,6 +197,10 @@ protected:
     touchgfx::Unicode::UnicodeChar cursor1DataTextBuffer1[CURSOR1DATATEXTBUFFER1_SIZE];
     static const uint16_t CURSOR1DATATEXTBUFFER2_SIZE = 10;
     touchgfx::Unicode::UnicodeChar cursor1DataTextBuffer2[CURSOR1DATATEXTBUFFER2_SIZE];
+    static const uint16_t CURSOR2DATATEXTBUFFER1_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar cursor2DataTextBuffer1[CURSOR2DATATEXTBUFFER1_SIZE];
+    static const uint16_t CURSOR2DATATEXTBUFFER2_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar cursor2DataTextBuffer2[CURSOR2DATATEXTBUFFER2_SIZE];
 
 private:
 

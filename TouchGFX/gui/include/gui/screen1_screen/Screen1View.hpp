@@ -37,6 +37,8 @@ public:
     // cursor
     virtual void onCursor1XToggled();
     virtual void onCursor1YToggled();
+    virtual void onCursor2XToggled();
+    virtual void onCursor2YToggled();
 
     // trigger
     virtual void onLevelToggled();
@@ -58,19 +60,22 @@ public:
 	int lastOffset = 0;
 	int16_t lastLevel = 0;
 	int16_t lastCursor1X = 120, lastCursor1Y = 50;
+	int16_t lastCursor2X = 120, lastCursor2Y = 50;
 	// int16_t tempEncoderValue;
 	int curXScale = 6;
 	int curYScale = 6;
 	int curOffset = 0;
 	int curCursor1X = 120;
 	int curCursor1Y = 50;
+	int curCursor2X = 120;
+	int curCursor2Y = 50;
 
     // 0: rising edge, 1: falling edge
     uint8_t triggerType = 0;
     int16_t triggerLevel = 125;
 
     // ToggleButtons that should be only one being toggled
-    touchgfx::ToggleButton* singleToggle[6];
+    touchgfx::ToggleButton* singleToggle[8];
 
     // list to maintain menu items
     touchgfx::Container* menuList[5];

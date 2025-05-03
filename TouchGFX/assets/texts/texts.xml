@@ -10,10 +10,19 @@
       </Text>
     </TextGroup>
     <TextGroup Id="Unsorted">
-      <Text Id="cursor1Data2" Alignment="Left" TypographyId="Small">
+      <Text Id="__SingleUse_Y2DS" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">2: x=&lt;value&gt;, y=&lt;value&gt; V</Translation>
+      </Text>
+      <Text Id="__SingleUse_O3GV" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">2 Y</Translation>
+      </Text>
+      <Text Id="__SingleUse_B2ZS" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">2 X</Translation>
+      </Text>
+      <Text Id="cursor2Data2" Alignment="Left" TypographyId="Small">
         <Translation Language="GB">1.234</Translation>
       </Text>
-      <Text Id="cursor1Data1" Alignment="Left" TypographyId="Small">
+      <Text Id="cursor2Data1" Alignment="Left" TypographyId="Small">
         <Translation Language="GB">1.234</Translation>
       </Text>
       <Text Id="__SingleUse_LZWQ" Alignment="Left" TypographyId="Small">

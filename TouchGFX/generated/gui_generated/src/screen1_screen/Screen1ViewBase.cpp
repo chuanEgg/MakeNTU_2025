@@ -97,7 +97,7 @@ Screen1ViewBase::Screen1ViewBase() :
     horizontalLine0.setVisible(false);
     add(horizontalLine0);
 
-    horizontalLine1.setPosition(15, 111, 435, 15);
+    horizontalLine1.setPosition(15, 220, 435, 15);
     horizontalLine1Painter.setColor(touchgfx::Color::getColorFromRGB(187, 187, 0));
     horizontalLine1.setPainter(horizontalLine1Painter);
     horizontalLine1.setStart(0, 3);
@@ -107,7 +107,7 @@ Screen1ViewBase::Screen1ViewBase() :
     horizontalLine1.setVisible(false);
     add(horizontalLine1);
 
-    horizontalLine2.setPosition(15, 111, 435, 15);
+    horizontalLine2.setPosition(15, 220, 435, 15);
     horizontalLine2Painter.setColor(touchgfx::Color::getColorFromRGB(0, 187, 187));
     horizontalLine2.setPainter(horizontalLine2Painter);
     horizontalLine2.setStart(0, 3);
@@ -333,6 +333,16 @@ Screen1ViewBase::Screen1ViewBase() :
     cursor1XToggle.setAction(buttonCallback);
     cursorMenu.add(cursor1XToggle);
 
+    cursor2XToggle.setXY(-1, 96);
+    cursor2XToggle.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_ACTIVE_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_NORMAL_ID));
+    cursor2XToggle.setAction(buttonCallback);
+    cursorMenu.add(cursor2XToggle);
+
+    cursor2YToggle.setXY(-1, 142);
+    cursor2YToggle.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_ACTIVE_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_NORMAL_ID));
+    cursor2YToggle.setAction(buttonCallback);
+    cursorMenu.add(cursor2YToggle);
+
     cursor1YText.setXY(34, 52);
     cursor1YText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     cursor1YText.setLinespacing(0);
@@ -345,11 +355,23 @@ Screen1ViewBase::Screen1ViewBase() :
     cursor1XText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_XFCZ));
     cursorMenu.add(cursor1XText);
 
+    cursor2XText.setXY(34, 100);
+    cursor2XText.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    cursor2XText.setLinespacing(0);
+    cursor2XText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_B2ZS));
+    cursorMenu.add(cursor2XText);
+
+    cursor2YText.setXY(34, 148);
+    cursor2YText.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    cursor2YText.setLinespacing(0);
+    cursor2YText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_O3GV));
+    cursorMenu.add(cursor2YText);
+
     slideMenu1.add(cursorMenu);
 
     add(slideMenu1);
 
-    backButton.setXY(370, 214);
+    backButton.setXY(366, 214);
     backButton.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_NORMAL_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_PRESSED_ID), touchgfx::Bitmap(BITMAP_ICON_THEME_IMAGES_HARDWARE_KEYBOARD_BACKSPACE_36_36_E8F6FB_SVG_ID), touchgfx::Bitmap(BITMAP_ICON_THEME_IMAGES_HARDWARE_KEYBOARD_BACKSPACE_36_36_E8F6FB_SVG_ID));
     backButton.setIconXY(30, 0);
     backButton.setVisible(false);
@@ -359,13 +381,24 @@ Screen1ViewBase::Screen1ViewBase() :
     cursor1DataText.setXY(15, 4);
     cursor1DataText.setColor(touchgfx::Color::getColorFromRGB(187, 187, 0));
     cursor1DataText.setLinespacing(0);
-    touchgfx::Unicode::snprintf(cursor1DataTextBuffer1, CURSOR1DATATEXTBUFFER1_SIZE, "%s", touchgfx::TypedText(T_CURSOR1DATA1).getText());
+    touchgfx::Unicode::snprintf(cursor1DataTextBuffer1, CURSOR1DATATEXTBUFFER1_SIZE, "%s", touchgfx::TypedText(T_CURSOR2DATA1).getText());
     cursor1DataText.setWildcard1(cursor1DataTextBuffer1);
-    touchgfx::Unicode::snprintf(cursor1DataTextBuffer2, CURSOR1DATATEXTBUFFER2_SIZE, "%s", touchgfx::TypedText(T_CURSOR1DATA2).getText());
+    touchgfx::Unicode::snprintf(cursor1DataTextBuffer2, CURSOR1DATATEXTBUFFER2_SIZE, "%s", touchgfx::TypedText(T_CURSOR2DATA2).getText());
     cursor1DataText.setWildcard2(cursor1DataTextBuffer2);
     cursor1DataText.resizeToCurrentText();
     cursor1DataText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_LZWQ));
     add(cursor1DataText);
+
+    cursor2DataText.setXY(169, 4);
+    cursor2DataText.setColor(touchgfx::Color::getColorFromRGB(187, 187, 0));
+    cursor2DataText.setLinespacing(0);
+    touchgfx::Unicode::snprintf(cursor2DataTextBuffer1, CURSOR2DATATEXTBUFFER1_SIZE, "%s", touchgfx::TypedText(T_CURSOR2DATA1).getText());
+    cursor2DataText.setWildcard1(cursor2DataTextBuffer1);
+    touchgfx::Unicode::snprintf(cursor2DataTextBuffer2, CURSOR2DATATEXTBUFFER2_SIZE, "%s", touchgfx::TypedText(T_CURSOR2DATA2).getText());
+    cursor2DataText.setWildcard2(cursor2DataTextBuffer2);
+    cursor2DataText.resizeToCurrentText();
+    cursor2DataText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_Y2DS));
+    add(cursor2DataText);
 }
 
 Screen1ViewBase::~Screen1ViewBase()
@@ -491,6 +524,20 @@ void Screen1ViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& src)
         //When cursor1YToggle clicked call virtual function
         //Call onCursor1YToggled
         onCursor1YToggled();
+    }
+    if (&src == &cursor2XToggle)
+    {
+        //onCursor2XToggled
+        //When cursor2XToggle clicked call virtual function
+        //Call onCursor2XToggled
+        onCursor2XToggled();
+    }
+    if (&src == &cursor2YToggle)
+    {
+        //onCursor2YToggled
+        //When cursor2YToggle clicked call virtual function
+        //Call onCursor2YToggled
+        onCursor2YToggled();
     }
 }
 

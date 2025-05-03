@@ -34,6 +34,8 @@ Screen1View::Screen1View()
 	singleToggle[3] = &levelToggle;
 	singleToggle[4] = &cursor1XToggle;
 	singleToggle[5] = &cursor1YToggle;
+	singleToggle[6] = &cursor2XToggle;
+	singleToggle[7] = &cursor2YToggle;
 
 	menuList[0] = &mainMenu;
 	menuList[1] = &displayMenu;
@@ -144,7 +146,7 @@ void Screen1View::onPeriodToggled()
 void Screen1View::onSingleToggle(const touchgfx::ToggleButton* targetToggle)
 {
 	encoderZero = encoderValue;
-	for (int i = 0; i < 6; i ++)
+	for (int i = 0; i < 8; i ++)
 	{
 		if (singleToggle[i] != targetToggle)
 		{
@@ -158,12 +160,18 @@ void Screen1View::onSingleToggle(const touchgfx::ToggleButton* targetToggle)
 	horizontalLine1.invalidate();
 	verticalLine1.setVisible(false);
 	verticalLine1.invalidate();
+	horizontalLine2.setVisible(false);
+	horizontalLine2.invalidate();
+	verticalLine2.setVisible(false);
+	verticalLine2.invalidate();
 	lastXScaleIndex = curXScale;
 	lastYScaleIndex = curYScale;
 	lastOffset = curOffset;
 	lastLevel = triggerLevel;
 	lastCursor1X = curCursor1X;
 	lastCursor1Y = curCursor1Y;
+	lastCursor2X = curCursor2X;
+	lastCursor2Y = curCursor2Y;
 }
 
 void Screen1View::onXScaleToggled()
@@ -233,6 +241,23 @@ void Screen1View::onCursor1XToggled()
 	}
 }
 
+void Screen1View::onCursor2XToggled()
+{
+	encoderTarget = (cursor2XToggle.getState()) ? 7 : 0;
+	onSingleToggle(&cursor2XToggle);
+	if (cursor2XToggle.getState() == false)
+	{
+		lastCursor2X = curCursor2X;
+	}
+	else
+	{
+		curCursor2X = lastCursor2X;
+		horizontalLine2.setVisible(true);
+		horizontalLine2.invalidate();
+		verticalLine2.setVisible(true);
+		verticalLine2.invalidate();
+	}
+}
 void Screen1View::onCursor1YToggled()
 {
 	encoderTarget = (cursor1YToggle.getState()) ? 6 : 0;
@@ -247,6 +272,25 @@ void Screen1View::onCursor1YToggled()
 		verticalLine1.setVisible(true);
 		verticalLine1.invalidate();
 	}
+}
+
+void Screen1View::onCursor2YToggled()
+{
+	encoderTarget = (cursor2YToggle.getState()) ? 8 : 0;
+	onSingleToggle(&cursor2YToggle);
+	if (cursor2YToggle.getState() == false)
+	{
+		lastCursor2Y = curCursor2Y;
+	}
+	else
+	{
+		curCursor2Y = lastCursor2Y;
+		horizontalLine2.setVisible(true);
+		horizontalLine2.invalidate();
+		verticalLine2.setVisible(true);
+		verticalLine2.invalidate();
+	}
+
 }
 
 void Screen1View::tick()
@@ -326,12 +370,41 @@ void Screen1View::tick()
 			horizontalLine1.setPosition(15, (int16_t)(MAX_LEVEL - curCursor1Y), slideMenu1.getState() == SlideMenu::COLLAPSED ? 435 : 297, 15);
 			horizontalLine1.invalidate();
 			break;
+		case 7:
+			curCursor2X = lastCursor2X + (encoderValue - encoderZero) * 5;
+			if(curCursor2X >= MAX_CURSOR_1X) {
+				curCursor2X = MAX_CURSOR_1X;
+				encoderZero = encoderValue - (curCursor2X - lastCursor2X) / 5;
+			}
+			if(curCursor2X <= MIN_CURSOR_1X) {
+				curCursor2X = MIN_CURSOR_1X;
+				encoderZero = encoderValue - (curCursor2X - lastCursor2X) / 5;
+			}
+			verticalLine2.setPosition(slideMenu1.getState() == SlideMenu::COLLAPSED ? (int16_t)curCursor2X : (int16_t)curCursor2X * 297 / 450, 20, 15, 230);
+			verticalLine2.invalidate();
+			break;
+		case 8:
+			curCursor2Y = lastCursor2Y + (encoderValue - encoderZero) * 5;
+			if(curCursor2Y >= MAX_CURSOR_1Y) {
+				curCursor2Y = MAX_CURSOR_1Y;
+				encoderZero = encoderValue - (curCursor2Y - lastCursor2Y) / 5;
+			}
+			if(curCursor2Y <= MIN_CURSOR_1Y) {
+				curCursor2Y = MIN_CURSOR_1Y;
+				encoderZero = encoderValue - (curCursor2Y - lastCursor2Y) / 5;
+			}
+			horizontalLine2.setPosition(15, (int16_t)(MAX_LEVEL - curCursor2Y), slideMenu1.getState() == SlideMenu::COLLAPSED ? 435 : 297, 15);
+			horizontalLine2.invalidate();
+			break;
 		default:
 			break;
 	}
 	Unicode::snprintfFloat(cursor1DataTextBuffer1, 10, "%.3f\0", curCursor1X);
 	Unicode::snprintfFloat(cursor1DataTextBuffer2, 10, "%.3f\0", curCursor1Y);
+	Unicode::snprintfFloat(cursor2DataTextBuffer1, 10, "%.3f\0", curCursor2X);
+	Unicode::snprintfFloat(cursor2DataTextBuffer2, 10, "%.3f\0", curCursor2Y);
 	cursor1DataText.invalidate();
+	cursor2DataText.invalidate();
 }
 
 void Screen1View::onSlideMenuUpdated()
@@ -392,6 +465,3 @@ void Screen1View::onTriggerTypeClicked()
 	}
 	triggerTypeText.invalidate();
 }
-// trigger menu
-// detection type
-// level
