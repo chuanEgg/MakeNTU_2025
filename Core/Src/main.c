@@ -31,6 +31,7 @@
 #include "sampling.h"
 #include "global_val.h"
 #include "mysignal.h"
+#include "AD9850.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -238,6 +239,7 @@ int main(void)
   MX_TouchGFX_PreOSInit();
   /* USER CODE BEGIN 2 */
   HAL_TIM_Encoder_Start(&htim8, TIM_CHANNEL_ALL);
+  AD9850_Init();
   /* USER CODE END 2 */
 
   /* Init scheduler */
@@ -284,7 +286,7 @@ int main(void)
   /* USER CODE END RTOS_EVENTS */
 
   /* Start scheduler */
-  osKernelStart();
+//  osKernelStart();
 
   /* We should never get here as control is now taken by the scheduler */
 
@@ -292,6 +294,16 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  for (int i = 100; i <= 200; i++)
+	  {
+		  AD9850_Write((float)i, 0.0);
+		  HAL_Delay(20);
+	  }
+	  for (int i = 200; i >= 100; i--)
+	  {
+		  AD9850_Write((float)i, 0.0);
+		  HAL_Delay(20);
+	  }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
