@@ -54,6 +54,10 @@ public:
     {
         // Override and implement this function in Screen1
     }
+    virtual void onSlideMenuUpdated()
+    {
+        // Override and implement this function in Screen1
+    }
     virtual void onXScaleToggled()
     {
         // Override and implement this function in Screen1
@@ -185,11 +189,13 @@ private:
      * Callback Declarations
      */
     touchgfx::Callback<Screen1ViewBase, const touchgfx::AbstractButton&> buttonCallback;
+    touchgfx::Callback<Screen1ViewBase, const touchgfx::SlideMenu&> slideMenuStateChangedCallback;
 
     /*
      * Callback Handler Declarations
      */
     void buttonCallbackHandler(const touchgfx::AbstractButton& src);
+    void slideMenuStateChangedCallbackHandler(const touchgfx::SlideMenu& src);
 
 };
 

@@ -40,6 +40,7 @@ Screen1View::Screen1View()
 	menuList[2] = &measureMenu;
 	menuList[3] = &triggerMenu;
 	menuList[4] = &cursorMenu;
+
 }
 
 void Screen1View::setupScreen()
@@ -334,16 +335,22 @@ void Screen1View::onSlideMenuUpdated()
 {
 	if (slideMenu1.getState() == SlideMenu::COLLAPSED)
 	{
+//		slideMenu.setPisition()
 		backButton.setVisible(false);
 		for (int i = 1; i < 4; i ++)
 		{
 			menuList[i]->setVisible(false);
 		}
 		mainMenu.setVisible(true);
+		displayGraph.setPosition(15, 20, 435, 230);
+		displayGraph.invalidate();
+//		slideMenu1.setXY(486, 0);
+//		slideMenu1.invalidate();
 	}
 	else
 	{
-//		displayGraph.setPosition(15, 0, 297, 250);
+		displayGraph.setPosition(15, 20, 297, 250);
+		displayGraph.invalidate();
 	}
 }
 
@@ -354,7 +361,7 @@ void Screen1View::UpdateGraph(uint8_t* value)
 	{
 		displayGraph.addDataPoint((value[i] - (SCREEN_HEIGHT / 2)) * YScaleTable[curYScale] + (SCREEN_HEIGHT / 2) + curOffset);
 	}
-	displayGraph.invalidate();
+	displayGraph.invalidateContent();
 }
 
 void Screen1View::onTriggerTypeClicked()

@@ -113,22 +113,26 @@
 ../../TouchGFX/generated/gui_generated/include/gui_generated/screen1_screen/Screen1ViewBase.hpp:45:18:virtual void Screen1ViewBase::onBackButtonClicked()	1
 ../../TouchGFX/generated/gui_generated/include/gui_generated/screen1_screen/Screen1ViewBase.hpp:49:18:virtual void Screen1ViewBase::onDisplayMenuClicked()	1
 ../../TouchGFX/generated/gui_generated/include/gui_generated/screen1_screen/Screen1ViewBase.hpp:53:18:virtual void Screen1ViewBase::onMeasureMenuClicked()	1
-../../TouchGFX/generated/gui_generated/include/gui_generated/screen1_screen/Screen1ViewBase.hpp:57:18:virtual void Screen1ViewBase::onXScaleToggled()	1
-../../TouchGFX/generated/gui_generated/include/gui_generated/screen1_screen/Screen1ViewBase.hpp:61:18:virtual void Screen1ViewBase::onYScaleToggled()	1
-../../TouchGFX/generated/gui_generated/include/gui_generated/screen1_screen/Screen1ViewBase.hpp:65:18:virtual void Screen1ViewBase::onOffsetToggled()	1
-../../TouchGFX/generated/gui_generated/include/gui_generated/screen1_screen/Screen1ViewBase.hpp:69:18:virtual void Screen1ViewBase::onTriggerMenuClicked()	1
-../../TouchGFX/generated/gui_generated/include/gui_generated/screen1_screen/Screen1ViewBase.hpp:73:18:virtual void Screen1ViewBase::onLevelToggled()	1
-../../TouchGFX/generated/gui_generated/include/gui_generated/screen1_screen/Screen1ViewBase.hpp:77:18:virtual void Screen1ViewBase::onTriggerTypeClicked()	1
-../../TouchGFX/generated/gui_generated/include/gui_generated/screen1_screen/Screen1ViewBase.hpp:81:18:virtual void Screen1ViewBase::onCursorMenuClicked()	1
-../../TouchGFX/generated/gui_generated/include/gui_generated/screen1_screen/Screen1ViewBase.hpp:85:18:virtual void Screen1ViewBase::onCursor1XToggled()	1
-../../TouchGFX/generated/gui_generated/include/gui_generated/screen1_screen/Screen1ViewBase.hpp:89:18:virtual void Screen1ViewBase::onCursor1YToggled()	1
+../../TouchGFX/generated/gui_generated/include/gui_generated/screen1_screen/Screen1ViewBase.hpp:57:18:virtual void Screen1ViewBase::onSlideMenuUpdated()	1
+../../TouchGFX/generated/gui_generated/include/gui_generated/screen1_screen/Screen1ViewBase.hpp:61:18:virtual void Screen1ViewBase::onXScaleToggled()	1
+../../TouchGFX/generated/gui_generated/include/gui_generated/screen1_screen/Screen1ViewBase.hpp:65:18:virtual void Screen1ViewBase::onYScaleToggled()	1
+../../TouchGFX/generated/gui_generated/include/gui_generated/screen1_screen/Screen1ViewBase.hpp:69:18:virtual void Screen1ViewBase::onOffsetToggled()	1
+../../TouchGFX/generated/gui_generated/include/gui_generated/screen1_screen/Screen1ViewBase.hpp:73:18:virtual void Screen1ViewBase::onTriggerMenuClicked()	1
+../../TouchGFX/generated/gui_generated/include/gui_generated/screen1_screen/Screen1ViewBase.hpp:77:18:virtual void Screen1ViewBase::onLevelToggled()	1
+../../TouchGFX/generated/gui_generated/include/gui_generated/screen1_screen/Screen1ViewBase.hpp:81:18:virtual void Screen1ViewBase::onTriggerTypeClicked()	1
+../../TouchGFX/generated/gui_generated/include/gui_generated/screen1_screen/Screen1ViewBase.hpp:85:18:virtual void Screen1ViewBase::onCursorMenuClicked()	1
+../../TouchGFX/generated/gui_generated/include/gui_generated/screen1_screen/Screen1ViewBase.hpp:89:18:virtual void Screen1ViewBase::onCursor1XToggled()	1
+../../TouchGFX/generated/gui_generated/include/gui_generated/screen1_screen/Screen1ViewBase.hpp:93:18:virtual void Screen1ViewBase::onCursor1YToggled()	1
 ../../Middlewares/ST/touchgfx/framework/include/mvp/View.hpp:36:7:touchgfx::View<Screen1Presenter>::~View()	1
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/GraphWrapAndClear.hpp:66:7:touchgfx::GraphWrapAndClear<200>::~GraphWrapAndClear()	1
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/GraphElements.hpp:557:7:touchgfx::GraphElementGridX::~GraphElementGridX()	1
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/GraphElements.hpp:618:7:touchgfx::GraphElementGridY::~GraphElementGridY()	1
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextAreaWithWildcard.hpp:62:7:touchgfx::TextAreaWithOneWildcard::~TextAreaWithOneWildcard()	1
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Callback.hpp:357:8:touchgfx::Callback<Screen1ViewBase, const touchgfx::AbstractButton&>::~Callback()	1
-C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/generated/gui_generated/src/screen1_screen/Screen1ViewBase.cpp:349:6:virtual void Screen1ViewBase::setupScreen()	1
+../../Middlewares/ST/touchgfx/framework/include/touchgfx/Callback.hpp:357:8:touchgfx::Callback<Screen1ViewBase, const touchgfx::SlideMenu&>::~Callback()	1
+C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/generated/gui_generated/src/screen1_screen/Screen1ViewBase.cpp:351:6:virtual void Screen1ViewBase::setupScreen()	1
+../../Middlewares/ST/touchgfx/framework/include/touchgfx/Callback.hpp:386:18:void touchgfx::Callback<dest_type, T1, void, void>::execute(T1) [with dest_type = Screen1ViewBase; T1 = const touchgfx::SlideMenu&]	2
+../../Middlewares/ST/touchgfx/framework/include/touchgfx/Callback.hpp:396:18:bool touchgfx::Callback<dest_type, T1, void, void>::isValid() const [with dest_type = Screen1ViewBase; T1 = const touchgfx::SlideMenu&]	3
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Callback.hpp:386:18:void touchgfx::Callback<dest_type, T1, void, void>::execute(T1) [with dest_type = Screen1ViewBase; T1 = const touchgfx::AbstractButton&]	2
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Callback.hpp:396:18:bool touchgfx::Callback<dest_type, T1, void, void>::isValid() const [with dest_type = Screen1ViewBase; T1 = const touchgfx::AbstractButton&]	3
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/TypedText.hpp:65:13:virtual touchgfx::TypedText::~TypedText()	1
@@ -138,12 +142,14 @@ C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/generated/gui_generate
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/GraphElements.hpp:557:7:virtual touchgfx::GraphElementGridX::~GraphElementGridX()	1
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/GraphElements.hpp:618:7:virtual touchgfx::GraphElementGridY::~GraphElementGridY()	1
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Callback.hpp:357:8:virtual touchgfx::Callback<Screen1ViewBase, const touchgfx::AbstractButton&>::~Callback()	1
+../../Middlewares/ST/touchgfx/framework/include/touchgfx/Callback.hpp:357:8:virtual touchgfx::Callback<Screen1ViewBase, const touchgfx::SlideMenu&>::~Callback()	1
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/GraphElements.hpp:560:17:virtual int touchgfx::GraphElementGridX::getCorrectlyScaledGridInterval(const touchgfx::AbstractDataGraph*) const	1
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/GraphElements.hpp:621:17:virtual int touchgfx::GraphElementGridY::getCorrectlyScaledGridInterval(const touchgfx::AbstractDataGraph*) const	1
-C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/generated/gui_generated/src/screen1_screen/Screen1ViewBase.cpp:354:6:void Screen1ViewBase::buttonCallbackHandler(const touchgfx::AbstractButton&)	17
+C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/generated/gui_generated/src/screen1_screen/Screen1ViewBase.cpp:356:6:void Screen1ViewBase::buttonCallbackHandler(const touchgfx::AbstractButton&)	17
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Drawable.hpp:121:18:virtual void touchgfx::Drawable::invalidateContent() const	2
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/AbstractDataGraph.hpp:1176:18:virtual void touchgfx::AbstractDataGraph::invalidateContent() const	2
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextAreaWithWildcard.hpp:43:18:virtual void touchgfx::TextAreaWithWildcardBase::invalidateContent() const	1
+C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/generated/gui_generated/src/screen1_screen/Screen1ViewBase.cpp:472:6:void Screen1ViewBase::slideMenuStateChangedCallbackHandler(const touchgfx::SlideMenu&)	2
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/AbstractDataGraph.hpp:1591:17:virtual int touchgfx::DynamicDataGraph::indexToDataPointYScaled(int16_t) const	2
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/AbstractDataGraph.hpp:1585:17:virtual int touchgfx::DynamicDataGraph::indexToDataPointXScaled(int16_t) const	2
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Widget.hpp:45:18:virtual void touchgfx::Widget::getLastChild(int16_t, int16_t, touchgfx::Drawable**)	3
@@ -164,5 +170,5 @@ C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/generated/gui_generate
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/ToggleButton.hpp:32:7:touchgfx::ToggleButton::ToggleButton()	1
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/Line.hpp:248:10:void touchgfx::Line::setLineWidth(T) [with T = int]	2
 C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/generated/gui_generated/src/screen1_screen/Screen1ViewBase.cpp:10:1:Screen1ViewBase::Screen1ViewBase()	11
-C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/generated/gui_generated/src/screen1_screen/Screen1ViewBase.cpp:344:1:Screen1ViewBase::~Screen1ViewBase()	1
-C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/generated/gui_generated/src/screen1_screen/Screen1ViewBase.cpp:344:1:virtual Screen1ViewBase::~Screen1ViewBase()	1
+C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/generated/gui_generated/src/screen1_screen/Screen1ViewBase.cpp:346:1:Screen1ViewBase::~Screen1ViewBase()	1
+C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/generated/gui_generated/src/screen1_screen/Screen1ViewBase.cpp:346:1:virtual Screen1ViewBase::~Screen1ViewBase()	1

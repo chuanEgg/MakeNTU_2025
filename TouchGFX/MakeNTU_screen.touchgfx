@@ -15,8 +15,9 @@
             "Type": "DynamicGraph",
             "Name": "displayGraph",
             "X": 15,
-            "Width": 297,
-            "Height": 250,
+            "Y": 20,
+            "Width": 435,
+            "Height": 230,
             "DataSeed": -104249173,
             "NumberOfValues": 200,
             "MaxY": 260.0,
@@ -240,7 +241,7 @@
             "FileNameButtonPressed": "right_slide_menu_button.png",
             "FileNameButtonReleased": "right_slide_menu_button.png",
             "ButtonY": 115,
-            "State": "Expanded",
+            "State": "Collapsed",
             "ExpandDirection": "West",
             "Easing": "Cubic",
             "EasingOption": "InOut",
@@ -787,7 +788,8 @@
           {
             "InteractionName": "slideMenuStateChange",
             "Trigger": {
-              "Type": "TriggerNone"
+              "Type": "TriggerSlideMenuStateChanged",
+              "TriggerComponent": "slideMenu1"
             },
             "Action": {
               "Type": "ActionCustom",

@@ -8,7 +8,8 @@
 #include <images/BitmapDatabase.hpp>
 
 Screen1ViewBase::Screen1ViewBase() :
-    buttonCallback(this, &Screen1ViewBase::buttonCallbackHandler)
+    buttonCallback(this, &Screen1ViewBase::buttonCallbackHandler),
+    slideMenuStateChangedCallback(this, &Screen1ViewBase::slideMenuStateChangedCallbackHandler)
 {
     touchgfx::CanvasWidgetRenderer::setupBuffer(canvasBuffer, CANVAS_BUFFER_SIZE);
 
@@ -20,7 +21,7 @@ Screen1ViewBase::Screen1ViewBase() :
     background1.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     add(background1);
 
-    displayGraph.setPosition(15, 0, 297, 250);
+    displayGraph.setPosition(15, 20, 435, 230);
     displayGraph.setScale(1);
     displayGraph.setGraphAreaMargin(0, 0, 0, 0);
     displayGraph.setGraphAreaPadding(0, 0, 0, 0);
@@ -132,12 +133,13 @@ Screen1ViewBase::Screen1ViewBase() :
         touchgfx::Bitmap(BITMAP_RIGHT_SLIDE_MENU_BUTTON_ID),
         touchgfx::Bitmap(BITMAP_RIGHT_SLIDE_MENU_BUTTON_ID),
         20, 0, 0, 115);
-    slideMenu1.setState(touchgfx::SlideMenu::EXPANDED);
+    slideMenu1.setState(touchgfx::SlideMenu::COLLAPSED);
     slideMenu1.setVisiblePixelsWhenCollapsed(45);
     slideMenu1.setHiddenPixelsWhenExpanded(15);
     slideMenu1.setAnimationEasingEquation(touchgfx::EasingEquations::cubicEaseInOut);
     slideMenu1.setAnimationDuration(18);
     slideMenu1.setExpandedStateTimeout(0);
+    slideMenu1.setStateChangedCallback(slideMenuStateChangedCallback);
     mainMenu.setPosition(39, 10, 250, 250);
     switchButton1.setXY(0, 0);
     switchButton1.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_ACTION_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_PRESSED_ID));
@@ -464,5 +466,16 @@ void Screen1ViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& src)
         //When cursor1YToggle clicked call virtual function
         //Call onCursor1YToggled
         onCursor1YToggled();
+    }
+}
+
+void Screen1ViewBase::slideMenuStateChangedCallbackHandler(const touchgfx::SlideMenu& src)
+{
+    if (&src == &slideMenu1)
+    {
+        //slideMenuStateChange
+        //When slideMenu1 state changed call virtual function
+        //Call onSlideMenuUpdated
+        onSlideMenuUpdated();
     }
 }
