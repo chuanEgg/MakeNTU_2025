@@ -29,6 +29,7 @@
 
 #include "adc_routine.h"
 #include "global_val.h"
+#include "mysignal.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -118,6 +119,13 @@ const osThreadAttr_t sampleADC_attributes = {
   .stack_size = 128 * 4,
   .priority = (osPriority_t) osPriorityLow,
 };
+/* Definitions for encoderTask */
+osThreadId_t encoderTaskHandle;
+const osThreadAttr_t encoderTask_attributes = {
+  .name = "encoderTask",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityNormal,
+};
 /* USER CODE BEGIN PV */
 static FMC_SDRAM_CommandTypeDef Command;
 /* USER CODE END PV */
@@ -142,6 +150,7 @@ void StartDefaultTask(void *argument);
 extern void TouchGFX_Task(void *argument);
 extern void videoTaskFunc(void *argument);
 void StartSampleADC(void *argument);
+void startEncoderTask(void *argument);
 
 /* USER CODE BEGIN PFP */
 void GetManufacturerId (uint8_t *manufacturer_id);
@@ -262,6 +271,9 @@ int main(void)
 
   /* creation of sampleADC */
   sampleADCHandle = osThreadNew(StartSampleADC, NULL, &sampleADC_attributes);
+
+  /* creation of encoderTask */
+  encoderTaskHandle = osThreadNew(startEncoderTask, NULL, &encoderTask_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -1137,7 +1149,6 @@ void StartDefaultTask(void *argument)
   /* Infinite loop */
   for(;;)
   {
-	  encoderValue = (int16_t)__HAL_TIM_GET_COUNTER(&htim8);
 //	  __HAL_TIM_SET_COUNTER(&htim8, 0);
 	  for (int i=0; i< LCD_NUM_POINT; i++)
 	  {
@@ -1167,6 +1178,28 @@ void StartSampleADC(void *argument)
     osDelay(1);
   }
   /* USER CODE END StartSampleADC */
+}
+
+/* USER CODE BEGIN Header_startEncoderTask */
+/**
+* @brief Function implementing the encoderTask thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_startEncoderTask */
+void startEncoderTask(void *argument)
+{
+  /* USER CODE BEGIN startEncoderTask */
+  /* Infinite loop */
+  for(;;)
+  {
+	  if(read_encoder == 1) {
+		  encoderValue = (int16_t)__HAL_TIM_GET_COUNTER(&htim8);
+		  read_encoder = 0;
+	  }
+	  osDelay(16);
+  }
+  /* USER CODE END startEncoderTask */
 }
 
  /* MPU Configuration */
