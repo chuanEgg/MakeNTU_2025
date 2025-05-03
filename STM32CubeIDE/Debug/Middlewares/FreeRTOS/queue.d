@@ -1,5 +1,5 @@
 Middlewares/FreeRTOS/queue.o: \
- C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/Middlewares/Third_Party/FreeRTOS/Source/queue.c \
+ D:/2025MakeNTU/STM32projects/MakeNTU_2025/Middlewares/Third_Party/FreeRTOS/Source/queue.c \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
  ../../Core/Inc/FreeRTOSConfig.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h \

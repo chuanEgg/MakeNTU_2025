@@ -1,6 +1,6 @@
-C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/generated/texts/src/TypedTextDatabase.cpp:89:43:const touchgfx::TypedText::TypedTextData* TypedTextDatabase::getInstance(touchgfx::LanguageId)	0	static
-C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/generated/texts/src/TypedTextDatabase.cpp:94:10:uint16_t TypedTextDatabase::getInstanceSize()	0	static
-C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/generated/texts/src/TypedTextDatabase.cpp:99:24:const touchgfx::Font** TypedTextDatabase::getFonts()	0	static
-C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/generated/texts/src/TypedTextDatabase.cpp:104:23:const touchgfx::Font* TypedTextDatabase::setFont(touchgfx::FontId, const touchgfx::Font*)	0	static
-C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/generated/texts/src/TypedTextDatabase.cpp:111:6:void TypedTextDatabase::resetFont(touchgfx::FontId)	8	static
-C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/generated/texts/src/TypedTextDatabase.cpp:129:1:cpp)	8	static
+D:/2025MakeNTU/STM32projects/MakeNTU_2025/TouchGFX/generated/texts/src/TypedTextDatabase.cpp:89:43:const touchgfx::TypedText::TypedTextData* TypedTextDatabase::getInstance(touchgfx::LanguageId)	0	static
+D:/2025MakeNTU/STM32projects/MakeNTU_2025/TouchGFX/generated/texts/src/TypedTextDatabase.cpp:94:10:uint16_t TypedTextDatabase::getInstanceSize()	0	static
+D:/2025MakeNTU/STM32projects/MakeNTU_2025/TouchGFX/generated/texts/src/TypedTextDatabase.cpp:99:24:const touchgfx::Font** TypedTextDatabase::getFonts()	0	static
+D:/2025MakeNTU/STM32projects/MakeNTU_2025/TouchGFX/generated/texts/src/TypedTextDatabase.cpp:104:23:const touchgfx::Font* TypedTextDatabase::setFont(touchgfx::FontId, const touchgfx::Font*)	0	static
+D:/2025MakeNTU/STM32projects/MakeNTU_2025/TouchGFX/generated/texts/src/TypedTextDatabase.cpp:111:6:void TypedTextDatabase::resetFont(touchgfx::FontId)	8	static
+D:/2025MakeNTU/STM32projects/MakeNTU_2025/TouchGFX/generated/texts/src/TypedTextDatabase.cpp:129:1:cpp)	8	static

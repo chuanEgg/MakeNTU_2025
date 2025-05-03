@@ -21,6 +21,7 @@ RM := rm -rf
 -include Application/User/TouchGFX/App/subdir.mk
 -include Application/User/Startup/subdir.mk
 -include Application/User/LIBJPEG/App/subdir.mk
+-include Application/User/Core/adc_routine/subdir.mk
 -include Application/User/Core/subdir.mk
 -include objects.mk
 
@@ -97,8 +98,8 @@ all: main-build
 main-build: STM32F746G_DISCO.elf secondary-outputs
 
 # Tool invocations
-STM32F746G_DISCO.elf STM32F746G_DISCO.map: $(OBJS) $(USER_OBJS) C:\Users\chuan\project\MakeNTU_temp\MakeNTU_2025\STM32CubeIDE\STM32F746NGHX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-g++ -o "STM32F746G_DISCO.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"C:\Users\chuan\project\MakeNTU_temp\MakeNTU_2025\STM32CubeIDE\STM32F746NGHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F746G_DISCO.map" -Wl,--gc-sections -static -L../../Middlewares/ST/touchgfx/lib/core/cortex_m7/gcc --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+STM32F746G_DISCO.elf STM32F746G_DISCO.map: $(OBJS) $(USER_OBJS) D:\2025MakeNTU\STM32projects\MakeNTU_2025\STM32CubeIDE\STM32F746NGHX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-g++ -o "STM32F746G_DISCO.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"D:\2025MakeNTU\STM32projects\MakeNTU_2025\STM32CubeIDE\STM32F746NGHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F746G_DISCO.map" -Wl,--gc-sections -static -L../../Middlewares/ST/touchgfx/lib/core/cortex_m7/gcc --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

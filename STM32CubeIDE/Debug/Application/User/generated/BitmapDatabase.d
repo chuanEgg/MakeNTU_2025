@@ -1,5 +1,5 @@
 Application/User/generated/BitmapDatabase.o: \
- C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/generated/images/src/BitmapDatabase.cpp \
+ D:/2025MakeNTU/STM32projects/MakeNTU_2025/TouchGFX/generated/images/src/BitmapDatabase.cpp \
  ../../TouchGFX/generated/images/include/images/BitmapDatabase.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Types.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Config.hpp \

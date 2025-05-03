@@ -1,5 +1,5 @@
 Application/User/generated/Table_verdana_40_4bpp.o: \
- C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/TouchGFX/generated/fonts/src/Table_verdana_40_4bpp.cpp \
+ D:/2025MakeNTU/STM32projects/MakeNTU_2025/TouchGFX/generated/fonts/src/Table_verdana_40_4bpp.cpp \
  ../../TouchGFX/generated/fonts/include/fonts/GeneratedFont.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/ConstFont.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Font.hpp \

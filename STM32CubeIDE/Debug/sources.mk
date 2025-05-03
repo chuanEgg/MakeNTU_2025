@@ -39,6 +39,7 @@ CPP_DEPS :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
+Application/User/Core/adc_routine \
 Application/User/Core \
 Application/User/LIBJPEG/App \
 Application/User/Startup \
