@@ -54,15 +54,16 @@ public:
     uint8_t encoderTarget = 0;
     int16_t encoderZero = 0;
 
-    int startXScaleIndex = 6, lastXScaleIndex = 6;
+    int startXScaleIndex = 9, lastXScaleIndex = 9;
     int startYScaleIndex = 6, lastYScaleIndex = 6;
 	float YScaleTable[13] = {0.01, 0.02, 0.05, 0.1, 0.2, 0.5, 1, 2, 5, 10, 20, 50, 100};
+	int32_t XScaleTable[16] = {1, 2, 5, 10, 20, 50, 100, 200, 500, 1000, 2000, 5000, 10000, 20000, 50000, 100000};
 	int lastOffset = 0;
 	int16_t lastLevel = 0;
 	int16_t lastCursor1X = 120, lastCursor1Y = 50;
 	int16_t lastCursor2X = 120, lastCursor2Y = 50;
 	// int16_t tempEncoderValue;
-	int curXScale = 6;
+	int curXScale = 9;
 	int curYScale = 6;
 	int curOffset = 0;
 	int curCursor1X = 120;

@@ -6,7 +6,7 @@
 
 #define SCREEN_HEIGHT 260
 #define SCREEN_WIDTH 200
-#define MAX_X_SCALE_INDEX 12
+#define MAX_X_SCALE_INDEX 15
 #define MAX_Y_SCALE_INDEX 12
 #define MAX_OFFSET 130
 #define MIN_OFFSET -130
@@ -17,10 +17,12 @@
 #define MAX_CURSOR_1Y 250
 #define MIN_CURSOR_1Y 25
 
-extern "C"
-{
-	extern int16_t encoderValue;
-}
+extern int16_t encoderValue;
+extern uint8_t trigger_level; // 0-255
+extern uint8_t offset; // 0-255
+
+extern trigger_mode_typedef trigger_mode;
+extern int32_t time_scale;             // capture 1 data from every n points
 // map [0, 255] to [-5, 5] (float) for display purpose
 float UnMap(uint8_t value)
 {
@@ -309,6 +311,7 @@ void Screen1View::tick()
 				curXScale = 0;
 				encoderZero = lastXScaleIndex + encoderValue - curXScale;
 			}
+			time_scale = XScaleTable[curXScale];
 			break;
 		case 2: // YScale
 			curYScale = lastYScaleIndex + encoderValue - encoderZero;
@@ -331,6 +334,7 @@ void Screen1View::tick()
 				curOffset = MIN_OFFSET;
 				encoderZero = encoderValue - (curOffset - lastOffset) / 5;
 			}
+			offset = (curOffset - MIN_OFFSET) * 255 / (MAX_OFFSET - MIN_OFFSET);
 			break;
 		case 4: // level
 			triggerLevel = lastLevel + (encoderValue - encoderZero) * 5;
@@ -342,6 +346,7 @@ void Screen1View::tick()
 				triggerLevel = MIN_CURSOR_1Y;
 				encoderZero = encoderValue - (triggerLevel - lastLevel) / 5;
 			}
+			trigger_level = (triggerLevel - MIN_LEVEL) * 255 / (MAX_LEVEL - MIN_LEVEL);
 			horizontalLine0.setPosition(15, (int16_t)(MAX_LEVEL - triggerLevel), slideMenu1.getState() == SlideMenu::COLLAPSED ? 430 : 297, 15);
 			horizontalLine0.invalidate();
 			break;
@@ -467,10 +472,12 @@ void Screen1View::onTriggerTypeClicked()
 	if (triggerType)
 	{
 		Unicode::strncpy(triggerTypeTextBuffer, "falling", TRIGGERTYPETEXT_SIZE);
+		trigger_mode = TRIGGER_MODE_FALLING;
 	}
 	else
 	{
 		Unicode::strncpy(triggerTypeTextBuffer, "rising", TRIGGERTYPETEXT_SIZE);
+		trigger_mode = TRIGGER_MODE_RISING;
 	}
 	triggerTypeText.invalidate();
 }
