@@ -128,6 +128,8 @@ void Screen1View::onSingleToggle(const touchgfx::ToggleButton* targetToggle)
 	}
 	horizontalLine0.setVisible(false);
 	horizontalLine0.invalidate();
+	lastYScaleIndex = curYScale;
+	lastOffset = curOffset;
 }
 
 void Screen1View::onXScaleToggled()
@@ -140,10 +142,10 @@ void Screen1View::onYScaleToggled()
 {
 	encoderTarget = (YScaleToggle.getState()) ? 2 : 0;
 	if(YScaleToggle.getState() == false) {
-		curYScale = lastYScaleIndex;
+		lastYScaleIndex = curYScale;
 	}
 	else {
-		lastYScaleIndex = curYScale;
+		curYScale = lastYScaleIndex;
 	}
 	onSingleToggle(&YScaleToggle);
 }
@@ -151,6 +153,12 @@ void Screen1View::onYScaleToggled()
 void Screen1View::onOffsetToggled()
 {
 	encoderTarget = (offsetToggle.getState()) ? 3 : 0;
+	if(offsetToggle.getState() == false) {
+		lastOffset = curOffset;
+	}
+	else {
+		curOffset = lastOffset;
+	}
 	onSingleToggle(&offsetToggle);
 }
 
@@ -184,6 +192,15 @@ void Screen1View::tick()
 			}
 			break;
 		case 3: // offset
+			curOffset = lastOffset + (encoderValue - encoderZero) * 5;
+			if(curOffset > maxOffset) {
+				curOffset = maxOffset;
+				encoderZero = encoderValue - (curOffset - lastOffset) / 5;
+			}
+			if(curOffset < minOffset) {
+				curOffset = minOffset;
+				encoderZero = encoderValue - (curOffset - lastOffset) / 5;
+			}
 			break;
 		case 4: // level
 			break;
@@ -208,7 +225,7 @@ void Screen1View::UpdateGraph(uint8_t* value)
 	displayGraph.clear();
 	for (int i = 0; i < NUM_DATA_POINT; i ++)
 	{
-		displayGraph.addDataPoint((value[i] - (SCREEN_HEIGHT / 2)) * YScaleTable[curYScale] + (SCREEN_HEIGHT / 2));
+		displayGraph.addDataPoint((value[i] - (SCREEN_HEIGHT / 2)) * YScaleTable[curYScale] + (SCREEN_HEIGHT / 2) + curOffset);
 	}
 	displayGraph.invalidate();
 }

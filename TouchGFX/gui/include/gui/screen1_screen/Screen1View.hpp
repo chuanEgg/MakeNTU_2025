@@ -43,14 +43,16 @@ public:
     void UpdateGraph(uint8_t* value); // update dynamicGraph
 
     // 0: nothing, 1: XScale, 2: YScale, 3: offset, 4: level
-    uint8_t encoderTarget;
+    uint8_t encoderTarget = 0;
     int16_t encoderZero = 0;
 
     int maxYScaleIndex = 12, startYScaleIndex = 6, lastYScaleIndex = 6;
 	float YScaleTable[13] = {0.01, 0.02, 0.05, 0.1, 0.2, 0.5, 1, 2, 5, 10, 20, 50, 100};
+	int maxOffset = 130, minOffset = -130, lastOffset = 0;
 	// int16_t tempEncoderValue;
 	int curXScale = 0;
 	int curYScale = 6;
+	int curOffset = 0;
 
     // 0: rising edge, 1: falling edge
     uint8_t triggerType;
