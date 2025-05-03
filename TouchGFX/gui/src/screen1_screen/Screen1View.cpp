@@ -289,12 +289,12 @@ void Screen1View::tick()
 			break;
 		case 4: // level
 			triggerLevel = lastLevel + (encoderValue - encoderZero) * 5;
-			if(triggerLevel >= MAX_LEVEL) {
-				triggerLevel = MAX_LEVEL;
+			if(triggerLevel >= MAX_CURSOR_1Y) {
+				triggerLevel = MAX_CURSOR_1Y;
 				encoderZero = encoderValue - (triggerLevel - lastLevel) / 5;
 			}
-			if(triggerLevel <= MIN_LEVEL) {
-				triggerLevel = MIN_LEVEL;
+			if(triggerLevel <= MIN_CURSOR_1Y) {
+				triggerLevel = MIN_CURSOR_1Y;
 				encoderZero = encoderValue - (triggerLevel - lastLevel) / 5;
 			}
 			horizontalLine0.setPosition(15, (int16_t)(MAX_LEVEL - triggerLevel), slideMenu1.getState() == SlideMenu::COLLAPSED ? 430 : 297, 15);
