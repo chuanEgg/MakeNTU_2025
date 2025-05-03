@@ -11,7 +11,7 @@
 #include <touchgfx/widgets/graph/GraphWrapAndClear.hpp>
 #include <touchgfx/widgets/graph/GraphElements.hpp>
 #include <touchgfx/widgets/graph/GraphLabels.hpp>
-#include <touchgfx/widgets/canvas/PainterARGB8888.hpp>
+#include <touchgfx/widgets/canvas/PainterRGB565.hpp>
 #include <touchgfx/widgets/Button.hpp>
 #include <touchgfx/widgets/TextArea.hpp>
 
@@ -46,7 +46,7 @@ protected:
     touchgfx::GraphLabelsX bodeGraphMajorXAxisLabel;
     touchgfx::GraphLabelsY bodeGraphMajorYAxisLabel;
     touchgfx::GraphElementLine bodeGraphLine1;
-    touchgfx::PainterARGB8888 bodeGraphLine1Painter;
+    touchgfx::PainterRGB565 bodeGraphLine1Painter;
     touchgfx::Button switchScreen5;
     touchgfx::Button analyzeButton;
     touchgfx::TextArea buttonText5;
@@ -57,7 +57,7 @@ private:
     /*
      * Canvas Buffer Size
      */
-    static const uint32_t CANVAS_BUFFER_SIZE = 0;
+    static const uint32_t CANVAS_BUFFER_SIZE = 7200;
     uint8_t canvasBuffer[CANVAS_BUFFER_SIZE];
 
     /*

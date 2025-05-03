@@ -12,7 +12,7 @@
 #include <touchgfx/widgets/graph/GraphElements.hpp>
 #include <touchgfx/widgets/TextAreaWithWildcard.hpp>
 #include <touchgfx/widgets/canvas/Line.hpp>
-#include <touchgfx/widgets/canvas/PainterARGB8888.hpp>
+#include <touchgfx/widgets/canvas/PainterRGB565.hpp>
 #include <touchgfx/containers/SlideMenu.hpp>
 #include <touchgfx/containers/Container.hpp>
 #include <touchgfx/widgets/Button.hpp>
@@ -111,13 +111,13 @@ protected:
     touchgfx::TextAreaWithOneWildcard freqText;
     touchgfx::TextAreaWithOneWildcard periodText;
     touchgfx::Line horizontalLine0;
-    touchgfx::PainterARGB8888 horizontalLine0Painter;
+    touchgfx::PainterRGB565 horizontalLine0Painter;
     touchgfx::Line horizontalLine1;
-    touchgfx::PainterARGB8888 horizontalLine1Painter;
+    touchgfx::PainterRGB565 horizontalLine1Painter;
     touchgfx::Line verticalLine0;
-    touchgfx::PainterARGB8888 verticalLine0Painter;
+    touchgfx::PainterRGB565 verticalLine0Painter;
     touchgfx::Line verticalLine1;
-    touchgfx::PainterARGB8888 verticalLine1Painter;
+    touchgfx::PainterRGB565 verticalLine1Painter;
     touchgfx::SlideMenu slideMenu1;
     touchgfx::Container mainMenu;
     touchgfx::Button switchButton1;
@@ -178,7 +178,7 @@ private:
     /*
      * Canvas Buffer Size
      */
-    static const uint32_t CANVAS_BUFFER_SIZE = 0;
+    static const uint32_t CANVAS_BUFFER_SIZE = 7200;
     uint8_t canvasBuffer[CANVAS_BUFFER_SIZE];
 
     /*

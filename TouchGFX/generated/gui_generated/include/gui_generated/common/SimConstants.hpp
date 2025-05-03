@@ -4,8 +4,8 @@
 #ifndef SIMCONSTANTS_HPP
 #define SIMCONSTANTS_HPP
 
-static unsigned short SIM_WIDTH = 0;
-static unsigned short SIM_HEIGHT = 0;
+static unsigned short SIM_WIDTH = 480;
+static unsigned short SIM_HEIGHT = 272;
 #define SIM_TITLE "MakeNTU_screen"
 
 #endif // SIMCONSTANTS_HPP

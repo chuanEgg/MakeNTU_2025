@@ -3,6 +3,7 @@
     "Screens": [
       {
         "Name": "Screen1",
+        "CanvasBufferSize": 7200,
         "Components": [
           {
             "Type": "Box",
@@ -1201,6 +1202,7 @@
       },
       {
         "Name": "Screen3",
+        "CanvasBufferSize": 7200,
         "Components": [
           {
             "Type": "Box",
@@ -1363,14 +1365,17 @@
     ],
     "CustomContainerDefinitions": [],
     "Name": "MakeNTU_screen",
-    "Resolution": {},
-    "SelectedColorDepth": 32,
+    "Resolution": {
+      "Width": 480,
+      "Height": 272
+    },
+    "SelectedColorDepth": 16,
     "StartupScreenName": "Screen1",
     "SelectedStartupLanguage": "GB",
     "TouchGfxPath": "../Middlewares/ST/touchgfx",
     "UIPath": ".",
     "AvailableColorDepths": [
-      32
+      16
     ],
     "AvailableLCDs": {
       "16": "LCD16bpp",
@@ -1381,12 +1386,15 @@
       "IntFlashSection"
     ],
     "AvailableResolutions": [
-      {}
+      {
+        "Width": 480,
+        "Height": 272
+      }
     ],
     "PhysicalButtons": [],
     "FrameworkFeatures": {
-      "LCD32bpp": {
-        "Id": "LCD32bpp",
+      "LCD16bpp": {
+        "Id": "LCD16bpp",
         "IsEnabled": true
       }
     },
@@ -1410,7 +1418,11 @@
     "ProjectFile": "../STM32F746G_DISCO.ioc",
     "OptionalComponentsRoot": "../Middlewares/ST/touchgfx_components",
     "OptionalComponents": [],
-    "AdditionalFeatures": []
+    "AdditionalFeatures": [
+      "CWRVector",
+      "VectorFonts",
+      "Video"
+    ]
   },
   "Version": "4.25.0",
   "CreatedBy": "4.25.0"

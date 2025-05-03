@@ -3,15 +3,15 @@
   "Application": {
     "Name": "STM32F746G_DISCO",
     "TouchGfxPath": "../Middlewares/ST/touchgfx",
-    "AvailableColorDepths": [ 32 ],
+    "AvailableColorDepths": [ 16 ],
     "AvailableLCDs":
     {
-      "32": "LCD32bpp"
+      "16": "LCD16bpp"
     },
     "AvailableResolutions": [
       {
-        "Width": 0,
-        "Height": 0
+        "Width": 480,
+        "Height": 272
       }
     ],
     "PostGenerateTargetCommand": "touchgfx update_project",
@@ -24,6 +24,9 @@
     "OptionalComponents": [
     ],
     "AdditionalFeatures": [
+      "CWRVector",
+      "VectorFonts",
+      "Video"
     ]
   },
   "Version": "4.25.0"
