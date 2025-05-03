@@ -10,6 +10,12 @@
       </Text>
     </TextGroup>
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_XFCZ" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">1 X</Translation>
+      </Text>
+      <Text Id="__SingleUse_E19V" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">1 Y</Translation>
+      </Text>
       <Text Id="__SingleUse_1WEO" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">cursor</Translation>
       </Text>

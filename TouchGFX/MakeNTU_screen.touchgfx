@@ -255,6 +255,7 @@
                 "Y": 10,
                 "Width": 250,
                 "Height": 250,
+                "Visible": false,
                 "Components": [
                   {
                     "Type": "Button",
@@ -613,6 +614,66 @@
                     }
                   }
                 ]
+              },
+              {
+                "Type": "Container",
+                "Name": "cursorMenu",
+                "X": 39,
+                "Y": 10,
+                "Width": 250,
+                "Height": 250,
+                "Components": [
+                  {
+                    "Type": "ToggleButton",
+                    "Name": "cursor1YToggle",
+                    "Y": 48,
+                    "Width": 100,
+                    "Height": 36,
+                    "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_normal.png",
+                    "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_action.png"
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "cursor1YText",
+                    "X": 34,
+                    "Y": 52,
+                    "Width": 33,
+                    "Height": 24,
+                    "TextId": "__SingleUse_E19V",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "AutoSize": true
+                  },
+                  {
+                    "Type": "Button",
+                    "Name": "cursor1XToggle",
+                    "Width": 100,
+                    "Height": 36,
+                    "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_pressed.png",
+                    "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_36_tiny_round_action.png",
+                    "Preset": "alternate_theme\\presets\\button\\regular\\height_36\\tiny_round_action.json"
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "cursor1XText",
+                    "X": 34,
+                    "Y": 4,
+                    "Width": 33,
+                    "Height": 24,
+                    "TextId": "__SingleUse_XFCZ",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "AutoSize": true
+                  }
+                ]
               }
             ]
           },
@@ -786,6 +847,39 @@
             "Action": {
               "Type": "ActionCustom",
               "FunctionName": "onTriggerTypeClicked"
+            }
+          },
+          {
+            "InteractionName": "showCursor",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "cursorMenuButton"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onCursorMenuClicked"
+            }
+          },
+          {
+            "InteractionName": "onCursor1XToggle",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "cursor1XToggle"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onCursor1XToggled"
+            }
+          },
+          {
+            "InteractionName": "onCursor1YToggled",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "cursor1YToggle"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onCursor1YToggled"
             }
           }
         ]

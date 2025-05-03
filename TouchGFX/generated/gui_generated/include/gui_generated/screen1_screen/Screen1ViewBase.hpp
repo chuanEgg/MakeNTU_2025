@@ -78,6 +78,18 @@ public:
     {
         // Override and implement this function in Screen1
     }
+    virtual void onCursorMenuClicked()
+    {
+        // Override and implement this function in Screen1
+    }
+    virtual void onCursor1XToggled()
+    {
+        // Override and implement this function in Screen1
+    }
+    virtual void onCursor1YToggled()
+    {
+        // Override and implement this function in Screen1
+    }
 
 protected:
     FrontendApplication& application() {
@@ -137,6 +149,11 @@ protected:
     touchgfx::TextArea levelText;
     touchgfx::Button triggerTypeButton;
     touchgfx::TextAreaWithOneWildcard triggerTypeText;
+    touchgfx::Container cursorMenu;
+    touchgfx::ToggleButton cursor1YToggle;
+    touchgfx::TextArea cursor1YText;
+    touchgfx::Button cursor1XToggle;
+    touchgfx::TextArea cursor1XText;
     touchgfx::ButtonWithIcon backButton;
 
     /*

@@ -139,6 +139,7 @@ Screen1ViewBase::Screen1ViewBase() :
     slideMenu1.setAnimationDuration(18);
     slideMenu1.setExpandedStateTimeout(0);
     mainMenu.setPosition(39, 10, 250, 250);
+    mainMenu.setVisible(false);
     switchButton1.setXY(0, 0);
     switchButton1.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_ACTION_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_PRESSED_ID));
     switchButton1.setAction(buttonCallback);
@@ -157,6 +158,7 @@ Screen1ViewBase::Screen1ViewBase() :
 
     cursorMenuButton.setXY(0, 192);
     cursorMenuButton.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_ACTION_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_NORMAL_ID));
+    cursorMenuButton.setAction(buttonCallback);
     mainMenu.add(cursorMenuButton);
 
     displayText.setXY(12, 52);
@@ -298,6 +300,31 @@ Screen1ViewBase::Screen1ViewBase() :
 
     slideMenu1.add(triggerMenu);
 
+    cursorMenu.setPosition(39, 10, 250, 250);
+    cursor1YToggle.setXY(0, 48);
+    cursor1YToggle.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_ACTION_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_NORMAL_ID));
+    cursor1YToggle.setAction(buttonCallback);
+    cursorMenu.add(cursor1YToggle);
+
+    cursor1YText.setXY(34, 52);
+    cursor1YText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    cursor1YText.setLinespacing(0);
+    cursor1YText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_E19V));
+    cursorMenu.add(cursor1YText);
+
+    cursor1XToggle.setXY(0, 0);
+    cursor1XToggle.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_ACTION_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_TINY_ROUND_PRESSED_ID));
+    cursor1XToggle.setAction(buttonCallback);
+    cursorMenu.add(cursor1XToggle);
+
+    cursor1XText.setXY(34, 4);
+    cursor1XText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    cursor1XText.setLinespacing(0);
+    cursor1XText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_XFCZ));
+    cursorMenu.add(cursor1XText);
+
+    slideMenu1.add(cursorMenu);
+
     add(slideMenu1);
 
     backButton.setXY(370, 214);
@@ -410,5 +437,26 @@ void Screen1ViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& src)
         //When triggerTypeButton clicked call virtual function
         //Call onTriggerTypeClicked
         onTriggerTypeClicked();
+    }
+    if (&src == &cursorMenuButton)
+    {
+        //showCursor
+        //When cursorMenuButton clicked call virtual function
+        //Call onCursorMenuClicked
+        onCursorMenuClicked();
+    }
+    if (&src == &cursor1XToggle)
+    {
+        //onCursor1XToggle
+        //When cursor1XToggle clicked call virtual function
+        //Call onCursor1XToggled
+        onCursor1XToggled();
+    }
+    if (&src == &cursor1YToggle)
+    {
+        //onCursor1YToggled
+        //When cursor1YToggle clicked call virtual function
+        //Call onCursor1YToggled
+        onCursor1YToggled();
     }
 }
