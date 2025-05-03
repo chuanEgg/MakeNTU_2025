@@ -467,12 +467,16 @@ void Screen1View::onSlideMenuUpdated()
 	}
 }
 
-void Screen1View::UpdateGraph(uint8_t* value)
+void Screen1View::UpdateGraph(uint8_t* dataHead, uint8_t* dataTail, uint8_t* graphHead)
 {
 	displayGraph.clear();
-	for (int i = 0; i < LCD_NUM_POINT; i ++)
+	for (uint8_t* i = graphHead; i < dataTail; i ++)
 	{
-		displayGraph.addDataPoint((value[i] - (SCREEN_HEIGHT / 2)) * YScaleTable[curYScale] + (SCREEN_HEIGHT / 2) + curOffset);
+		displayGraph.addDataPoint((*i - (SCREEN_HEIGHT / 2)) * YScaleTable[curYScale] + (SCREEN_HEIGHT / 2) + curOffset);
+	}
+	for (uint8_t* i = dataHead; i < graphHead; i++)
+	{
+		displayGraph.addDataPoint((*i - (SCREEN_HEIGHT / 2)) * YScaleTable[curYScale] + (SCREEN_HEIGHT / 2) + curOffset);
 	}
 	displayGraph.invalidateContent();
 }

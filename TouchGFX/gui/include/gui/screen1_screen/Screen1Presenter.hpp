@@ -27,7 +27,7 @@ public:
 
     virtual ~Screen1Presenter() {}
 
-    void UpdateGraph(uint8_t* value);
+    void UpdateGraph(uint8_t* dataHead, uint8_t* dataTail, uint8_t* graphHead);
     void tick();
 private:
     Screen1Presenter();
