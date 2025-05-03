@@ -21,3 +21,8 @@ void Screen1Presenter::UpdateGraph(uint8_t* value)
 {
 	view.UpdateGraph(value);
 }
+
+void Screen1Presenter::tick()
+{
+	view.tick();
+}

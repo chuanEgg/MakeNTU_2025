@@ -12,6 +12,8 @@ public:
     virtual void setupScreen();
     virtual void tearDownScreen();
 
+    void tick();
+
     // measure
     void onMeasureToggled(const touchgfx::ToggleButton* targetButton, touchgfx::TextArea* targetText);
     virtual void onVppToggled();

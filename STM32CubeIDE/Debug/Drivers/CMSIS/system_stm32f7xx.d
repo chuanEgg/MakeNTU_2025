@@ -1,5 +1,5 @@
 Drivers/CMSIS/system_stm32f7xx.o: \
- C:/Users/chuan/project/MakeNTU_2025/Core/Src/system_stm32f7xx.c \
+ C:/Users/chuan/project/MakeNTU_temp/MakeNTU_2025/Core/Src/system_stm32f7xx.c \
  ../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h \
  ../../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f746xx.h \
  ../../Drivers/CMSIS/Include/core_cm7.h \

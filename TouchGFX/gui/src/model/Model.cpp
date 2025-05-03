@@ -17,4 +17,5 @@ void Model::tick()
 		modelListener->UpdateGraph(GraphData);
 		bUpdate = 0;
 	}
+	modelListener->tick();
 }

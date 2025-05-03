@@ -3,6 +3,10 @@
 #include <touchgfx/containers/SlideMenu.hpp>
 #include <algorithm>
 
+extern "C"
+{
+	extern int16_t encoderValue;
+}
 // map [0, 255] to [-5, 5] (float) for display purpose
 float UnMap(uint8_t value)
 {
@@ -124,31 +128,42 @@ void Screen1View::onSingleToggle(const touchgfx::ToggleButton* targetToggle)
 
 void Screen1View::onXScaleToggled()
 {
-	encoderTarget = 1;
+	encoderTarget = (XScaleToggle.getState()) ? 1 : 0;
 	onSingleToggle(&XScaleToggle);
 }
 
 void Screen1View::onYScaleToggled()
 {
-	encoderTarget = 2;
+	encoderTarget = (YScaleToggle.getState()) ? 2 : 0;
 	onSingleToggle(&YScaleToggle);
 }
 
 void Screen1View::onOffsetToggled()
 {
-	encoderTarget = 3;
+	encoderTarget = (offsetToggle.getState()) ? 3 : 0;
 	onSingleToggle(&offsetToggle);
 }
 
 void Screen1View::onLevelToggled()
 {
-	encoderTarget = 4;
+	encoderTarget = (levelToggle.getState()) ? 4 : 0;
 	onSingleToggle(&levelToggle);
 	if (levelToggle.getState())
 	{
 		horizontalLine0.setVisible(true);
 		horizontalLine0.invalidate();
 	}
+}
+
+void Screen1View::tick()
+{
+//	if (encoderTarget)
+//	{
+//		switch (encoderTarget)
+//		{
+//		case 1:
+//		}
+//	}
 }
 
 void Screen1View::onSlideMenuUpdated()
