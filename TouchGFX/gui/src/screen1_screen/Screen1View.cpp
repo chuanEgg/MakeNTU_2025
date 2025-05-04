@@ -25,6 +25,7 @@ extern uint8_t offset; // 0-255
 extern trigger_mode_typedef trigger_mode;
 extern int32_t time_scale;         // capture 1 data from every n points
 extern uint8_t read_encoder;
+extern int8_t set_relay;
 
 // map [0, 255] to [-5, 5] (float) for display purpose
 float UnMap(uint8_t value)
@@ -328,6 +329,14 @@ void Screen1View::tick()
 				curYScale = 0;
 				encoderZero = lastYScaleIndex + encoderValue - curYScale;
 			}
+			if(nowRelay == -1 && curYScale >= switchYScaleIndex) {
+				nowRelay = 1;
+				set_relay = 1;
+			}
+			else if(nowRelay == 1 && curYScale < switchYScaleIndex) {
+				nowRelay = -1;
+				set_relay = -1;
+			}
 			break;
 		case 3: // offset
 			read_encoder = 1;
@@ -472,11 +481,11 @@ void Screen1View::UpdateGraph(uint8_t* dataHead, uint8_t* dataTail, uint8_t* gra
 	displayGraph.clear();
 	for (uint8_t* i = graphHead; i < dataTail; i ++)
 	{
-		displayGraph.addDataPoint((*i - (SCREEN_HEIGHT / 2)) * YScaleTable[curYScale] + (SCREEN_HEIGHT / 2) + curOffset);
+		displayGraph.addDataPoint((*i - (SCREEN_HEIGHT / 2)) * YScaleTable[curYScale] * (nowRelay == 1 ? 2 : 1) + (SCREEN_HEIGHT / 2) + curOffset);
 	}
 	for (uint8_t* i = dataHead; i < graphHead; i++)
 	{
-		displayGraph.addDataPoint((*i - (SCREEN_HEIGHT / 2)) * YScaleTable[curYScale] + (SCREEN_HEIGHT / 2) + curOffset);
+		displayGraph.addDataPoint((*i - (SCREEN_HEIGHT / 2)) * YScaleTable[curYScale] * (nowRelay == 1 ? 2 : 1) + (SCREEN_HEIGHT / 2) + curOffset);
 	}
 	displayGraph.invalidateContent();
 }
