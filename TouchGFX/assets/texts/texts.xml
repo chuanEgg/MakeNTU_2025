@@ -10,6 +10,9 @@
       </Text>
     </TextGroup>
     <TextGroup Id="Unsorted">
+      <Text Id="dispXData" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">0.0</Translation>
+      </Text>
       <Text Id="__SingleUse_Y2DS" Alignment="Left" TypographyId="Small">
         <Translation Language="GB">2: x=&lt;value&gt;, y=&lt;value&gt; V</Translation>
       </Text>
@@ -62,34 +65,34 @@
         <Translation Language="GB">X scale</Translation>
       </Text>
       <Text Id="periodData" Alignment="Left" TypographyId="Small">
-        <Translation Language="GB">0.0s</Translation>
+        <Translation Language="GB">0.0</Translation>
       </Text>
-      <Text Id="__SingleUse_2ZXP" Alignment="Center" TypographyId="Small">
-        <Translation Language="GB">period: &lt;value&gt;</Translation>
+      <Text Id="__SingleUse_2ZXP" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">period: &lt;value&gt;us</Translation>
       </Text>
       <Text Id="freqData" Alignment="Left" TypographyId="Small">
-        <Translation Language="GB">0.0Hz</Translation>
+        <Translation Language="GB">0.0</Translation>
       </Text>
       <Text Id="__SingleUse_XR9R" Alignment="Left" TypographyId="Small">
-        <Translation Language="GB">freq: &lt;value&gt;</Translation>
+        <Translation Language="GB">freq: &lt;value&gt;kHz</Translation>
       </Text>
       <Text Id="VppData" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">0.0V</Translation>
+        <Translation Language="GB">0.0</Translation>
       </Text>
       <Text Id="__SingleUse_BPU6" Alignment="Left" TypographyId="Small">
-        <Translation Language="GB">Vpp: &lt;value&gt;</Translation>
+        <Translation Language="GB">Vpp: &lt;value&gt;V</Translation>
       </Text>
       <Text Id="YScaleData" Alignment="Left" TypographyId="Small">
-        <Translation Language="GB">Y=0.0</Translation>
+        <Translation Language="GB">0.0</Translation>
       </Text>
       <Text Id="__SingleUse_PXVJ" Alignment="Left" TypographyId="Small">
-        <Translation Language="GB">&lt;value&gt;</Translation>
+        <Translation Language="GB">Y=&lt;value&gt;V</Translation>
       </Text>
       <Text Id="XScaleData" Alignment="Left" TypographyId="Small">
-        <Translation Language="GB">X=0.0</Translation>
+        <Translation Language="GB">0.0&#10;</Translation>
       </Text>
       <Text Id="__SingleUse_FBCX" Alignment="Left" TypographyId="Small">
-        <Translation Language="GB">&lt;value&gt;</Translation>
+        <Translation Language="GB">X=&lt;value&gt;us</Translation>
       </Text>
       <Text Id="__SingleUse_JAPC" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">period</Translation>

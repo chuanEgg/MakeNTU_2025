@@ -57,6 +57,8 @@ uint8_t* screen_measure_ptr;
 extern float input_v_pp;
 extern float input_frequency;
 extern float input_period;
+extern float x_unit;
+extern float y_unit;
 
 int trigger_crossing_count;
 double screen_frame_time;
@@ -183,10 +185,11 @@ int captureData(void)
 						screen_measure_ptr = (screen_measure_ptr == screen_buff_tail) ? screen_buff_head : screen_measure_ptr + 1;
 					}
 
-					input_v_pp = (double)(max_val - min_val) * (ADC_VOLTAGE_MAX - ADC_VOLTAGE_MIN) / 255.0;
-					input_frequency = (double)(1000 * trigger_crossing_count * ADC_SAMPLE_RATE) / (2 * LCD_NUM_POINT * time_scale);
+					input_v_pp = (float)(max_val - min_val) * (ADC_VOLTAGE_MAX - ADC_VOLTAGE_MIN) / 255.0;
+					input_frequency = (float)(1000 * trigger_crossing_count * ADC_SAMPLE_RATE) / (2 * LCD_NUM_POINT * time_scale);
 					input_period = 1.0 / input_frequency;
-
+					x_unit = (float) (time_scale * LCD_NUM_POINT) / (5 * ADC_SAMPLE_RATE);
+					y_unit = (float) (ADC_VOLTAGE_MAX - ADC_VOLTAGE_MIN) / 8.0;
 					measure_done = 1;
 					return 1;
 				}
@@ -235,9 +238,11 @@ int captureData(void)
 				screen_measure_ptr = (screen_measure_ptr == screen_buff_tail) ? screen_buff_head : screen_measure_ptr + 1;
 			}
 
-			input_v_pp = (double)(max_val - min_val) * (ADC_VOLTAGE_MAX - ADC_VOLTAGE_MIN) / 255.0;
-			input_frequency = (double)(1000 * trigger_crossing_count * ADC_SAMPLE_RATE) / (2 * LCD_NUM_POINT * time_scale);
+			input_v_pp = (float)(max_val - min_val) * (ADC_VOLTAGE_MAX - ADC_VOLTAGE_MIN) / 255.0;
+			input_frequency = (float)(1000 * trigger_crossing_count * ADC_SAMPLE_RATE) / (2 * LCD_NUM_POINT * time_scale);
 			input_period = 1.0 / input_frequency;
+			x_unit = (float) (time_scale * LCD_NUM_POINT) / (5 * ADC_SAMPLE_RATE);
+			y_unit = (float) (ADC_VOLTAGE_MAX - ADC_VOLTAGE_MIN) / 8.0;
 
 			measure_done = 1;
 			return 1;
@@ -305,9 +310,11 @@ int captureData(void)
 						screen_measure_ptr = (screen_measure_ptr == screen_buff_tail) ? screen_buff_head : screen_measure_ptr + 1;
 					}
 
-					input_v_pp = (double)(max_val - min_val) * (ADC_VOLTAGE_MAX - ADC_VOLTAGE_MIN) / 255.0;
-					input_frequency = (double)(1000 * trigger_crossing_count * ADC_SAMPLE_RATE) / (2 * LCD_NUM_POINT * time_scale);
+					input_v_pp = (float)(max_val - min_val) * (ADC_VOLTAGE_MAX - ADC_VOLTAGE_MIN) / 255.0;
+					input_frequency = (float)(1000 * trigger_crossing_count * ADC_SAMPLE_RATE) / (2 * LCD_NUM_POINT * time_scale);
 					input_period = 1.0 / input_frequency;
+					x_unit = (float) (time_scale * LCD_NUM_POINT) / (5 * ADC_SAMPLE_RATE);
+					y_unit = (float) (ADC_VOLTAGE_MAX - ADC_VOLTAGE_MIN) / 8.0;
 
 					measure_done = 1;
 					return 1;

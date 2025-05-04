@@ -28,14 +28,16 @@ KEEP extern const touchgfx::GlyphNode glyphs_consola_10_4bpp[] FONT_TABLE_LOCATI
     {   311, 0x0065,   5,   5,   5,   0,   6,   0,   0, 0x00 },
     {   326, 0x0066,   6,   7,   7,   0,   6,   0,   0, 0x00 },
     {   347, 0x0069,   5,   7,   7,   0,   6,   0,   0, 0x00 },
-    {   368, 0x006F,   5,   5,   5,   0,   6,   0,   0, 0x00 },
-    {   383, 0x0070,   5,   7,   5,   0,   6,   0,   0, 0x00 },
-    {   404, 0x0071,   5,   7,   5,   0,   6,   0,   0, 0x00 },
-    {   425, 0x0072,   4,   5,   5,   1,   6,   0,   0, 0x00 },
-    {   435, 0x0073,   5,   5,   5,   0,   6,   0,   0, 0x00 },
-    {   450, 0x0078,   5,   5,   5,   0,   6,   0,   0, 0x00 },
-    {   465, 0x0079,   5,   7,   5,   0,   6,   0,   0, 0x00 },
-    {   486, 0x007A,   5,   5,   5,   0,   6,   0,   0, 0x00 }
+    {   368, 0x006B,   5,   7,   7,   0,   6,   0,   0, 0x00 },
+    {   389, 0x006F,   5,   5,   5,   0,   6,   0,   0, 0x00 },
+    {   404, 0x0070,   5,   7,   5,   0,   6,   0,   0, 0x00 },
+    {   425, 0x0071,   5,   7,   5,   0,   6,   0,   0, 0x00 },
+    {   446, 0x0072,   4,   5,   5,   1,   6,   0,   0, 0x00 },
+    {   456, 0x0073,   5,   5,   5,   0,   6,   0,   0, 0x00 },
+    {   471, 0x0075,   5,   5,   5,   0,   6,   0,   0, 0x00 },
+    {   486, 0x0078,   5,   5,   5,   0,   6,   0,   0, 0x00 },
+    {   501, 0x0079,   5,   7,   5,   0,   6,   0,   0, 0x00 },
+    {   522, 0x007A,   5,   5,   5,   0,   6,   0,   0, 0x00 }
 };
 
 // consola_10_4bpp
@@ -53,6 +55,6 @@ touchgfx::GeneratedFont& getFont_consola_10_4bpp();
 
 touchgfx::GeneratedFont& getFont_consola_10_4bpp()
 {
-    static touchgfx::GeneratedFont consola_10_4bpp(glyphs_consola_10_4bpp, 32, 12, 10, 0, 0, 4, 1, 0, 0, unicodes_consola_10_4bpp, kerning_consola_10_4bpp, 63, 0, 0, 0);
+    static touchgfx::GeneratedFont consola_10_4bpp(glyphs_consola_10_4bpp, 34, 12, 10, 0, 0, 4, 1, 0, 0, unicodes_consola_10_4bpp, kerning_consola_10_4bpp, 63, 0, 0, 0);
     return consola_10_4bpp;
 }

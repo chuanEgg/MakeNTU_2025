@@ -40,22 +40,23 @@ Screen1ViewBase::Screen1ViewBase() :
     displayGraphMajorYAxisGrid.setScale(1);
     displayGraph.addGraphElement(displayGraphMajorYAxisGrid);
 
-    displayGraphBoxes1.setColor(touchgfx::Color::getColorFromRGB(196, 188, 22));
-    displayGraphBoxes1.setBoxWidth(2);
-    displayGraph.addGraphElement(displayGraphBoxes1);
+    displayGraphLine1Painter.setColor(touchgfx::Color::getColorFromRGB(196, 188, 22));
+    displayGraphLine1.setPainter(displayGraphLine1Painter);
+    displayGraphLine1.setLineWidth(2);
+    displayGraph.addGraphElement(displayGraphLine1);
 
 
     add(displayGraph);
 
-    dispXText.setPosition(15, 250, 60, 15);
+    dispXText.setPosition(15, 250, 45, 15);
     dispXText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     dispXText.setLinespacing(0);
-    Unicode::snprintf(dispXTextBuffer, DISPXTEXT_SIZE, "%s", touchgfx::TypedText(T_XSCALEDATA).getText());
+    Unicode::snprintf(dispXTextBuffer, DISPXTEXT_SIZE, "%s", touchgfx::TypedText(T_DISPXDATA).getText());
     dispXText.setWildcard(dispXTextBuffer);
     dispXText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_FBCX));
     add(dispXText);
 
-    dispYText.setPosition(60, 250, 60, 15);
+    dispYText.setPosition(67, 250, 41, 15);
     dispYText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     dispYText.setLinespacing(0);
     Unicode::snprintf(dispYTextBuffer, DISPYTEXT_SIZE, "%s", touchgfx::TypedText(T_YSCALEDATA).getText());
@@ -63,7 +64,7 @@ Screen1ViewBase::Screen1ViewBase() :
     dispYText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_PXVJ));
     add(dispYText);
 
-    VppText.setPosition(120, 250, 80, 15);
+    VppText.setPosition(117, 250, 80, 15);
     VppText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     VppText.setLinespacing(0);
     Unicode::snprintf(VppTextBuffer, VPPTEXT_SIZE, "%s", touchgfx::TypedText(T_VPPDATA).getText());
@@ -71,7 +72,7 @@ Screen1ViewBase::Screen1ViewBase() :
     VppText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_BPU6));
     add(VppText);
 
-    freqText.setPosition(200, 250, 80, 15);
+    freqText.setPosition(191, 250, 82, 15);
     freqText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     freqText.setLinespacing(0);
     Unicode::snprintf(freqTextBuffer, FREQTEXT_SIZE, "%s", touchgfx::TypedText(T_FREQDATA).getText());
@@ -79,7 +80,7 @@ Screen1ViewBase::Screen1ViewBase() :
     freqText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_XR9R));
     add(freqText);
 
-    periodText.setPosition(280, 250, 80, 15);
+    periodText.setPosition(273, 250, 110, 15);
     periodText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     periodText.setLinespacing(0);
     Unicode::snprintf(periodTextBuffer, PERIODTEXT_SIZE, "%s", touchgfx::TypedText(T_PERIODDATA).getText());

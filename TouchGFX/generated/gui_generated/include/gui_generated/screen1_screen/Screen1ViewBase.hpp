@@ -10,9 +10,9 @@
 #include <touchgfx/widgets/Box.hpp>
 #include <touchgfx/widgets/graph/GraphWrapAndClear.hpp>
 #include <touchgfx/widgets/graph/GraphElements.hpp>
+#include <touchgfx/widgets/canvas/PainterRGB565.hpp>
 #include <touchgfx/widgets/TextAreaWithWildcard.hpp>
 #include <touchgfx/widgets/canvas/Line.hpp>
-#include <touchgfx/widgets/canvas/PainterRGB565.hpp>
 #include <touchgfx/containers/SlideMenu.hpp>
 #include <touchgfx/containers/Container.hpp>
 #include <touchgfx/widgets/Button.hpp>
@@ -116,7 +116,8 @@ protected:
     touchgfx::GraphWrapAndClear<200> displayGraph;
     touchgfx::GraphElementGridX displayGraphMajorXAxisGrid;
     touchgfx::GraphElementGridY displayGraphMajorYAxisGrid;
-    touchgfx::GraphElementBoxes displayGraphBoxes1;
+    touchgfx::GraphElementLine displayGraphLine1;
+    touchgfx::PainterRGB565 displayGraphLine1Painter;
     touchgfx::TextAreaWithOneWildcard dispXText;
     touchgfx::TextAreaWithOneWildcard dispYText;
     touchgfx::TextAreaWithOneWildcard VppText;

@@ -34,9 +34,9 @@ extern uint8_t* screen_frame_start_ptr;
 extern uint8_t* screen_frame_end_ptr;		// closed
 extern uint8_t* screen_measure_ptr;
 
-extern double v_pp_output;
-extern double frequency_output;
-extern double period_output;
+extern float input_v_pp;
+extern float input_frequency;
+extern float input_period;
 
 extern int adc_intermediate_index;
 

@@ -7,7 +7,7 @@
 
 #define SCREEN_HEIGHT 260
 #define SCREEN_WIDTH 200
-#define MAX_X_SCALE_INDEX 15
+#define MAX_X_SCALE_INDEX 6
 #define MAX_Y_SCALE_INDEX 12
 #define MAX_OFFSET 130
 #define MIN_OFFSET -130
@@ -26,6 +26,12 @@ extern trigger_mode_typedef trigger_mode;
 extern int32_t time_scale;         // capture 1 data from every n points
 extern uint8_t read_encoder;
 extern int8_t set_relay;
+
+extern float input_v_pp;
+extern float input_frequency;
+extern float input_period;
+extern float x_unit;
+extern float y_unit;
 
 // map [0, 255] to [-5, 5] (float) for display purpose
 float UnMap(uint8_t value)
@@ -488,6 +494,19 @@ void Screen1View::UpdateGraph(uint8_t* dataHead, uint8_t* dataTail, uint8_t* gra
 		displayGraph.addDataPoint((*i - (SCREEN_HEIGHT / 2)) * YScaleTable[curYScale] * (nowRelay == 1 ? 2 : 1) + (SCREEN_HEIGHT / 2) + curOffset);
 	}
 	displayGraph.invalidateContent();
+// extern float input_v_pp;
+//	extern float input_frequency;
+//	extern float input_period;
+	Unicode::snprintfFloat(VppTextBuffer, sizeof(VppTextBuffer), "%.3f", input_v_pp);
+	Unicode::snprintfFloat(freqTextBuffer, sizeof(freqTextBuffer), "%.1f", input_frequency / 1000);
+	Unicode::snprintfFloat(periodTextBuffer, sizeof(periodTextBuffer), "%.3f", input_period * 1000000);
+	VppText.invalidateContent();
+	freqText.invalidateContent();
+	periodText.invalidateContent();
+	Unicode::snprintfFloat(dispXTextBuffer, 10, "%.1f", x_unit * 1000);
+	Unicode::snprintfFloat(dispYTextBuffer, 10, "%.3f", y_unit / YScaleTable[curYScale]);
+	dispXText.invalidateContent();
+	dispYText.invalidateContent();
 }
 
 void Screen1View::onTriggerTypeClicked()

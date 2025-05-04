@@ -27,8 +27,9 @@
             "GraphType": "GraphWrapClear",
             "GraphDrawers": [
               {
-                "Type": "BoxesDrawer",
-                "BoxWidth": 2,
+                "Type": "LineDrawer",
+                "LineWidth": 2,
+                "FileNameImage": "",
                 "Color": {
                   "Red": 196,
                   "Green": 188,
@@ -64,7 +65,7 @@
             "Name": "dispXText",
             "X": 15,
             "Y": 250,
-            "Width": 60,
+            "Width": 45,
             "Height": 15,
             "TextId": "__SingleUse_FBCX",
             "TextRotation": "0",
@@ -74,7 +75,7 @@
               "Blue": 255
             },
             "Wildcard1": {
-              "TextId": "XScaleData",
+              "TextId": "dispXData",
               "UseBuffer": true,
               "BufferSize": 10
             }
@@ -82,9 +83,9 @@
           {
             "Type": "TextArea",
             "Name": "dispYText",
-            "X": 60,
+            "X": 67,
             "Y": 250,
-            "Width": 60,
+            "Width": 41,
             "Height": 15,
             "TextId": "__SingleUse_PXVJ",
             "TextRotation": "0",
@@ -102,7 +103,7 @@
           {
             "Type": "TextArea",
             "Name": "VppText",
-            "X": 120,
+            "X": 117,
             "Y": 250,
             "Width": 80,
             "Height": 15,
@@ -122,9 +123,9 @@
           {
             "Type": "TextArea",
             "Name": "freqText",
-            "X": 200,
+            "X": 191,
             "Y": 250,
-            "Width": 80,
+            "Width": 82,
             "Height": 15,
             "TextId": "__SingleUse_XR9R",
             "TextRotation": "0",
@@ -142,9 +143,9 @@
           {
             "Type": "TextArea",
             "Name": "periodText",
-            "X": 280,
+            "X": 273,
             "Y": 250,
-            "Width": 80,
+            "Width": 110,
             "Height": 15,
             "TextId": "__SingleUse_2ZXP",
             "TextRotation": "0",

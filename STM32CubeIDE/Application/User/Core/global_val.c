@@ -24,3 +24,5 @@ uint8_t *screen_buff_start = 0;
 float input_v_pp;
 float input_frequency;
 float input_period;
+float x_unit;
+float y_unit;
