@@ -15,7 +15,7 @@ const GPIO_Port AD9850_DATA_Ports[8] = {
 	  { .channel = GPIOF, .pin = GPIO_PIN_9 },
 	  { .channel = GPIOF, .pin = GPIO_PIN_8 },
 	  { .channel = GPIOF, .pin = GPIO_PIN_7 },
-	  { .channel = GPIOF, .pin = GPIO_PIN_5 },
+	  { .channel = GPIOF, .pin = GPIO_PIN_6 },
 	  { .channel = GPIOI, .pin = GPIO_PIN_3 },
 	  { .channel = GPIOH, .pin = GPIO_PIN_6 },
 	  { .channel = GPIOI, .pin = GPIO_PIN_0 },
