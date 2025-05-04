@@ -28,6 +28,7 @@
 #include <math.h>
 
 #include "adc_routine.h"
+#include "sampling.h"
 #include "global_val.h"
 #include "mysignal.h"
 /* USER CODE END Includes */
@@ -163,7 +164,6 @@ void EnableMemoryMappedMode(uint8_t manufacturer_id);
 uint8_t GraphData[LCD_NUM_POINT] = {0};
 uint32_t tick = 0;
 uint8_t sine_wave[256];
-uint8_t bUpdate = 0; // set to true when graph needs to be updated
 int16_t encoderValue = 0;
 // maps [-5, 5] (float) to [0, 255]
 uint8_t Map(float value)
@@ -171,7 +171,6 @@ uint8_t Map(float value)
 	return (uint8_t)((value + 5) * 25.5);
 }
 
-uint8_t* dataHead, *dataTail, *graphHead;
 // 0: sine, 1: square, 2: Triangle, 3: pwm
 uint8_t funcType = 3;
 
@@ -1150,18 +1149,8 @@ void StartMain(void *argument)
   /* Infinite loop */
   for(;;)
   {
-//	  __HAL_TIM_SET_COUNTER(&htim8, 0);
-	  for (int i=0; i< LCD_NUM_POINT; i++)
-	  {
-		  GraphData[i] = sine_wave[(i + tick) % 256];
-	  }
-	  graphHead = GraphData + 100;
-	  dataHead = GraphData;
-	  dataTail = GraphData + 200;
-	  tick += 1;
-	  tick %= 256;
-	  bUpdate = 1;
-    osDelay(16);
+      start_sample = 1;
+    osDelay(64);
   }
   /* USER CODE END 5 */
 }

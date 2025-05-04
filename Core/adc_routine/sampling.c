@@ -48,15 +48,15 @@ int adc_buffer_read_find_trigger_index_start;
 int adc_buffer_read_index_end;
 
 // screen end know where to read the 200 signed data
-uint8_t* screen_data_start_ptr;
-uint8_t* screen_frame_start_ptr;
-uint8_t* screen_frame_end_ptr;		// closed
+extern uint8_t* screen_buff_start;
+extern uint8_t* screen_buff_head;
+extern uint8_t* screen_buff_tail;		// closed
 uint8_t* screen_measure_ptr;
 
 
-double v_pp_output;
-double frequency_output;
-double period_output;
+extern float input_v_pp;
+extern float input_frequency;
+extern float input_period;
 
 int trigger_crossing_count;
 double screen_frame_time;
@@ -107,8 +107,8 @@ int captureData(void)
     	adc_intermediate_start_ptr = adc_intermediate[adc_intermediate_index];
 		adc_intermediate_end_ptr = adc_intermediate_start_ptr + LCD_NUM_POINT - 1;
 
-		screen_frame_start_ptr = adc_intermediate_start_ptr;
-		screen_frame_end_ptr = adc_intermediate_end_ptr;
+		screen_buff_head = adc_intermediate_start_ptr;
+		screen_buff_tail = adc_intermediate_end_ptr;
 
 		adc_intermediate_ptr = adc_intermediate_start_ptr;
 
@@ -158,15 +158,15 @@ int captureData(void)
 
 				if (screen_frame_point_count == LCD_NUM_POINT)
 				{
-					screen_data_start_ptr = adc_intermediate_ptr;
+					screen_buff_start = adc_intermediate_ptr;
 					// data_done = 1;
 
 					trigger_crossing_count = 0;
-					screen_measure_ptr = screen_data_start_ptr;
+					screen_measure_ptr = screen_buff_start;
 					prev_val = *screen_measure_ptr;
 					max_val = prev_val;
 					min_val = prev_val;
-					screen_measure_ptr = (screen_measure_ptr == screen_frame_end_ptr) ? screen_frame_start_ptr : screen_measure_ptr + 1;
+					screen_measure_ptr = (screen_measure_ptr == screen_buff_tail) ? screen_buff_head : screen_measure_ptr + 1;
 
 					for (measure_loop_index = 1; measure_loop_index < LCD_NUM_POINT; measure_loop_index++)
 					{
@@ -180,12 +180,12 @@ int captureData(void)
 						min_val = (curr_val < min_val) ? curr_val : min_val;
 
 						prev_val = curr_val;
-						screen_measure_ptr = (screen_measure_ptr == screen_frame_end_ptr) ? screen_frame_start_ptr : screen_measure_ptr + 1;
+						screen_measure_ptr = (screen_measure_ptr == screen_buff_tail) ? screen_buff_head : screen_measure_ptr + 1;
 					}
 
-					v_pp_output = (double)(max_val - min_val) * (ADC_VOLTAGE_MAX - ADC_VOLTAGE_MIN) / 255.0;
-					frequency_output = (double)(1000 * trigger_crossing_count * ADC_SAMPLE_RATE) / (2 * LCD_NUM_POINT * time_scale);
-					period_output = 1.0 / frequency_output;
+					input_v_pp = (double)(max_val - min_val) * (ADC_VOLTAGE_MAX - ADC_VOLTAGE_MIN) / 255.0;
+					input_frequency = (double)(1000 * trigger_crossing_count * ADC_SAMPLE_RATE) / (2 * LCD_NUM_POINT * time_scale);
+					input_period = 1.0 / input_frequency;
 
 					measure_done = 1;
 					return 1;
@@ -210,15 +210,15 @@ int captureData(void)
 
 		if (screen_frame_point_count == LCD_NUM_POINT)
 		{
-			screen_data_start_ptr = adc_intermediate_ptr;
+			screen_buff_start = adc_intermediate_ptr;
 			// data_done = 1;
 
 			trigger_crossing_count = 0;
-			screen_measure_ptr = screen_data_start_ptr;
+			screen_measure_ptr = screen_buff_start;
 			prev_val = *screen_measure_ptr;
 			max_val = prev_val;
 			min_val = prev_val;
-			screen_measure_ptr = (screen_measure_ptr == screen_frame_end_ptr) ? screen_frame_start_ptr : screen_measure_ptr + 1;
+			screen_measure_ptr = (screen_measure_ptr == screen_buff_tail) ? screen_buff_head : screen_measure_ptr + 1;
 
 			for (measure_loop_index = 1; measure_loop_index < LCD_NUM_POINT; measure_loop_index++)
 			{
@@ -232,12 +232,12 @@ int captureData(void)
 				min_val = (curr_val < min_val) ? curr_val : min_val;
 
 				prev_val = curr_val;
-				screen_measure_ptr = (screen_measure_ptr == screen_frame_end_ptr) ? screen_frame_start_ptr : screen_measure_ptr + 1;
+				screen_measure_ptr = (screen_measure_ptr == screen_buff_tail) ? screen_buff_head : screen_measure_ptr + 1;
 			}
 
-			v_pp_output = (double)(max_val - min_val) * (ADC_VOLTAGE_MAX - ADC_VOLTAGE_MIN) / 255.0;
-			frequency_output = (double)(1000 * trigger_crossing_count * ADC_SAMPLE_RATE) / (2 * LCD_NUM_POINT * time_scale);
-			period_output = 1.0 / frequency_output;
+			input_v_pp = (double)(max_val - min_val) * (ADC_VOLTAGE_MAX - ADC_VOLTAGE_MIN) / 255.0;
+			input_frequency = (double)(1000 * trigger_crossing_count * ADC_SAMPLE_RATE) / (2 * LCD_NUM_POINT * time_scale);
+			input_period = 1.0 / input_frequency;
 
 			measure_done = 1;
 			return 1;
@@ -280,15 +280,15 @@ int captureData(void)
 
 				if (screen_frame_point_count == LCD_NUM_POINT)
 				{
-					screen_data_start_ptr = adc_intermediate_ptr;
+					screen_buff_start = adc_intermediate_ptr;
 					// data_done = 1;
 
 					trigger_crossing_count = 0;
-					screen_measure_ptr = screen_data_start_ptr;
+					screen_measure_ptr = screen_buff_start;
 					prev_val = *screen_measure_ptr;
 					max_val = prev_val;
 					min_val = prev_val;
-					screen_measure_ptr = (screen_measure_ptr == screen_frame_end_ptr) ? screen_frame_start_ptr : screen_measure_ptr + 1;
+					screen_measure_ptr = (screen_measure_ptr == screen_buff_tail) ? screen_buff_head : screen_measure_ptr + 1;
 
 					for (measure_loop_index = 1; measure_loop_index < LCD_NUM_POINT; measure_loop_index++)
 					{
@@ -302,12 +302,12 @@ int captureData(void)
 						min_val = (curr_val < min_val) ? curr_val : min_val;
 
 						prev_val = curr_val;
-						screen_measure_ptr = (screen_measure_ptr == screen_frame_end_ptr) ? screen_frame_start_ptr : screen_measure_ptr + 1;
+						screen_measure_ptr = (screen_measure_ptr == screen_buff_tail) ? screen_buff_head : screen_measure_ptr + 1;
 					}
 
-					v_pp_output = (double)(max_val - min_val) * (ADC_VOLTAGE_MAX - ADC_VOLTAGE_MIN) / 255.0;
-					frequency_output = (double)(1000 * trigger_crossing_count * ADC_SAMPLE_RATE) / (2 * LCD_NUM_POINT * time_scale);
-					period_output = 1.0 / frequency_output;
+					input_v_pp = (double)(max_val - min_val) * (ADC_VOLTAGE_MAX - ADC_VOLTAGE_MIN) / 255.0;
+					input_frequency = (double)(1000 * trigger_crossing_count * ADC_SAMPLE_RATE) / (2 * LCD_NUM_POINT * time_scale);
+					input_period = 1.0 / input_frequency;
 
 					measure_done = 1;
 					return 1;
@@ -328,11 +328,11 @@ int captureData(void)
 void measure(void)
 {
     trigger_crossing_count = 0;
-    screen_measure_ptr = screen_data_start_ptr;
+    screen_measure_ptr = screen_buff_start;
     prev_val = *screen_measure_ptr;
     max_val = prev_val;
     min_val = prev_val;
-    screen_measure_ptr = (screen_measure_ptr == screen_frame_end_ptr) ? screen_frame_start_ptr : screen_measure_ptr + 1;
+    screen_measure_ptr = (screen_measure_ptr == screen_buff_tail) ? screen_buff_head : screen_measure_ptr + 1;
 
     for (measure_loop_index = 1; measure_loop_index < LCD_NUM_POINT; measure_loop_index++)
     {
@@ -346,16 +346,12 @@ void measure(void)
         min_val = (curr_val < min_val) ? curr_val : min_val;
 
         prev_val = curr_val;
-        screen_measure_ptr = (screen_measure_ptr == screen_frame_end_ptr) ? screen_frame_start_ptr : screen_measure_ptr + 1;
+        screen_measure_ptr = (screen_measure_ptr == screen_buff_tail) ? screen_buff_head : screen_measure_ptr + 1;
     }
 
-    v_pp_output = (double)(max_val - min_val) * (ADC_VOLTAGE_MAX - ADC_VOLTAGE_MIN) / 255.0;
-<<<<<<< HEAD
-    frequency_output = (double)(trigger_crossing_count * ADC_SAMPLE_RATE) / (2 * LCD_NUM_POINT * time_scale);
-=======
-    frequency_output = (double)(1000 * trigger_crossing_count * ADC_SAMPLE_RATE) / (2 * LCD_NUM_POINT * time_scale);
->>>>>>> b241d7bb1767968b17bb43b6a976625d0412d740
-    period_output = 1.0 / frequency_output;
+    input_v_pp = (double)(max_val - min_val) * (ADC_VOLTAGE_MAX - ADC_VOLTAGE_MIN) / 255.0;
+    input_frequency = (double)(1000 * trigger_crossing_count * ADC_SAMPLE_RATE) / (2 * LCD_NUM_POINT * time_scale);
+    input_period = 1.0 / input_frequency;
 
 }
 */

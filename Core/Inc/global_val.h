@@ -30,4 +30,12 @@ extern uint8_t v_offset; // 0-255, maintained by GFX
 extern trigger_mode_typedef trigger_mode;
 extern int32_t time_scale;             // capture 1 data from every n points
 
+extern uint8_t *screen_buff_head;
+extern uint8_t *screen_buff_tail;
+extern uint8_t *screen_buff_start;
+
+extern float input_v_pp;
+extern float input_frequency;
+extern float input_period;
+
 #endif /* APPLICATION_USER_GLOBAL_VAL_H_ */
